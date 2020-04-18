@@ -1,15 +1,11 @@
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  const width = 1920;
-  const height = 1080;
-
   // レンダラーを作成
   const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector("#myCanvas")
+    canvas: document.querySelector("#myCanvas"),
+    antialias: true
   });
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(width, height);
 
   // シーンを作成
   const scene = new THREE.Scene();
@@ -51,7 +47,7 @@ function init() {
     // レンダリング
     renderer.render(scene, camera);
   }
-  
+
           onResize();
         // リサイズイベント発生時に実行
         window.addEventListener('resize', onResize);
