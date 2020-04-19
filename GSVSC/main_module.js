@@ -1,7 +1,7 @@
 //ページ読み込みまで待機
 window.addEventListener('load', init);
 
-var camera, scene, renderer;
+var camera, controls, scene, renderer;
 var mesh;
 
 //getRandomArbitrary関数、指定した値の範囲内の数値を返す
@@ -11,23 +11,39 @@ function getRandomArbitrary(min, max) {
 
 //init関数
 function init(){
+
   //レンダラーの作成
   renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('#stellarCanvas'), antialias: true
   });
   //最初のリサイズ
   renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window.innerWidth - 20, window.innerHeight - 20 );
+  renderer.setSize( window.innerWidth - 60, window.innerHeight - 80 );
+  
   //シーンの作成
   scene = new THREE.Scene();
+
   //カメラ作成、範囲指定
   camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000);
   //カメラ初期座標
   camera.position.set(0, 200, 1000);
   //カメラ制御
-  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  cameraControls(camera);
+  function cameraControls( camera ){
+    controls = new THREE.TrackballControls(camera, renderer.domElement);
+    //カメラ移動速度
+    controls.rotateSpeed = 1.0;
+    controls.zoomSpeed = 0.6;
+    controls.panSpeed = 0.2;
+    //カメラ入力
+    controls.key = [65, 83, 68];
+    //カメラ限界ズーム
+    controls.maxDistance = 10.0;
+    controls.maxDistance = 10000;
+  }
+  
   //ガイド
-  var gridHelper = new THREE.GridHelper( 2000, 10 );
+  var gridHelper = new THREE.GridHelper( 10000, 10 );
   scene.add( gridHelper );
 
   //背景の星屑生成
@@ -75,20 +91,22 @@ function init(){
   }
 
 
-
-
-
-  //毎フレーム時に実行する
+  //毎フレーム時の更新
   tick();
   //tick
   function tick(){
-    //レンダリング
+    //レンダリング更新
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
+    //カメラコントロール更新
+    controls.update();
   }
 
   //比率変更時のリサイズ
   window.addEventListener( 'resize', onWindowResize, false );
+  //リサイズ時のカメラコントロールハンドルの更新
+  controls.handleResize();
+
 }
 
 

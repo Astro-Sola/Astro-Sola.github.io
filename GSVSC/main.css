@@ -1,0 +1,13 @@
+@charset "UTF-8";
+body{
+	background: black;
+	color: cyan;
+	font-family: Agency FB;
+}
+div{
+	font-size: 20px;
+	padding: 5px;
+	text-align: center;
+	margin: 10px auto;
+	border: 1px solid cyan;
+}

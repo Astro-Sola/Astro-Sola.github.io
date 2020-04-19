@@ -3,10 +3,17 @@
     <meta charset="utf-8" />
     <!-- three.js のCDNを読み込む -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
-    <script src="js/controls/OrbitControls.js"></script>
+    <!-- trackball controlsのファイルを読み込む -->
+    <script src="js/controls/TrackballControls.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <script src="main_module.js" ></script>
   <body>
-    <canvas id="stellarCanvas" />
+    <div>
+      Mouse-L:Rotate Mouse-Wheel:Zoom Mouse-R:Move
+    </div>
+    <div>
+      <canvas id="stellarCanvas" />
+    </div>
   </body>
 </html>
