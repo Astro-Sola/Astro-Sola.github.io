@@ -12,7 +12,6 @@ function userConsole(){
 //ページ読み込みまで待機
 window.addEventListener('load', init);
 
-var x, y, z;
 var camera, controls, scene, renderer;
 var mesh;
 
@@ -24,19 +23,28 @@ function getRandomArbitrary(min, max) {
 //init関数
 function init(){
 
+
+
   //レンダラーの作成
   renderer = new THREE.WebGLRenderer({
     canvas: document.querySelector('#stellarCanvas'), antialias: true
   });
+
+
+
   //最初のリサイズ
   renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window.innerWidth - 60, window.innerHeight - 120 );
+  renderer.setSize( window.innerWidth - 120 * (window.innerWidth / window.innerHeight), window.innerHeight - 120 );
   
+
+
   //シーンの作成
   scene = new THREE.Scene();
 
+
+
   //カメラ作成、範囲指定
-  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000 * userConsole() );
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000 * userConsole() );
   //カメラ初期座標
   camera.position.set(0, 20, 100);
   //カメラ制御
@@ -50,13 +58,17 @@ function init(){
     //カメラ入力
     controls.key = [65, 83, 68];
     //カメラ限界ズーム
-    controls.maxDistance = 10;
-    controls.maxDistance = 100 * userConsole();
+    controls.minDistance = 10;
+    //controls.maxDistance = 100 * userConsole();
   }
+
+
   
   //ガイド
-  var grid = new THREE.GridHelper(1000, 10);
+  var grid = new THREE.GridHelper(10000, 100);
   scene.add(grid);
+
+
 
   //モブの恒星の追加を行う関数
   function generateMobStars(){
@@ -67,22 +79,28 @@ function init(){
     var mobStarMaterial = new THREE.PointsMaterial({
       //color: 0xffffff,
       map: texture,
-      size: 5,
+      size: 10,
       blending: THREE.additiveBlending,
       transparent: true,
       depthTest: false
     });
     //モブ恒星の数と範囲
-    var STARSUM = 10000;//星の総数
+    var STARSUM = 100000;//星の総数
     var STARSPREAD = 10000;//星の広がり
     //モブ恒星のジオメトリ
     mobStarGeomrtry = new THREE.Geometry();
     for (var i = 0; i < STARSUM; i++) {
+      var x,y; 
+      //極座標パラメータ
+      var r = Math.random();
+      var z = getRandomArbitrary(-1, 1);
+      var phi = getRandomArbitrary(0, 2 * Math.PI);
+      //直交座標系へ返還し設置位置として格納
       mobStarGeomrtry.vertices.push(
         new THREE.Vector3(
-          x = STARSPREAD * ((Math.random()-0.5)*2),
-          y = STARSPREAD * ((Math.random()-0.5)*2),
-          z = STARSPREAD * ((Math.random()-0.5)*2)
+          x = Math.cbrt(r) * STARSPREAD * Math.sqrt(1 - z * z) * Math.cos(phi),
+          y = Math.cbrt(r) * STARSPREAD * Math.sqrt(1 - z * z) * Math.sin(phi),
+          z = Math.cbrt(r) * STARSPREAD * z
           )
         );
     }
@@ -90,7 +108,6 @@ function init(){
     scene.add(mobStar);
   }
   generateMobStars();
-
 
 
 
@@ -107,6 +124,9 @@ function init(){
     scene.add(starSprite);
   }
 
+
+
+
   //毎フレーム時の更新
   tick();
   //tick
@@ -118,12 +138,17 @@ function init(){
     controls.update();
   }
 
+
+
   //比率変更時のリサイズ
   window.addEventListener( 'resize', onWindowResize, false );
   //リサイズ時のカメラコントロールハンドルの更新
   controls.handleResize();
 
+
+
 }
+
 
 
 //ウィンドウ範囲リロード関数
