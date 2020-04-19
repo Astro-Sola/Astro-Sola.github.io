@@ -69,10 +69,8 @@ function init(){
     var mobStarMaterial = new THREE.PointsMaterial({
       //単体の大きさ
       size: getRandomArbitrary(1, 10),
-      //テクスチャ（色と択一）
-      map: new THREE.TextureLoader().load('img/star.png')
       //色
-      //color: 0xffffff
+      color: 0xffffff
     });
   //物体生成
   mesh = new THREE.Points(geometry, mobStarMaterial);
