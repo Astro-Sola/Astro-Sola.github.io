@@ -1,3 +1,14 @@
+//携帯端末とPCの場合での条件分岐
+function userConsole(){
+  if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
+  // スマホ・タブレット（iOS・Android）の場合の処理を記述
+  return 1;
+  }else{
+  // PCの場合の処理を記述
+  return 10;
+  }
+}
+
 //ページ読み込みまで待機
 window.addEventListener('load', init);
 
@@ -25,7 +36,7 @@ function init(){
   scene = new THREE.Scene();
 
   //カメラ作成、範囲指定
-  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000);
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000 * userConsole() );
   //カメラ初期座標
   camera.position.set(0, 20, 100);
   //カメラ制御
@@ -40,14 +51,50 @@ function init(){
     controls.key = [65, 83, 68];
     //カメラ限界ズーム
     controls.maxDistance = 10;
-    controls.maxDistance = 1000;
+    controls.maxDistance = 100 * userConsole();
   }
   
   //ガイド
   var grid = new THREE.GridHelper(1000, 10);
   scene.add(grid);
 
-  //星の生成を行う関数
+  //モブの恒星の追加を行う関数
+  function generateMobStars(){
+    //テクスチャ指定
+    var loader = new THREE.TextureLoader();
+    var texture = loader.load('img/star.png');
+    //モブ恒星マテリアル
+    var mobStarMaterial = new THREE.PointsMaterial({
+      //color: 0xffffff,
+      map: texture,
+      size: 5,
+      blending: THREE.additiveBlending,
+      transparent: true,
+      depthTest: false
+    });
+    //モブ恒星の数と範囲
+    var STARSUM = 10000;//星の総数
+    var STARSPREAD = 10000;//星の広がり
+    //モブ恒星のジオメトリ
+    mobStarGeomrtry = new THREE.Geometry();
+    for (var i = 0; i < STARSUM; i++) {
+      mobStarGeomrtry.vertices.push(
+        new THREE.Vector3(
+          x = STARSPREAD * ((Math.random()-0.5)*2),
+          y = STARSPREAD * ((Math.random()-0.5)*2),
+          z = STARSPREAD * ((Math.random()-0.5)*2)
+          )
+        );
+    }
+    var mobStar = new THREE.Points(mobStarGeomrtry, mobStarMaterial);
+    scene.add(mobStar);
+  }
+  generateMobStars();
+
+
+
+
+  //ネームド星系の生成を行う関数
   function generateStars(x,y,z){
     //マテリアル作成
     var starMaterial = new THREE.SpriteMaterial({
@@ -59,17 +106,6 @@ function init(){
     starSprite.position.set(x, y, z);
     scene.add(starSprite);
   }
-
-  //星の生成
-  var STARSUM = 1000;//星の総数
-  var STARSPREAD = 100;//星の広がり
-  for (var i = 0; i < STARSUM; i++) {
-    x = STARSPREAD * ((Math.random()-0.5)*2);
-    y = STARSPREAD * ((Math.random()-0.5)*2);
-    z = STARSPREAD * ((Math.random()-0.5)*2);
-    generateStars(x,y,z);
-  }
-
 
   //毎フレーム時の更新
   tick();
