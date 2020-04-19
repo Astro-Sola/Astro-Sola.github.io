@@ -33,7 +33,7 @@ function init(){
   function cameraControls( camera ){
     controls = new THREE.TrackballControls(camera, renderer.domElement);
     //カメラ移動速度
-    controls.rotateSpeed = 1.0;
+    controls.rotateSpeed = 1.2;
     controls.zoomSpeed = 0.6;
     controls.panSpeed = 0.2;
     //カメラ入力
@@ -61,7 +61,7 @@ function init(){
   }
 
   //星の生成
-  var STARSUM = 1000;//星の総数
+  var STARSUM = 10000;//星の総数
   var STARSPREAD = 1000;//星の広がり
   for (var i = 0; i < STARSUM; i++) {
     x = STARSPREAD * ((Math.random()-0.5)*2);
