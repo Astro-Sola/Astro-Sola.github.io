@@ -1,6 +1,7 @@
 //ページ読み込みまで待機
 window.addEventListener('load', init);
 
+var x, y, z;
 var camera, controls, scene, renderer;
 var mesh;
 
@@ -24,7 +25,7 @@ function init(){
   scene = new THREE.Scene();
 
   //カメラ作成、範囲指定
-  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000);
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000);
   //カメラ初期座標
   camera.position.set(0, 20, 100);
   //カメラ制御
@@ -39,55 +40,34 @@ function init(){
     controls.key = [65, 83, 68];
     //カメラ限界ズーム
     controls.maxDistance = 10;
-    controls.maxDistance = 10000;
+    controls.maxDistance = 1000;
   }
   
   //ガイド
-  var grid = new THREE.GridHelper(10000, 10);
+  var grid = new THREE.GridHelper(1000, 10);
   scene.add(grid);
 
-  //背景の星屑生成
-  generateBGStars();
-  //generateStars
-  function generateBGStars(){
-    //形状データ作成
-    var geometry = new THREE.Geometry();
-    //配置範囲
-    var SIZE = 500;
-    //配置個数
-    var LENGTH = 100;
-
-    for (var i = 0; i < LENGTH; i++) {
-      geometry.vertices.push(
-        new THREE.Vector3(
-          SIZE * (Math.random() - 0.5),
-          SIZE * (Math.random() - 0.5),
-          SIZE * (Math.random() - 0.5)
-        ));
-    }
-    //マテリアル作成
-    var mobStarMaterial = new THREE.PointsMaterial({
-      //単体の大きさ
-      size: getRandomArbitrary(1, 10),
-      //色
-      color: 0xffffff
-    });
-  //物体生成
-  mesh = new THREE.Points(geometry, mobStarMaterial);
-  scene.add(mesh);
-  }
-
-  //ネームされた星々の生成
-  generateStars();
-  function generateStars(){
+  //星の生成を行う関数
+  function generateStars(x,y,z){
     //マテリアル作成
     var starMaterial = new THREE.SpriteMaterial({
       map: new THREE.TextureLoader().load('img/star.png')
+      //color: 0xffffff
     });
     //スプライト（ビルボード）作成
     var starSprite = new THREE.Sprite(starMaterial);
-    starSprite.position.set(10, 10, 10);
+    starSprite.position.set(x, y, z);
     scene.add(starSprite);
+  }
+
+  //星の生成
+  var STARSUM = 1000;//星の総数
+  var STARSPREAD = 1000;//星の広がり
+  for (var i = 0; i < STARSUM; i++) {
+    x = STARSPREAD * ((Math.random()-0.5)*2);
+    y = STARSPREAD * ((Math.random()-0.5)*2);
+    z = STARSPREAD * ((Math.random()-0.5)*2);
+    generateStars(x,y,z);
   }
 
 
