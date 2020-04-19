@@ -53,9 +53,9 @@ function init(){
     //形状データ作成
     var geometry = new THREE.Geometry();
     //配置範囲
-    var SIZE = 500000;
+    var SIZE = 500;
     //配置個数
-    var LENGTH = 100000;
+    var LENGTH = 100;
 
     for (var i = 0; i < LENGTH; i++) {
       geometry.vertices.push(
