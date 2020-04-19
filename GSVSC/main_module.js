@@ -62,7 +62,7 @@ function init(){
 
   //星の生成
   var STARSUM = 10000;//星の総数
-  var STARSPREAD = 1000;//星の広がり
+  var STARSPREAD = 10;//星の広がり
   for (var i = 0; i < STARSUM; i++) {
     x = STARSPREAD * ((Math.random()-0.5)*2);
     y = STARSPREAD * ((Math.random()-0.5)*2);
