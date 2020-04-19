@@ -59,13 +59,13 @@ function init(){
     controls.key = [65, 83, 68];
     //カメラ限界ズーム
     controls.minDistance = 10;
-    //controls.maxDistance = 100 * userConsole();
+    controls.maxDistance = 100 * userConsole();
   }
 
 
   
   //ガイド
-  var grid = new THREE.GridHelper(10000, 100);
+  var grid = new THREE.GridHelper(1000, 10);
   scene.add(grid);
 
 
@@ -86,7 +86,7 @@ function init(){
     });
     //モブ恒星の数と範囲
     var STARSUM = 100000;//星の総数
-    var STARSPREAD = 10000;//星の広がり
+    var STARSPREAD = 2000;//星の広がり
     //モブ恒星のジオメトリ
     mobStarGeomrtry = new THREE.Geometry();
     for (var i = 0; i < STARSUM; i++) {
