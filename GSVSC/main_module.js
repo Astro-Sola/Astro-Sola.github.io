@@ -18,15 +18,15 @@ function init(){
   });
   //最初のリサイズ
   renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window.innerWidth - 60, window.innerHeight - 80 );
+  renderer.setSize( window.innerWidth - 60, window.innerHeight - 120 );
   
   //シーンの作成
   scene = new THREE.Scene();
 
   //カメラ作成、範囲指定
-  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000);
+  camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000);
   //カメラ初期座標
-  camera.position.set(0, 200, 1000);
+  camera.position.set(0, 20, 100);
   //カメラ制御
   cameraControls(camera);
   function cameraControls( camera ){
@@ -38,13 +38,13 @@ function init(){
     //カメラ入力
     controls.key = [65, 83, 68];
     //カメラ限界ズーム
-    controls.maxDistance = 10.0;
+    controls.maxDistance = 10;
     controls.maxDistance = 10000;
   }
   
   //ガイド
-  var gridHelper = new THREE.GridHelper( 10000, 10 );
-  scene.add( gridHelper );
+  var grid = new THREE.GridHelper(10000, 10);
+  scene.add(grid);
 
   //背景の星屑生成
   generateBGStars();
@@ -53,7 +53,7 @@ function init(){
     //形状データ作成
     var geometry = new THREE.Geometry();
     //配置範囲
-    var SIZE = 50000;
+    var SIZE = 500000;
     //配置個数
     var LENGTH = 100000;
 
@@ -69,8 +69,10 @@ function init(){
     var mobStarMaterial = new THREE.PointsMaterial({
       //単体の大きさ
       size: getRandomArbitrary(1, 10),
+      //テクスチャ（色と択一）
+      map: new THREE.TextureLoader().load('img/star.png')
       //色
-      color: 0xffffff
+      //color: 0xffffff
     });
   //物体生成
   mesh = new THREE.Points(geometry, mobStarMaterial);
