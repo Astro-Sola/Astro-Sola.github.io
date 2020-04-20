@@ -11,7 +11,7 @@ function userConsole(){
 
 //json試験読み込み
 $(function(){
-  $.getJSON("demo.json", function(data){
+  $.getJSON('demo.json', function(data){
     var len = data.length;
     for (var i = 0; i < len; i++) {
       console.log(data[i].starId);
