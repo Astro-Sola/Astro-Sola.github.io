@@ -106,7 +106,6 @@ function init(){
       color: 0xffff80,
       map: texture,
       size: 10,
-      blending: THREE.additiveBlending,
       transparent: true,
       depthTest: false
     });
