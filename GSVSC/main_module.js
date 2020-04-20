@@ -139,7 +139,7 @@ function init(){
     var mobStarGeomrtry = new THREE.Geometry();
     //モブ恒星マテリアル
     var mobStarMaterial = new THREE.PointsMaterial({
-      size: 5,
+      size: 20,
       map: texture,
       vertexColors: true,
       transparent: THREE.VertexColors,
