@@ -8,6 +8,13 @@ div{
 	font-size: 20px;
 	padding: 5px;
 	text-align: center;
-	margin: 10px auto;
-	border: 1px solid cyan;
+	margin: 1px auto;
+}
+#info{
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 100;
+	display: block;
 }

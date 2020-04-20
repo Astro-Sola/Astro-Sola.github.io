@@ -2,12 +2,38 @@
 function userConsole(){
   if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
   // スマホ・タブレット（iOS・Android）の場合の処理を記述
-  return 1;
+  return 10;
   }else{
   // PCの場合の処理を記述
-  return 10;
+  return 100;
   }
 }
+
+//json試験読み込み
+$(function(){
+  $.getJSON("demo.json", function(data){
+    var len = data.length;
+    for (var i = 0; i < len; i++) {
+      console.log(data[i].starId);
+      console.log(data[i].alias);
+    }
+  })
+})
+
+//canvasに文字を読み込ませてみる関数
+function drawText(canvasId, textId){
+  var canvas = document.getElementById(canvasId);
+  var ctx = canvas.getContext('2d');
+  var text = document.getElementById(textId);
+  ctx.font = '12px serif';
+  ctx.fillStyle = '#ffffff';
+  ctx.textBaseline = 'center';
+  ctx.textAlign = 'center';
+  var x = (canvas.width / 2);
+  var y = (canvas.height / 2);
+  ctx.fillText(text.value, x, y);
+}
+
 
 //ページ読み込みまで待機
 window.addEventListener('load', init);
@@ -34,7 +60,7 @@ function init(){
 
   //最初のリサイズ
   renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window.innerWidth - 120 * (window.innerWidth / window.innerHeight), window.innerHeight - 120 );
+  renderer.setSize( window.innerWidth - 40 * (window.innerWidth / window.innerHeight), window.innerHeight - 40 );
   
 
 
@@ -70,14 +96,14 @@ function init(){
 
 
 
-  //モブの恒星の追加を行う関数
-  function generateMobStars(){
+  //恒星の追加を行う関数
+  function generateStars(){
     //テクスチャ指定
     var loader = new THREE.TextureLoader();
     var texture = loader.load('img/star.png');
     //モブ恒星マテリアル
     var mobStarMaterial = new THREE.PointsMaterial({
-      //color: 0xffffff,
+      color: 0xffff80,
       map: texture,
       size: 10,
       blending: THREE.additiveBlending,
@@ -107,23 +133,7 @@ function init(){
     var mobStar = new THREE.Points(mobStarGeomrtry, mobStarMaterial);
     scene.add(mobStar);
   }
-  generateMobStars();
-
-
-
-  //ネームド星系の生成を行う関数
-  function generateStars(x,y,z){
-    //マテリアル作成
-    var starMaterial = new THREE.SpriteMaterial({
-      map: new THREE.TextureLoader().load('img/star.png')
-      //color: 0xffffff
-    });
-    //スプライト（ビルボード）作成
-    var starSprite = new THREE.Sprite(starMaterial);
-    starSprite.position.set(x, y, z);
-    scene.add(starSprite);
-  }
-
+  generateStars();
 
 
 
@@ -156,5 +166,5 @@ function onWindowResize(){
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
 
-  renderer.setSize(window.innerWidth - 100, window.innerHeight - 100);
+  renderer.setSize(window.innerWidth - 40 * (window.innerWidth / window.innerHeight), window.innerHeight - 40);
 }
