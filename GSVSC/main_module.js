@@ -130,7 +130,8 @@ function init(){
       alphaMap: texture,
       vertexColors: true,
       transparent: THREE.VertexColors,
-      depthTest: true
+      depthTest: true,
+      side: THREE.DoubleSide
     });
         for (var i = 0; i < STARSUM; i++) {
           var seed = Math.random();
