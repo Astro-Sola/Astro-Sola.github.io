@@ -129,9 +129,9 @@ function init(){
       size: 20,
       alphaMap: texture,
       vertexColors: true,
-      transparent: THREE.VertexColors,
+      transparent: true,
       depthTest: true,
-      side: THREE.DoubleSide
+      //side: THREE.DoubleSide
     });
         for (var i = 0; i < STARSUM; i++) {
           var seed = Math.random();
