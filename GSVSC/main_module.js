@@ -127,11 +127,11 @@ function init(){
     //モブ恒星マテリアル
     var mobStarMaterial = new THREE.PointsMaterial({
       size: 20,
-      alphaMap: texture,
+      //alphaMap: texture,
       vertexColors: true,
       transparent: true,
-      depthTest: true,
-      //side: THREE.DoubleSide
+      depthTest: false,
+      //depthWrite: false,
     });
         for (var i = 0; i < STARSUM; i++) {
           var seed = Math.random();
