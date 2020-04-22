@@ -33,7 +33,9 @@ function init(){
 
   //レンダラーの作成
   renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#stellarCanvas'), antialias: true
+    canvas: document.querySelector('#stellarCanvas'),
+    antialias: true,
+    alphaTest: 0.2
   });
 
 
