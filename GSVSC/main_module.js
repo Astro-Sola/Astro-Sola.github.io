@@ -116,8 +116,8 @@ function init(){
       alphaMap: texture,
       vertexColors: true,
       transparent: true,
-      depthTest: false,
-      depthWrite: false,
+      //depthTest: false,
+      //depthWrite: false,
     });
         for (var i = 0; i < STARSUM; i++) {
           var seed = Math.random();
@@ -146,18 +146,25 @@ function init(){
 
   //ネームドスターの追加
   function genarateNamedStars() {
+    //テクスチャ指定
+    var loader = new THREE.TextureLoader();
+    var texture = loader.load('img/star.png');
+
+
     //demo.jsonファイルの読み込み
     $(function(){
       $.getJSON('demo.json', function(data){
       var len = data.length;
+      //jsonファイルの要素の数だけ繰り返す
       for (var i = 0; i < len; i++) {
-        console.log(data[i].id);
-        console.log(data[i].alias);
-        console.log(data[i].position);
-        console.log(data[i].color);
-        console.log(data[i].planet);
-        console.log(data[i].nation);
-        console.log(data[i].nationCode);
+
+
+
+
+
+
+
+
         }
       })
     })
