@@ -31,19 +31,6 @@ $(function(){
   })
 })
 
-//canvasに文字を読み込ませてみる関数
-function drawText(canvasId, textId){
-  var canvas = document.getElementById(canvasId);
-  var ctx = canvas.getContext('2d');
-  var text = document.getElementById(textId);
-  ctx.font = '12px serif';
-  ctx.fillStyle = '#ffffff';
-  ctx.textBaseline = 'center';
-  ctx.textAlign = 'center';
-  var x = (canvas.width / 2);
-  var y = (canvas.height / 2);
-  ctx.fillText(text.value, x, y);
-}
 
 //ページ読み込みまで待機
 window.addEventListener('load', init);
@@ -140,7 +127,7 @@ function init(){
     //モブ恒星マテリアル
     var mobStarMaterial = new THREE.PointsMaterial({
       size: 20,
-      map: texture,
+      alphaMap: texture,
       vertexColors: true,
       transparent: THREE.VertexColors,
       depthTest: true
