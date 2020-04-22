@@ -6,7 +6,7 @@
 		"color":		"0xff9956",
 		"planet":		[{ "rocky":3 , "gasgiant":2 , "icegiant":0 }],
 		"nation":		"エルミア、リーエス",
-		"nation":		"MULTI"
+		"nationCode":	"MULTI"
 	},
 	{
 		"id":			2,
@@ -15,6 +15,6 @@
 		"color":		"0xff9956",
 		"planet":		[{ "rocky":3 , "gasgiant":2 , "icegiant":0 }],
 		"nation":		"ベリオン、グロスクロイツ、ヴィッテンクレイル",
-		"nation":		"MULTI"
+		"nationCode":	"MULTI"
 	}
 ]
