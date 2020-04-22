@@ -131,7 +131,7 @@ function init(){
       vertexColors: true,
       transparent: true,
       depthTest: false,
-      //depthWrite: false,
+      depthWrite: false,
     });
         for (var i = 0; i < STARSUM; i++) {
           var seed = Math.random();
