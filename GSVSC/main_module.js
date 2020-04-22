@@ -118,6 +118,7 @@ function init(){
       alphaMap: texture,
       vertexColors: true,
       transparent: true,
+      blending: THREE.NormalBlending,
       //depthTest: false,
       //depthWrite: false,
     });
@@ -151,6 +152,10 @@ function init(){
     //テクスチャ指定
     var loader = new THREE.TextureLoader();
     var texture = loader.load('img/star.png');
+    //ジオメトリの作成
+    var namedStarGeometry = new THREE.PlaneGeometry();
+    //マテリアルの作成
+    var namedStarMaterial = new THREE.Material();
 
 
     //demo.jsonファイルの読み込み
@@ -171,7 +176,6 @@ function init(){
       })
     })
   }
-  genarateNamedStars();
 
 
 
