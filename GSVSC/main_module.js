@@ -127,7 +127,7 @@ function init(){
     //モブ恒星マテリアル
     var mobStarMaterial = new THREE.PointsMaterial({
       size: 20,
-      //alphaMap: texture,
+      alphaMap: texture,
       vertexColors: true,
       transparent: true,
       depthTest: false,
