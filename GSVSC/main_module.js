@@ -119,7 +119,7 @@ function init(){
       vertexColors: true,
       transparent: true,
       blending: THREE.NormalBlending,
-      //depthTest: false,
+      depthTest: false,
       //depthWrite: false,
     });
         for (var i = 0; i < STARSUM; i++) {
