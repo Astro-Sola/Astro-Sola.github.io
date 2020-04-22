@@ -17,20 +17,6 @@ function userConsole(){
   }
 }
 
-//demo.jsonファイルの読み込み
-$(function(){
-  $.getJSON('demo.json', function(data){
-    var len = data.length;
-    for (var i = 0; i < len; i++) {
-      console.log(data[i].id);
-      console.log(data[i].alias);
-      console.log(data[i].position);
-      console.log(data[i].color);
-      console.log(data[i].position);
-    }
-  })
-})
-
 
 //ページ読み込みまで待機
 window.addEventListener('load', init);
@@ -115,7 +101,7 @@ function init(){
 
 
   //恒星の追加を行う関数
-  function generateStars(){
+  function generateMobStars(){
     //テクスチャ指定
     var loader = new THREE.TextureLoader();
     var texture = loader.load('img/star.png');
@@ -127,7 +113,7 @@ function init(){
     //モブ恒星マテリアル
     var mobStarMaterial = new THREE.PointsMaterial({
       size: 20,
-      alphaMap: texture,
+      //alphaMap: texture,
       vertexColors: true,
       transparent: true,
       depthTest: false,
@@ -156,7 +142,27 @@ function init(){
     var mobStar = new THREE.Points(mobStarGeomrtry, mobStarMaterial);
     scene.add(mobStar);
   }
-  generateStars();
+  generateMobStars();
+
+  //ネームドスターの追加
+  function genarateNamedStars() {
+    //demo.jsonファイルの読み込み
+    $(function(){
+      $.getJSON('demo.json', function(data){
+      var len = data.length;
+      for (var i = 0; i < len; i++) {
+        console.log(data[i].id);
+        console.log(data[i].alias);
+        console.log(data[i].position);
+        console.log(data[i].color);
+        console.log(data[i].planet);
+        console.log(data[i].nation);
+        console.log(data[i].nationCode);
+        }
+      })
+    })
+  }
+
 
 
 
