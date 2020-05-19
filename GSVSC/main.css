@@ -1,7 +1,6 @@
 @charset "UTF-8";
 body{
 	background: black;
-	color: red;
 	font-family: Agency FB;
 }
 div{
@@ -10,11 +9,21 @@ div{
 	text-align: center;
 	margin: 1px auto;
 }
-#info{
+#notice{
+	color: red;
 	position: absolute;
 	top: 10px;
 	width: 100%;
 	text-align: center;
+	z-index: 100;
+	display: block;
+}
+#info{
+	color: white;
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	text-align: bottom;
 	z-index: 100;
 	display: block;
 }
