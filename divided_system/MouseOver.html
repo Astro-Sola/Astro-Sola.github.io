@@ -1,0 +1,140 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+  <script src="js/controls/TrackballControls.js"></script>
+</head>
+
+<body>
+  <div id="systemNameOnHTML"></div>
+  <script>
+    var renderer, scene, camera;
+    var controls, group;
+    var color;
+    var name;
+
+    init();
+    animate();
+
+    function init() {
+
+      // init renderer
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // init scene
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x000000);
+
+      // groupe
+      group = new THREE.Group();
+      scene.add(group);
+
+      // init camera
+      camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.set(15, 15, 15);
+      camera.lookAt(scene.position);
+      cameraControls(camera, renderer);
+
+      // add sprites
+      addSprite( group, "Lavelt", 'purple', 5, 3, 2);
+      addSprite( group, "Taxthem", 'gold', 4, -2, -1);
+      addSprite( group, "Gerden", 'green', 2, -3, -4);
+      addSprite( group, "Leeus", 'blue', -3, 4, -2);
+
+      window.addEventListener('resize', onWindowResize, false);
+      window.addEventListener("mousemove", onDocumentMouseMove, false);
+    }
+
+    function addSprite( group, spriteName, spriteColor, x, y, z ){
+      var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: spriteColor }));
+      sprite.position.set( x, y, z );
+      sprite.name = spriteName;
+      group.add(sprite);
+    }
+
+    function animate() {
+      controls.update();
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+
+    function cameraControls(camera, renderer) {
+      controls = new THREE.TrackballControls(camera, renderer.domElement);
+      //カメラ移動速度
+      controls.rotateSpeed = 1.2;
+      controls.zoomSpeed = 0.6;
+      controls.panSpeed = 0.2;
+      //カメラ入力
+      controls.key = [65, 83, 68];
+      //カメラ限界ズーム
+      controls.minDistance = 1;
+      controls.maxDistance = 1000
+    }
+
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    var selectedObject = null;
+
+    function onDocumentMouseMove(event) {
+      event.preventDefault();
+
+      // selectedObject の中に何かある場合は色を元に戻し、 selectedObject 内に null を格納
+      if (selectedObject) {
+        selectedObject.material.color.set(color);
+        selectedObject = null;
+        systemNameReplace(name, selectedObject);
+      }
+
+      var intersects = getIntersects(event.layerX, event.layerY);
+      //マウスカーソルから延びるベクトルに何かしらが衝突したとき
+      if (intersects.length > 0) {
+        // res に res と res.object のみの情報からなる新たな配列を生成
+        var res = intersects.filter(function (res) {
+          return res && res.object;
+        })[0];
+        //何かが res && res.object にある時に実行
+        if (res) {
+          selectedObject = res.object;
+          color = selectedObject.material.color.clone();
+          name = selectedObject.name;
+          systemNameReplace(name, selectedObject);
+          selectedObject.material.color.set( 0xff0000 );
+        }
+      }
+    }
+
+    function systemNameReplace(name, object){
+      var systemName = document.getElementById("systemNameOnHTML");
+      systemName.style.position = 'absolute';
+      systemName.style.color = 'white';
+      systemName.innerText = name + " System";
+      if(object == null){
+        systemName.innerText = null;
+      }
+    }
+
+    var raycaster = new THREE.Raycaster();
+    var mouseVector = new THREE.Vector3();
+
+    function getIntersects(x, y) {
+      x = (x / window.innerWidth) * 2 - 1;
+      y = - (y / window.innerHeight) * 2 + 1;
+
+      mouseVector.set(x, y, 0.5);
+      raycaster.setFromCamera(mouseVector, camera);
+
+      return raycaster.intersectObject(group, true);
+    }
+  </script>
+</body>
+
+</html>

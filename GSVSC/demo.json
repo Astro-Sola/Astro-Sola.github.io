@@ -1,20 +1,14 @@
 [
 	{
 		"id":			1,
-		"alias":		"Lavelt",
+		"alias":		"ラヴェルト",
 		"position":		[{ "x": 0, "y": 0, "z": 0 }],
-		"color":		"0xff9956",
-		"planet":		[{ "rocky":3 , "gasgiant":2 , "icegiant":0 }],
-		"nation":		"エルミア、リーエス",
-		"nationCode":	"MULTI"
+		"color":		"0xff9956"
 	},
 	{
 		"id":			2,
-		"alias":		"Gerden",
+		"alias":		"ゲルデン",
 		"position":		[{ "x": 10, "y": 0, "z": 10 }],
-		"color":		"0xff9956",
-		"planet":		[{ "rocky":3 , "gasgiant":2 , "icegiant":0 }],
-		"nation":		"ベリオン、グロスクロイツ、ヴィッテンクレイル",
-		"nationCode":	"MULTI"
+		"color":		"0xff9956"
 	}
 ]

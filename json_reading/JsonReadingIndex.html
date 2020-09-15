@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>CSV to html</title>
+        <meta name="description" content="変換するよ">
+    </head>
+    <body>
+        <script>
+            function ReadingCSV(){
+                var require = new XMLHttpRequest();
+                require.open("get", "cf_list.csv", true);
+                require.send(null);
+
+                require.onload = function(){
+                    CSVtoArrayConverter(require.responseText);
+                }
+            }
+
+            function CSVtoArrayConverter(str){
+                var convertedArray = [];
+                var template = str.split("\n");
+
+                for(var i=0;i<template.length;++i){
+                    convertedArray[i] = template[i].split(',');
+                }
+                alert(result[1][2]);
+            }
+
+            ReadingCSV();
+        </script>
+    </body>
