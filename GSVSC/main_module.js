@@ -8,6 +8,90 @@ function ReadingCSV(){
   require.onload = function(){
     arraiedCSV = CSVtoArrayConverter(require.responseText);
     console.log(arraiedCSV);
+    window.onload = function(){
+      var starList = ReadingCSV();
+      /*初回起動時の動作*/
+      //マウス座標
+      var mousePosition = new THREE.Vector2();
+      //キャンバスの指定
+      var canvas = document.querySelector('#stellarCanvas');
+      //画面比率
+      var windowRatio = window.innerWidth / window.innerHeight;
+      //レンダラーの設定
+      var renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerHeight,window.innerWidth);
+      document.body.appendChild(renderer.domElement);
+      //シーンの設定
+      var scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x000000);
+      //カメラの設定
+      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 1000);
+      camera.position.set(15, 15, 15);
+      camera.lookAt(scene.position);
+      //カメラコントロールの設定
+      var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
+      cameraControl.rotateSpeed = 1.2;
+      cameraControl.zoomSpeed = 0.6;
+      //カメラの入力キーの設定
+      cameraControl.key = [65, 83, 68];
+      //カメラの最大最小距離の設定
+      cameraControl.minDistance = 1;
+      cameraControl.maxDistance = 1000;
+    
+      //グループの生成
+      var objectGroup = new THREE.Group();
+      scene.add(objectGroup);
+    
+      //スプライトの生成
+      generateSprite(objectGroup, starList);
+    
+      //レイキャストの生成
+      var raycaster = new THREE.Raycaster();
+    
+      /*マウスがキャンバス上で動いたときの関数ここから*/
+      function onMouseMove(event){
+        var element = event.currentTarget;
+        // canvas要素上のXY座標
+        var x = event.clientX - element.offsetLeft;
+        var y = event.clientY - element.offsetTop;
+        // canvas要素の幅・高さ
+        var w = element.offsetWidth;
+        var h = element.offsetHeight;
+        // -1〜+1の範囲で現在のマウス座標を登録する
+        mouse.x = (x / w) * 2 - 1;
+        mouse.y = -(y / h) * 2 + 1;
+      }
+      /*マウスがキャンバス上で動いたときの関数ここまで*/
+    
+      //マウスが動いたときに以下を実効
+      canvas.addEventListener("mousemove", onMouseMove);
+      //色を格納
+      var materialColor;
+      console.log(starList);
+      console.log(objectGroup);
+    
+      /*ここまで初回起動時*/
+    
+      /*以下それ以降*/
+      /*毎tickごとの関数ここから*/
+      function tick(){
+        var intersects = raycaster.intersectObjects(objectGroup.children);
+        objectGroup.children.map(sprite => {
+          //交差しているオブジェクトが１つ以上あって、それが最前面
+          if(intersects.length > 0 && sprite === intersects[0].object){
+            materialColor = selectedObject.material.color.clone();
+            sprite.material.color.set( 0xff0000 );
+          } else {
+            sprite.material.color.set( materialColor );
+          }
+        });
+        renderer.render(scene, camera);
+        requestAnimationFrame(tick);
+      }
+      tick();
+      /*毎tickごとの関数ここまで*/
+    }
   }
   return arraiedCSV;
 }
@@ -38,87 +122,3 @@ function generateSprite(group, objectList){
 /*メインプログラムはここから*/
 ////////////////////////////
 
-window.onload = function(){
-  var starList = ReadingCSV();
-  /*初回起動時の動作*/
-  //マウス座標
-  var mousePosition = new THREE.Vector2();
-  //キャンバスの指定
-  var canvas = document.querySelector('#stellarCanvas');
-  //画面比率
-  var windowRatio = window.innerWidth / window.innerHeight;
-  //レンダラーの設定
-  var renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerHeight,window.innerWidth);
-  document.body.appendChild(renderer.domElement);
-  //シーンの設定
-  var scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x000000);
-  //カメラの設定
-  var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 1000);
-  camera.position.set(15, 15, 15);
-  camera.lookAt(scene.position);
-  //カメラコントロールの設定
-  var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
-  cameraControl.rotateSpeed = 1.2;
-  cameraControl.zoomSpeed = 0.6;
-  //カメラの入力キーの設定
-  cameraControl.key = [65, 83, 68];
-  //カメラの最大最小距離の設定
-  cameraControl.minDistance = 1;
-  cameraControl.maxDistance = 1000;
-
-  //グループの生成
-  var objectGroup = new THREE.Group();
-  scene.add(objectGroup);
-
-  //スプライトの生成
-  generateSprite(objectGroup, starList);
-
-  //レイキャストの生成
-  var raycaster = new THREE.Raycaster();
-
-  /*マウスがキャンバス上で動いたときの関数ここから*/
-  function onMouseMove(event){
-    var element = event.currentTarget;
-    // canvas要素上のXY座標
-    var x = event.clientX - element.offsetLeft;
-    var y = event.clientY - element.offsetTop;
-    // canvas要素の幅・高さ
-    var w = element.offsetWidth;
-    var h = element.offsetHeight;
-    // -1〜+1の範囲で現在のマウス座標を登録する
-    mouse.x = (x / w) * 2 - 1;
-    mouse.y = -(y / h) * 2 + 1;
-  }
-  /*マウスがキャンバス上で動いたときの関数ここまで*/
-
-  //マウスが動いたときに以下を実効
-  canvas.addEventListener("mousemove", onMouseMove);
-  //色を格納
-  var materialColor;
-  console.log(starList);
-  console.log(objectGroup);
-
-  /*ここまで初回起動時*/
-
-  /*以下それ以降*/
-  /*毎tickごとの関数ここから*/
-  function tick(){
-    var intersects = raycaster.intersectObjects(objectGroup.children);
-    objectGroup.children.map(sprite => {
-      //交差しているオブジェクトが１つ以上あって、それが最前面
-      if(intersects.length > 0 && sprite === intersects[0].object){
-        materialColor = selectedObject.material.color.clone();
-        sprite.material.color.set( 0xff0000 );
-      } else {
-        sprite.material.color.set( materialColor );
-      }
-    });
-    renderer.render(scene, camera);
-    requestAnimationFrame(tick);
-  }
-  tick();
-  /*毎tickごとの関数ここまで*/
-}
