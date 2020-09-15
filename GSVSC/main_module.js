@@ -116,5 +116,6 @@ window.onload = function(){
     renderer.render(scene, camera);
     requestAnimationFrame(tick)
   }
-/*毎tickごとの関数ここまで*/
+  tick();
+  /*毎tickごとの関数ここまで*/
 }
