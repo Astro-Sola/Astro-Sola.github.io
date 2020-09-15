@@ -2,7 +2,7 @@
 function ReadingCSV(){
   var arraiedCSV;
   var require = new XMLHttpRequest();
-  require.open("get", "Starlist.csv", true);
+  require.open("get", "StarList.csv", true);
   require.send(null);
 
   require.onload = function(){
@@ -39,7 +39,7 @@ function onMouseMove(event){
 
 /*スプライト生成関数ここから*/
 function generateSprite(group, objectList){
-  for(var i=1;i<objectList.length;i++){
+  for(var i=1;i<objectList;i++){
     var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: objectList[i][4] }));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
