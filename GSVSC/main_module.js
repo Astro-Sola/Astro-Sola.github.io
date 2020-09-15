@@ -7,6 +7,7 @@ function ReadingCSV(){
 
   require.onload = function(){
     arraiedCSV = CSVtoArrayConverter(require.responseText);
+    console.log(arraiedCSV);
   }
   return arraiedCSV;
 }
