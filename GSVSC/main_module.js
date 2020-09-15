@@ -22,21 +22,6 @@ function CSVtoArrayConverter(string){
 }
 /*CSVを配列にする関数ここまで*/
 
-/*マウスがキャンバス上で動いたときの関数ここから*/
-function onMouseMove(event){
-  var element = event.currentTarget;
-  // canvas要素上のXY座標
-  var x = event.clientX - element.offsetLeft;
-  var y = event.clientY - element.offsetTop;
-  // canvas要素の幅・高さ
-  var w = element.offsetWidth;
-  var h = element.offsetHeight;
-  // -1〜+1の範囲で現在のマウス座標を登録する
-  mouse.x = (x / w) * 2 - 1;
-  mouse.y = -(y / h) * 2 + 1;
-}
-/*マウスがキャンバス上で動いたときの関数ここまで*/
-
 /*スプライト生成関数ここから*/
 function generateSprite(group, objectList){
   for(var i=1;i<objectList;i++){
@@ -92,6 +77,22 @@ window.onload = function(){
 
   //レイキャストの生成
   var raycaster = new THREE.Raycaster();
+
+  /*マウスがキャンバス上で動いたときの関数ここから*/
+  function onMouseMove(event){
+    var element = event.currentTarget;
+    // canvas要素上のXY座標
+    var x = event.clientX - element.offsetLeft;
+    var y = event.clientY - element.offsetTop;
+    // canvas要素の幅・高さ
+    var w = element.offsetWidth;
+    var h = element.offsetHeight;
+    // -1〜+1の範囲で現在のマウス座標を登録する
+    mouse.x = (x / w) * 2 - 1;
+    mouse.y = -(y / h) * 2 + 1;
+  }
+  /*マウスがキャンバス上で動いたときの関数ここまで*/
+
   //マウスが動いたときに以下を実効
   canvas.addEventListener("mousemove", onMouseMove, false);
   //色を格納
