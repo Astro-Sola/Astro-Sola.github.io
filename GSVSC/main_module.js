@@ -1,7 +1,7 @@
 ////////////////////////////
 /*メインプログラムはここから*/
 ////////////////////////////
-
+console.log("fuck");
 //CSVを配列にする
 function ReadingCSV(){
   var starList;
