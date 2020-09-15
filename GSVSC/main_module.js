@@ -86,7 +86,7 @@ function main(){
             sprite.material.color.set( materialColor );
           }
         });
-        cameraControl,update();
+        cameraControl.update();
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
       }
