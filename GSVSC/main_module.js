@@ -43,11 +43,10 @@ function ReadingCSV(){
 
       //グループの生成
       var objectGroup = new THREE.Group();
+      scene.add(objectGroup);
 
       //スプライトの生成
       generateSprite(objectGroup, starList);
-
-      scene.add(objectGroup);
 
       //レイキャストの生成
       var raycaster = new THREE.Raycaster();
