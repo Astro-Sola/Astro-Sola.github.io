@@ -101,11 +101,17 @@ main();
 
 function CSVtoArrayConverter(string){
   var convertedArray = [];
-  var template = string.split("\n");
+  var template = string.split("\n");//改行で配列分割
 
   for(var i=0;i<template.length;++i){
-      convertedArray[i] = template[i].split(',');
-      
+      convertedArray[i] = template[i].split(',');//コンマで配列分割
+  }
+  for (let i = 0; i < convertedArray.length; i++) {
+    convertedArray[i][1] = convertedArray[i][1].replace(/\"/g,"");
+    convertedArray[i][2] = convertedArray[i][2].replace(/\"/g,"");
+    convertedArray[i][3] = convertedArray[i][3].replace(/\"/g,"");
+    convertedArray[i][5] = convertedArray[i][5].replace(/\"/g,"");
+    convertedArray[i][8] = convertedArray[i][8].replace(/\"/g,"");
   }
   return convertedArray;
 }
@@ -119,7 +125,7 @@ function generateSprite(group, objectList){
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
     group.add(sprite);
-    console.log(sprite.set.position);
+    console.log(sprite.position);
   }
 }
 /*スプライト生成関数ここまで*/
