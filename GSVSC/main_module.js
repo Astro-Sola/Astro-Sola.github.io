@@ -18,7 +18,7 @@ function main(){
       //画面比率
       var windowRatio = window.innerWidth / window.innerHeight;
       //レンダラーの設定
-      var renderer = new THREE.WebGLRenderer({ antialias: true });
+      var renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvas });
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(window.innerHeight,window.innerWidth);
       document.body.appendChild(renderer.domElement);
@@ -59,8 +59,8 @@ function main(){
         var w = element.offsetWidth;
         var h = element.offsetHeight;
         // -1〜+1の範囲で現在のマウス座標を登録する
-        mouse.x = (x / w) * 2 - 1;
-        mouse.y = -(y / h) * 2 + 1;
+        mousePosition.x = (x / w) * 2 - 1;
+        mousePosition.y = -(y / h) * 2 + 1;
       }
       /*マウスがキャンバス上で動いたときの関数ここまで*/
 
