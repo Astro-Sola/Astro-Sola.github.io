@@ -71,6 +71,10 @@ function main(){
       console.log(starList);
       console.log(objectGroup);
 
+      //グリッド描画
+      var gridHelper = new THREE.GridHelper( size, divisions );
+      scene.add( gridHelper );
+
       /*ここまで初回起動時*/
 
       /*以下それ以降*/
