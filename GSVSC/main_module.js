@@ -86,6 +86,7 @@ function main(){
             sprite.material.color.set( materialColor );
           }
         });
+        cameraControl,update();
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
       }
@@ -104,6 +105,7 @@ function CSVtoArrayConverter(string){
 
   for(var i=0;i<template.length;++i){
       convertedArray[i] = template[i].split(',');
+      
   }
   return convertedArray;
 }
@@ -116,6 +118,7 @@ function generateSprite(group, objectList){
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
     group.add(sprite);
+    console.log(sprite.set.position);
   }
 }
 /*スプライト生成関数ここまで*/
