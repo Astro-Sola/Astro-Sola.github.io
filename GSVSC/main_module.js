@@ -2,13 +2,13 @@
 /*メインプログラムはここから*/
 ////////////////////////////
 
-/*CSVを配列にする関数ここから*/
+//CSVを配列にする
 function ReadingCSV(){
   var starList;
   var require = new XMLHttpRequest();
   require.open("get", "StarList.csv", true);
   require.send(null);
-
+  console.log("fuck");
   require.onload = function(){
     starList = CSVtoArrayConverter(require.responseText);
     console.log(starList);
