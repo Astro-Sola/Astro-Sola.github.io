@@ -20,7 +20,7 @@ function main(){
       //レンダラーの設定
       var renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvas });
       renderer.setPixelRatio(window.devicePixelRatio);
-      renderer.setSize(window.innerHeight,window.innerWidth);
+      renderer.setSize(window.innerWidth,window.innerHeight);
       document.body.appendChild(renderer.domElement);
       //シーンの設定
       var scene = new THREE.Scene();
