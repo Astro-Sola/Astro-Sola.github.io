@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
     <head>
         <meta charset="utf-8">
         <title>CSV to html</title>
@@ -24,7 +24,7 @@
                 for(var i=0;i<template.length;++i){
                     convertedArray[i] = template[i].split(',');
                 }
-                alert(result[1][2]);
+                alert(convertedArray[1][2]);
             }
 
             ReadingCSV();
