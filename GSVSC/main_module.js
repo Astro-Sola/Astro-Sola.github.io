@@ -1,14 +1,12 @@
 ////////////////////////////
 /*メインプログラムはここから*/
 ////////////////////////////
-console.log("fuck");
 //CSVを配列にする
-function ReadingCSV(){
+function main(){
   var starList;
   var require = new XMLHttpRequest();
   require.open("get", "StarList.csv", true);
   require.send(null);
-  console.log("fuck");
   require.onload = function(){
     starList = CSVtoArrayConverter(require.responseText);
     console.log(starList);
@@ -95,6 +93,7 @@ function ReadingCSV(){
       /*毎tickごとの関数ここまで*/
   }
 }
+main();
 ////////////////////////////
 /*メインプログラムはここまで*/
 ////////////////////////////
