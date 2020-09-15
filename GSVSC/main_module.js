@@ -96,7 +96,7 @@ window.onload = function(){
   canvas.addEventListener("mousemove", onMouseMove, false);
   //色を格納
   var materialColor;
-
+  console.log(objectGroup);
 
   /*ここまで初回起動時*/
 
