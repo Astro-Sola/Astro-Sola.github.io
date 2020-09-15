@@ -106,7 +106,7 @@ function CSVtoArrayConverter(string){
   for(var i=0;i<template.length;++i){
       convertedArray[i] = template[i].split(',');//コンマで配列分割
   }
-  for (let i = 0; i < convertedArray.length; i++) {
+  for (let i = 1; i < convertedArray.length; i++) {
     convertedArray[i][1] = parseInt(convertedArray[i][1],10);
     convertedArray[i][2] = parseInt(convertedArray[i][2],10);
     convertedArray[i][3] = parseInt(convertedArray[i][3],10);
