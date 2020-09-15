@@ -114,7 +114,7 @@ window.onload = function(){
       }
     });
     renderer.render(scene, camera);
-    requestAnimationFrame(tick)
+    requestAnimationFrame(tick);
   }
   tick();
   /*毎tickごとの関数ここまで*/
