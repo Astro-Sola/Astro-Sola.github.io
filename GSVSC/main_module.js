@@ -97,6 +97,7 @@ window.onload = function(){
   canvas.addEventListener("mousemove", onMouseMove);
   //色を格納
   var materialColor;
+  console.log(starList);
   console.log(objectGroup);
 
   /*ここまで初回起動時*/
@@ -104,7 +105,7 @@ window.onload = function(){
   /*以下それ以降*/
   /*毎tickごとの関数ここから*/
   function tick(){
-    var intersects = raycaster.intersectObjects(objectGroup);
+    var intersects = raycaster.intersectObjects(objectGroup.children);
     objectGroup.children.map(sprite => {
       //交差しているオブジェクトが１つ以上あって、それが最前面
       if(intersects.length > 0 && sprite === intersects[0].object){
