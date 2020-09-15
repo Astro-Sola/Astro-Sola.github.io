@@ -1,15 +1,13 @@
 /*CSVを配列にする関数ここから*/
 function ReadingCSV(){
-  var arraiedCSV;
+  var starList;
   var require = new XMLHttpRequest();
   require.open("get", "StarList.csv", true);
   require.send(null);
 
   require.onload = function(){
-    arraiedCSV = CSVtoArrayConverter(require.responseText);
-    console.log(arraiedCSV);
-    window.onload = function(){
-      var starList = ReadingCSV();
+    starList = CSVtoArrayConverter(require.responseText);
+    console.log(starList);
       /*初回起動時の動作*/
       //マウス座標
       var mousePosition = new THREE.Vector2();
@@ -38,17 +36,17 @@ function ReadingCSV(){
       //カメラの最大最小距離の設定
       cameraControl.minDistance = 1;
       cameraControl.maxDistance = 1000;
-    
+
       //グループの生成
       var objectGroup = new THREE.Group();
       scene.add(objectGroup);
-    
+
       //スプライトの生成
       generateSprite(objectGroup, starList);
-    
+
       //レイキャストの生成
       var raycaster = new THREE.Raycaster();
-    
+
       /*マウスがキャンバス上で動いたときの関数ここから*/
       function onMouseMove(event){
         var element = event.currentTarget;
@@ -63,16 +61,16 @@ function ReadingCSV(){
         mouse.y = -(y / h) * 2 + 1;
       }
       /*マウスがキャンバス上で動いたときの関数ここまで*/
-    
+
       //マウスが動いたときに以下を実効
       canvas.addEventListener("mousemove", onMouseMove);
       //色を格納
       var materialColor;
       console.log(starList);
       console.log(objectGroup);
-    
+
       /*ここまで初回起動時*/
-    
+
       /*以下それ以降*/
       /*毎tickごとの関数ここから*/
       function tick(){
@@ -91,9 +89,7 @@ function ReadingCSV(){
       }
       tick();
       /*毎tickごとの関数ここまで*/
-    }
   }
-  return arraiedCSV;
 }
 
 function CSVtoArrayConverter(string){
@@ -121,4 +117,6 @@ function generateSprite(group, objectList){
 ////////////////////////////
 /*メインプログラムはここから*/
 ////////////////////////////
-
+ReadingCSV();
+window.onload = function(){
+}
