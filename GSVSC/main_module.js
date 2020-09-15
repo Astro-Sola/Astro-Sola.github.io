@@ -72,7 +72,7 @@ function main(){
       console.log(objectGroup);
 
       //グリッド描画
-      var gridHelper = new THREE.GridHelper( size, divisions );
+      var gridHelper = new THREE.GridHelper( 10, 10 );
       scene.add( gridHelper );
 
       /*ここまで初回起動時*/
