@@ -107,11 +107,11 @@ function CSVtoArrayConverter(string){
       convertedArray[i] = template[i].split(',');//コンマで配列分割
   }
   for (let i = 0; i < convertedArray.length; i++) {
-    convertedArray[i][1] = convertedArray[i][1].replace("\"","\'");
-    convertedArray[i][2] = convertedArray[i][2].replace("\"","\'");
-    convertedArray[i][3] = convertedArray[i][3].replace("\"","\'");
-    convertedArray[i][5] = convertedArray[i][5].replace("\"","\'");
-    convertedArray[i][8] = convertedArray[i][8].replace("\"","\'");
+    convertedArray[i][1] = parseInt(convertedArray[i][1],10);
+    convertedArray[i][2] = parseInt(convertedArray[i][2],10);
+    convertedArray[i][3] = parseInt(convertedArray[i][3],10);
+    convertedArray[i][5] = parseInt(convertedArray[i][5],16);
+    convertedArray[i][8] = parseInt(convertedArray[i][8],10);
   }
   return convertedArray;
 }
