@@ -94,7 +94,7 @@ window.onload = function(){
   /*マウスがキャンバス上で動いたときの関数ここまで*/
 
   //マウスが動いたときに以下を実効
-  canvas.addEventListener("mousemove", onMouseMove, false);
+  canvas.addEventListener("mousemove", onMouseMove);
   //色を格納
   var materialColor;
   console.log(objectGroup);
@@ -105,7 +105,7 @@ window.onload = function(){
   /*毎tickごとの関数ここから*/
   function tick(){
     var intersects = raycaster.intersectObjects(objectGroup);
-    objectGroup.map(sprite => {
+    objectGroup.children.map(sprite => {
       //交差しているオブジェクトが１つ以上あって、それが最前面
       if(intersects.length > 0 && sprite === intersects[0].object){
         materialColor = selectedObject.material.color.clone();
