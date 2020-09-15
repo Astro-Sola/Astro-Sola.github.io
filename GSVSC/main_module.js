@@ -1,3 +1,7 @@
+////////////////////////////
+/*メインプログラムはここから*/
+////////////////////////////
+
 /*CSVを配列にする関数ここから*/
 function ReadingCSV(){
   var starList;
@@ -92,6 +96,10 @@ function ReadingCSV(){
   }
 }
 
+////////////////////////////
+/*メインプログラムはここまで*/
+////////////////////////////
+
 function CSVtoArrayConverter(string){
   var convertedArray = [];
   var template = string.split("\n");
@@ -113,10 +121,3 @@ function generateSprite(group, objectList){
   }
 }
 /*スプライト生成関数ここまで*/
-
-////////////////////////////
-/*メインプログラムはここから*/
-////////////////////////////
-ReadingCSV();
-window.onload = function(){
-}
