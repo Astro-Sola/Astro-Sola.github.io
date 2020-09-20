@@ -10,7 +10,9 @@ function main(){
   require.onload = function(){
     starList = CSVtoArrayConverter(require.responseText);
     console.log(starList);
+
       /*初回起動時の動作*/
+
       //マウス座標
       var mousePosition = new THREE.Vector2();
       //キャンバスの指定
@@ -124,12 +126,12 @@ function CSVtoArrayConverter(string){
 function generateSprite(group, objectList){
   console.log("fuck");
   console.log(objectList);
-  for(var i=1;i<objectList;i++){
+  for(var i=1;i<objectList.length;i++){
     var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff }));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
+    console.log(sprite.position)
     group.add(sprite);
-    console.log(sprite.position);
   }
 }
 /*スプライト生成関数ここまで*/
