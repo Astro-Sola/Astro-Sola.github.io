@@ -44,7 +44,9 @@ function main(){
       scene.add(objectGroup);
 
       //スプライトの生成
+      console.log(starList);
       generateSprite(objectGroup, starList);
+      console.log(objectGroup);
 
       //レイキャストの生成
       var raycaster = new THREE.Raycaster();
@@ -68,8 +70,6 @@ function main(){
       canvas.addEventListener("mousemove", onMouseMove);
       //色を格納
       var materialColor;
-      console.log(starList);
-      console.log(objectGroup);
 
       //グリッド描画
       var gridHelper = new THREE.GridHelper( 10, 10 );
