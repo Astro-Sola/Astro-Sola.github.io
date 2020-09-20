@@ -89,6 +89,7 @@ function main(){
           if(intersects.length > 0 && sprite === intersects[0].object){
             console.log("A intersected!");
             console.log(intersects);
+            intersects[0].object.material.color(0xff0000);
           } else {
             console.log("None intersected!");
           }
