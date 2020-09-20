@@ -130,7 +130,7 @@ function generateSprite(group, objectList){
     var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff }));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
-    console.log(sprite.position)
+    console.log(sprite.position);
     group.add(sprite);
   }
 }
