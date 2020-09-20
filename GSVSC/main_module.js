@@ -87,10 +87,9 @@ function main(){
         objectGroup.children.map(sprite => {
           //交差しているオブジェクトが１つ以上あって、それが最前面
           if(intersects.length > 0 && sprite === intersects[0].object){
-            materialColor = sprite.material.color.clone();
-            sprite.material.color.set( 0xff0000 );
+            console.log("A intersected!");
           } else {
-            sprite.material.color.set( materialColor );
+            console.log("B intersected!");
           }
         });
         cameraControl.update();
