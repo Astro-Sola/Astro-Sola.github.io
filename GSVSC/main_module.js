@@ -123,6 +123,7 @@ function CSVtoArrayConverter(string){
 /*スプライト生成関数ここから*/
 function generateSprite(group, objectList){
   console.log("fuck");
+  console.log(objectList);
   for(var i=1;i<objectList;i++){
     var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff }));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
