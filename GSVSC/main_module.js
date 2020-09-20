@@ -88,10 +88,10 @@ function main(){
           //交差しているオブジェクトが１つ以上あって、それが最前面
           if(intersects.length > 0 && sprite === intersects[0].object){
             console.log("A intersected!");
-            sprite.color.set(0xff0000);
+            sprite.color(0xff0000);
           } else {
             console.log("B intersected!");
-            sprite.color.set(0xffffff);
+            sprite.color(0xffffff);
           }
         });
         cameraControl.update();
