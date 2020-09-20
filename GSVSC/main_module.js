@@ -93,7 +93,6 @@ function main(){
           } else {
             console.log("None intersected!");
             console.log(object);
-            intersects[0].object.material.color.set(0xffffff);
           }
         });
         cameraControl.update();
