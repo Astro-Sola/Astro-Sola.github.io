@@ -82,7 +82,7 @@ function main(){
       /*以下それ以降*/
       /*毎tickごとの関数ここから*/
       function tick(){
-        raycaster.setFromCamera( mouse, camera );
+        raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
         objectGroup.children.map(sprite => {
           //交差しているオブジェクトが１つ以上あって、それが最前面
