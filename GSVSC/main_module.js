@@ -95,7 +95,7 @@ function main(){
         }
         console.log(intersects);
         //何も入ってなくてフラグが立ってる時
-        if(selectedObject !== null && objectSelectFlag){
+        if(intersects <= 0 && selectedObject !== null && objectSelectFlag){
           selectedObject.material.color.set(selectedObjectColor);
           selectedObjectColor = null;
           selectedObject = null;
