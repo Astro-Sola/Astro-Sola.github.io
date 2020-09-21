@@ -76,7 +76,7 @@ function main(){
       scene.add( gridHelper );
 
       //選択オブジェクトの情報
-      var selectedObjectColor, selectedObjectName;
+      var selectedObjectColor, selectedObject;
       //フラグ
       var objectSelectFlag;
       /*ここまで初回起動時*/
@@ -86,23 +86,21 @@ function main(){
       function tick(){
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
-
-        objectGroup.children.map(sprite => {
-          //交差しているオブジェクトが１つ以上あって、それが最前面
-          if(intersects.length > 0 && sprite === intersects[0].object && !objectSelectFlag){
-            selectedObjectColor = sprite.material.color.clone();
-            selectedObjectName = sprite.name;
-            sprite.material.color.set(0xff0000);
-            objectSelectFlag = true;
-          }
-        });
+        //交差しているオブジェクトが１つ以上あって、それが最前面で、フラグが下りてる時
+        if(intersects.length > 0 && sprite === intersects[0].object && !objectSelectFlag){
+          selectedObjectColor = sprite.material.color.clone();
+          selectedObject = sprite;
+          selectedObject.material.color.set(0xff0000);
+          objectSelectFlag = true;
+        }
         console.log(intersects);
-        if(intersects.object == null && objectSelectFlag){
-          sprite.material.color.set(selectedObjectColor);
+        //何も入ってなくてフラグが立ってる時
+        if(selectedObject !== null && objectSelectFlag){
+          selectedObject.material.color.set(selectedObjectColor);
           selectedObjectColor = null;
-          selectedObjectName = null;
+          selectedObject = null;
           objectSelectFlag = false;
-        } 
+        }
 
         cameraControl.update();
         renderer.render(scene, camera);
