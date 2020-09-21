@@ -96,7 +96,8 @@ function main(){
             objectSelectFlag = true;
           }
         });
-        if(intersects == null && objectSelectFlag){
+        console.log(intersects);
+        if(intersects.object == null && objectSelectFlag){
           sprite.material.color.set(selectedObjectColor);
           selectedObjectColor = null;
           selectedObjectName = null;
