@@ -129,10 +129,8 @@ function CSVtoArrayConverter(string){
 function generateSprite(group, objectList){
   for(let i=1;i<objectList.length;i++){
     console.log(objectList[i]);
-    var sprite = new THREE.Sprite();
-    sprite.material = new THREE.SpriteMaterial();
+    var sprite = new THREE.Sprite(new THREE.SpriteMaterial({color: objectList[i][4]}));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
-    sprite.material.color.set(objectList[i][4]);
     sprite.name = objectList[i][0];
     group.add(sprite);
   }
