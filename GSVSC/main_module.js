@@ -89,7 +89,7 @@ function main(){
           if(intersects.length > 0 && sprite === intersects[0].object){
             selectedObjectColor = sprite.material.color.clone();
             selectedObjectName = sprite.name;
-            sprite.material.color.set(0xff0000);
+            //sprite.material.color.set(0xff0000);
           } else {
             sprite.material.color.set(selectedObjectColor);
           }
