@@ -89,14 +89,14 @@ function main(){
 
         objectGroup.children.map(sprite => {
           //交差しているオブジェクトが１つ以上あって、それが最前面
-          if(intersects.length > 0 && sprite === intersects[0].object && objectSelectFlag == false){
+          if(intersects.length > 0 && sprite === intersects[0].object && !objectSelectFlag){
             selectedObjectColor = sprite.material.color.clone();
             selectedObjectName = sprite.name;
             sprite.material.color.set(0xff0000);
             objectSelectFlag = true;
           } 
         });
-        if(objectSelectFlag == true){
+        if(objectSelectFlag){
           sprite.material.color.set(selectedObjectColor);
           selectedObjectColor = null;
           selectedObjectName = null;
