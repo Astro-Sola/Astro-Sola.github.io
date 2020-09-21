@@ -84,14 +84,13 @@ function main(){
         var intersects = raycaster.intersectObjects(objectGroup.children);
         var objectColor;
         var objectNumber;
-        console.log(objectGroup.children);
+        console.log("fucking outside");
         var mappedObjectGroup = objectGroup.children.map(sprite => {
+          console.log("fucking inside");
           //交差しているオブジェクトが１つ以上あって、それが最前面
-          if(intersects.length > 0 /*&& sprite === intersects[0].object*/){
-            console.log(intersects);
+          if(intersects.length > 0 && sprite === intersects[0].object){
             //intersects[0].object.material.color.set(0xff0000);
           } else {
-            console.log(intersects);
           }
         });
         console.log(mappedObjectGroup);
