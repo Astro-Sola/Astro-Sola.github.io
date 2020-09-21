@@ -72,7 +72,7 @@ function main(){
       canvas.addEventListener("mousemove", onMouseMove);
 
       //グリッド描画
-      var gridHelper = new THREE.GridHelper( 1000, 1000 );
+      var gridHelper = new THREE.GridHelper( 1000, 100 );
       scene.add( gridHelper );
 
       //選択オブジェクトの情報
