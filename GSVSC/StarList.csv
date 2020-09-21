@@ -1,4 +1,4 @@
-0,x,y,z,r,g,b,Name
-1,0,0,0,127,0,127,Lavelt
-2,-2,4,6,0,127,0,Gerden
-3,6,2,4,0,0,127,Leeus
+0,x,y,z,ColorHex,Name
+1,0,0,0,#ff00ff,Lavelt
+2,-2,4,6,#00ff00,Gerden
+3,6,2,4,#0000ff,Leeus
