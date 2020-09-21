@@ -91,7 +91,7 @@ function main(){
             selectedObjectName = sprite.name;
             sprite.material.color.set(0xff0000);
           } else {
-            sprite.material.color.set(0x00ff00)
+            sprite.material.color.set(selectedObjectColor);
           }
         });
         console.log(objectGroup.children);
@@ -132,7 +132,7 @@ function generateSprite(group, objectList){
     sprite.material = new THREE.SpriteMaterial();
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.material.color.set([i][4],[i][5],[i][6]);
-    sprite.name = objectList[i][7];
+    sprite.name = objectList[i][0];
     group.add(sprite);
   }
 }
