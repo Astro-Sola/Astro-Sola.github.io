@@ -102,6 +102,7 @@ function main(){
         }
 
         cameraControl.update();
+        renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
       }
