@@ -102,7 +102,8 @@ function main(){
         }
 
         cameraControl.update();
-        renderer.setPixelRatio(window.devicePixelRatio);
+        windowRatio = window.innerWidth / window.innerHeight;
+        renderer.setPixelRatio(windowRatio);
         renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
