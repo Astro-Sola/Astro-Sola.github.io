@@ -95,13 +95,13 @@ function main(){
             sprite.material.color.set(0xff0000);
             objectSelectFlag = true;
           }
-          if(objectSelectFlag){
-            sprite.material.color.set(selectedObjectColor);
-            selectedObjectColor = null;
-            selectedObjectName = null;
-            objectSelectFlag = false;
-          } 
         });
+        if(intersects == null && objectSelectFlag){
+          sprite.material.color.set(selectedObjectColor);
+          selectedObjectColor = null;
+          selectedObjectName = null;
+          objectSelectFlag = false;
+        } 
 
         cameraControl.update();
         renderer.render(scene, camera);
