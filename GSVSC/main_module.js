@@ -117,8 +117,11 @@ function CSVtoArrayConverter(string){
       convertedArray[i] = template[i].split(',');//コンマで配列分割
   }
   for (let i = 1; i < convertedArray.length; ++i) {
-    for(let j = 1; j < 7; j++){
+    for(let j = 1; j < 4; j++){
       convertedArray[i][j] = parseInt(convertedArray[i][j],10);
+    }
+    for(let j = 4; j < 7; j++){
+      convertedArray[i][j] = parseInt(convertedArray[i][j],10)/255;
     }
   }
   return convertedArray;
