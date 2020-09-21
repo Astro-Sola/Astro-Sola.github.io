@@ -120,6 +120,7 @@ function CSVtoArrayConverter(string){
     for(let j = 1; j < 4; j++){
       convertedArray[i][j] = parseInt(convertedArray[i][j],10);
     }
+  }
   return convertedArray;
 }
 /*CSVを配列にする関数ここまで*/
