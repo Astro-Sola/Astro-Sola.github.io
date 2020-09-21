@@ -84,6 +84,7 @@ function main(){
         var intersects = raycaster.intersectObjects(objectGroup.children);
         var objectColor;
         var objectNumber;
+        console.log(objectGroup.children);
         objectGroup.children.map(sprite => {
           //交差しているオブジェクトが１つ以上あって、それが最前面
           if(intersects.length > 0 && sprite === intersects[0].object){
