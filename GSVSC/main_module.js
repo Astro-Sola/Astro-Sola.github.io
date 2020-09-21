@@ -82,19 +82,20 @@ function main(){
       function tick(){
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
-        var objectColor;
-        var objectNumber;
+        var selectedObjectColor, selectedObjectName;
 
         objectGroup.children.map(sprite => {
           //交差しているオブジェクトが１つ以上あって、それが最前面
           if(intersects.length > 0 && sprite === intersects[0].object){
-            //objectColor = objectGroup.children.object.color.clone();
-            //intersects[0].object.material.color.set(0xff0000);
-            console.log(sprite);
-          } 
+            selectedObjectColor = sprite.material.color.clone();
+            selectedObjectName = sprite.name;
+            sprite.material.color.set(0xff0000);
+          } else {
+            sprite.material.color.set(0x00ff00)
+          }
         });
         console.log(objectGroup.children);
-        //objectGroup.children.object.color.set(objectColor);
+        
         cameraControl.update();
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
@@ -128,7 +129,7 @@ function CSVtoArrayConverter(string){
 /*スプライト生成関数ここから*/
 function generateSprite(group, objectList){
   for(var i=1;i<objectList.length;i++){
-    var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff }));
+    var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0x0000ff }));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
     group.add(sprite);
