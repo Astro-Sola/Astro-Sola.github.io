@@ -1,7 +1,16 @@
 @charset "UTF-8";
+@font-face {
+	font-family: 'Xolonium';
+	src: url('Xolonium.otf');
+	unicode-range: U+0020-0240;
+  }
+@font-face{
+	font-family: 'SmartFontUI03';
+	src: url('03スマートフォントUI.otf');
+}
 body{
 	background-color: black;
-	font-family: Agency FB;
+	font-family: Xolonium;
 	margin: 0;
     overflow: hidden;
 }
