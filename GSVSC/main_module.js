@@ -70,8 +70,6 @@ function main(){
 
       //マウスが動いたときに以下を実効
       canvas.addEventListener("mousemove", onMouseMove);
-      //色を格納
-      var materialColor;
 
       //グリッド描画
       var gridHelper = new THREE.GridHelper( 10, 10 );
@@ -84,15 +82,17 @@ function main(){
       function tick(){
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
+        var objectColor;
+        var objectNumber;
         objectGroup.children.map(sprite => {
           //交差しているオブジェクトが１つ以上あって、それが最前面
           if(intersects.length > 0 && sprite === intersects[0].object){
-            console.log("A intersected!");
+            console.log("if in intersect");
             console.log(intersects);
             intersects[0].object.material.color.set(0xff0000);
           } else {
-            console.log("None intersected!");
-            console.log(intersects[0]);
+            console.log("else in intersect");
+
           }
         });
         cameraControl.update();
@@ -127,13 +127,10 @@ function CSVtoArrayConverter(string){
 
 /*スプライト生成関数ここから*/
 function generateSprite(group, objectList){
-  console.log("fuck");
-  console.log(objectList);
   for(var i=1;i<objectList.length;i++){
     var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0xffffff }));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
-    console.log(sprite.position);
     group.add(sprite);
   }
 }
