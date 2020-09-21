@@ -75,6 +75,10 @@ function main(){
       var gridHelper = new THREE.GridHelper( 10, 10 );
       scene.add( gridHelper );
 
+      //選択オブジェクトの情報
+      var selectedObjectColor, selectedObjectName;
+      //フラグ
+      var objectSelectFlag;
       /*ここまで初回起動時*/
 
       /*以下それ以降*/
@@ -82,20 +86,28 @@ function main(){
       function tick(){
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
-        var selectedObjectColor, selectedObjectName;
 
         objectGroup.children.map(sprite => {
           //交差しているオブジェクトが１つ以上あって、それが最前面
-          if(intersects.length > 0 && sprite === intersects[0].object){
+          if(intersects.length > 0 && sprite === intersects[0].object && objectSelectFlag == false){
+            selectedObjectColor = sprite.material.color.clone();
             selectedObjectName = sprite.name;
             sprite.material.color.set(0xff0000);
-          }
+            objectSelectFlag = true;
+          } 
         });
-        
+        if(intersects = null && objectSelectFlag == true){
+          sprite.material.color.set(selectedObjectColor);
+          selectedObjectColor = null;
+          selectedObjectName = null;
+          objectSelectFlag = false;
+        }
+
         cameraControl.update();
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
       }
+
       tick();
       /*毎tickごとの関数ここまで*/
   }
