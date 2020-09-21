@@ -89,7 +89,7 @@ function main(){
           if(intersects.length > 0 && sprite === intersects[0].object){
             selectedObjectColor = sprite.material.color.clone();
             selectedObjectName = sprite.name;
-            //sprite.material.color.set(0xff0000);
+            sprite.material.color.set(0xff0000);
           } else {
             sprite.material.color.set(selectedObjectColor);
           }
@@ -131,7 +131,7 @@ function generateSprite(group, objectList){
     var sprite = new THREE.Sprite();
     sprite.material = new THREE.SpriteMaterial();
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
-    sprite.material.color.set([i][4],[i][5],[i][6]);
+    sprite.material.color.set(objectList[i][4], objectList[i][5], objectList[i][6]);
     console.log(sprite.material.color);
     sprite.name = objectList[i][0];
     group.add(sprite);
