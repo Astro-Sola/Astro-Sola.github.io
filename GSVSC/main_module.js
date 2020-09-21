@@ -103,7 +103,8 @@ function main(){
 
         cameraControl.update();
         windowRatio = window.innerWidth / window.innerHeight;
-        renderer.setPixelRatio(windowRatio);
+        camera.aspect = windowRatio;
+        camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
