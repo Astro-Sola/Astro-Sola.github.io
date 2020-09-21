@@ -121,7 +121,7 @@ function CSVtoArrayConverter(string){
       convertedArray[i][j] = parseInt(convertedArray[i][j],10);
     }
     for(let j = 4; j < 7; j++){
-      convertedArray[i][j] = parseInt(convertedArray[i][j],);
+      convertedArray[i][j] = parseInt(convertedArray[i][j],10)/255;
     }
   }
   return convertedArray;
@@ -134,10 +134,8 @@ function generateSprite(group, objectList){
     console.log(objectList[i]);
     var sprite = new THREE.Sprite();
     sprite.material = new THREE.SpriteMaterial();
-
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.material.color.setRGB(objectList[i][4], objectList[i][5], objectList[i][6]);
-    console.log(sprite.material.color);
     sprite.name = objectList[i][0];
     group.add(sprite);
   }
