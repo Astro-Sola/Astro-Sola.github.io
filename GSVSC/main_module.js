@@ -94,7 +94,7 @@ function main(){
             sprite.material.color.set(selectedObjectColor);
           }
         });
-        console.log(objectGroup.children);
+        //console.log(objectGroup.children);
         
         cameraControl.update();
         renderer.render(scene, camera);
@@ -128,7 +128,7 @@ function CSVtoArrayConverter(string){
 /*スプライト生成関数ここから*/
 function generateSprite(group, objectList){
   //for(let i=1;i<objectList.length;i++){
-    var i = 1;
+    var i = 2;
     console.log(objectList[i]);
     var sprite = new THREE.Sprite(new THREE.SpriteMaterial({color: objectList[i][4]}));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
