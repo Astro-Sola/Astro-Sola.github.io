@@ -84,14 +84,14 @@ function main(){
         var intersects = raycaster.intersectObjects(objectGroup.children);
         var objectColor;
         var objectNumber;
-        console.log("before");
+
         objectGroup.children.map(sprite => {
+          console.log(sprite);
+          console.log(intersects);
           //交差しているオブジェクトが１つ以上あって、それが最前面
-          if(intersects.length > 0 && sprite.object === intersects[0].object){
-            console.log("if true");
+          if(intersects.length > 0 && sprite === intersects[0].object){
             //intersects[0].object.material.color.set(0xff0000);
           } else {
-            console.log("if false");
           }
         });
         console.log("after");
