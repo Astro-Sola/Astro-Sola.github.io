@@ -89,7 +89,6 @@ function main(){
           //交差しているオブジェクトが１つ以上あって、それが最前面
           if(intersects.length > 0 && sprite === intersects[0].object){
             console.log(intersects);
-            intersects[0].object.material.color.set(0xff0000);
           } else {
             console.log(intersects);
           }
