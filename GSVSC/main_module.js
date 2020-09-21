@@ -88,12 +88,13 @@ function main(){
         objectGroup.children.map(sprite => {
           //交差しているオブジェクトが１つ以上あって、それが最前面
           if(intersects.length > 0 && sprite === intersects[0].object){
-            objectColor = objectGroup.children.object.color.clone();
-            intersects[0].object.material.color.set(0xff0000);
-            console.log("already read!");
+            //objectColor = objectGroup.children.object.color.clone();
+            //intersects[0].object.material.color.set(0xff0000);
+            console.log(sprite);
           } 
         });
-        objectGroup.children.object.color.set(objectColor);
+        console.log(objectGroup.children);
+        //objectGroup.children.object.color.set(objectColor);
         cameraControl.update();
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
