@@ -3,7 +3,7 @@
 ////////////////////////////
 //CSVを配列にする
 function main(){
-  var starList;
+  const starList;
   var require = new XMLHttpRequest();
   require.open("get", "StarList.csv", true);
   require.send(null);
@@ -113,14 +113,13 @@ function CSVtoArrayConverter(string){
   var convertedArray = [];
   var template = string.split("\n");//改行で配列分割
 
-  for(var i=0;i<template.length;++i){
+  for(let i = 0; i < template.length; ++i){
       convertedArray[i] = template[i].split(',');//コンマで配列分割
   }
-  for (let i = 1; i < convertedArray.length; i++) {
-    convertedArray[i][1] = parseInt(convertedArray[i][1],10);
-    convertedArray[i][2] = parseInt(convertedArray[i][2],10);
-    convertedArray[i][3] = parseInt(convertedArray[i][3],10);
-    convertedArray[i][8] = parseInt(convertedArray[i][8],10);
+  for (let i = 1; i < convertedArray.length; ++i) {
+    for(let j = 1; j < 7; j++){
+      convertedArray[i][j] = parseInt(convertedArray[i][j],10);
+    }
   }
   return convertedArray;
 }
@@ -129,9 +128,11 @@ function CSVtoArrayConverter(string){
 /*スプライト生成関数ここから*/
 function generateSprite(group, objectList){
   for(var i=1;i<objectList.length;i++){
-    var sprite = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0x0000ff }));
+    var sprite = new THREE.Sprite();
+    sprite.material = new THREE.SpriteMaterial();
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
-    sprite.name = objectList[i][0];
+    sprite.material.color.set([i][4],[i][5],[i][6]);
+    sprite.name = objectList[i][7];
     group.add(sprite);
   }
 }
