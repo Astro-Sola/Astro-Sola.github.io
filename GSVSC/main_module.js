@@ -92,10 +92,7 @@ function main(){
           selectedObjectColor = selectedObject.material.color.clone();
           selectedObject.material.color.set(0xff0000);
           objectSelectFlag = true;
-        }
-        console.log(intersects);
-        //何も入ってなくてフラグが立ってる時
-        if(intersects <= 0 && selectedObject !== null && objectSelectFlag){
+        } else if(objectSelectFlag){
           selectedObject.material.color.set(selectedObjectColor);
           selectedObjectColor = null;
           selectedObject = null;
