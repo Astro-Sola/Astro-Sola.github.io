@@ -3,7 +3,7 @@
 ////////////////////////////
 //CSVを配列にする
 function main(){
-  const starList;
+  var starList;
   var require = new XMLHttpRequest();
   require.open("get", "StarList.csv", true);
   require.send(null);
