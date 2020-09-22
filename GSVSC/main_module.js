@@ -108,12 +108,14 @@ function main(){
           }
         } else if(objectSelectFlag){
           selectedObject.material.color.set(selectedObjectColor);
+          for(let i=1; i<starList.length; i++){
+            if(selectedObject.name === starList[i][0]){
+              starNameTextElement.innerHTML = null;
+              nationNameTextElement.innerHTML = null;
+            }
+          }
           selectedObjectColor = null;
           selectedObject = null;
-
-          starNameTextElement = "N/A";
-          nationNameTextElement = "N/A";
-
           objectSelectFlag = false;
         }
 
