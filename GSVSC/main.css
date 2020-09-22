@@ -12,7 +12,7 @@ body{
 }
 div{
 	font-size: 20px;
-	text-align: center;
+	text-align: left;
 	margin: 0px auto;
 }
 #notice{
@@ -28,15 +28,12 @@ div{
 	position: absolute;
 	width: 600px;
 	height: 300px;
-	opacity: 0.8;
-	background-color: cyan;
+	background-color: rgba(0, 192, 255, 0.75);
 	border: 2px;
 }
 #stellarName{
 	color: white;
-	opacity: 1.0;
 }
 #nationName{
 	color: white;
-	opacity: 1.0;
 }
