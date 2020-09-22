@@ -36,8 +36,10 @@ div{
 #stellarName{
 	color: white;
 	padding-left: 3em;
+	padding-top: 0px;
 }
 #nationName{
 	color: white;
 	padding-left: 3em;
+	padding-top: 20px;
 }
