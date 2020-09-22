@@ -83,10 +83,6 @@ function main(){
       //フラグ
       var objectSelectFlag;
       var objectClickedFlag;
-      function ObjectClickedFlagHandler(clickedFlag){
-        if(clickedFlag){objectSelectFlag = false;}
-        else {objectSelectFlag = true;}
-      }
 
       //テキスト関係
       var starNameTextElement = document.getElementById('stellarName');
@@ -112,7 +108,6 @@ function main(){
               }
             }
             objectSelectFlag = true;
-            canvas.addEventListener("click",ObjectClickedFlagHandler(true));
           }
         } else if(objectSelectFlag){
             selectedObject.material.color.set(selectedObjectColor);
@@ -124,9 +119,9 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
           objectSelectFlag = false;
-          canvas.addEventListener("click",ObjectClickedFlagHandler(false));
           }
         }
+        console.log(objectSelectFlag);
 
         cameraControl.update();
         windowRatio = window.innerWidth / window.innerHeight;
