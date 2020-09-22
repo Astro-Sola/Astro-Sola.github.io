@@ -12,6 +12,7 @@ body{
 }
 div{
 	font-size: 20px;
+	line-height: normal;
 	text-align: left;
 	margin: 0px auto;
 }
@@ -27,14 +28,14 @@ div{
 .infoBox{
 	position: absolute;
 	background-color: rgba(0, 192, 255, 0.75);
-	border: 2px;
+	border: 10px;
 	border-color: rgba(0, 192, 255, 1);
 	padding-left: 1em;
 	color: white;
 }
 #stellarbox{
 	width: 300px;
-	height: 100px;
+	height: 50px;
 }
 #nationbox{
 	width: 300px;
@@ -43,9 +44,7 @@ div{
 
 #stellarName{
 	color: white;
-	padding-top: 0px;
 }
 #nationName{
 	color: white;
-	padding-top: 20px;
 }
