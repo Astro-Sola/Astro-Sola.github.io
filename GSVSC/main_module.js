@@ -96,10 +96,10 @@ function main(){
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
                 var starNameTextElement = document.getElementById('stellarName');
-                starNameTextElement.innerHTML = starList[i][7];
+                starNameTextElement.innerHTML = starList[i][5];
                 console.log(selectedObject.name);
                 console.log(starList[i][0]);
-                console.log(starList[i][7]);
+                console.log(starList[i][5]);
               }
             }
             
