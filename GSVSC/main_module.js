@@ -71,8 +71,9 @@ function main(){
       //マウスが動いたときに以下を実効
       canvas.addEventListener("mousemove", onMouseMove);
 
+
       //グリッド描画
-      var gridHelper = new THREE.GridHelper( 1000, 100 );
+      var gridHelper = new THREE.GridHelper( 2000, 20 );
       scene.add( gridHelper );
       var axesHelper = new THREE.AxesHelper( 5 );
       scene.add( axesHelper );
@@ -105,11 +106,12 @@ function main(){
                 nationNameTextElement.innerHTML = starList[i][6];
               }
             }
-            
             objectSelectFlag = true;
           }
         } else if(objectSelectFlag){
-          selectedObject.material.color.set(selectedObjectColor);
+          canvas.addEventListener("click",mouseClick);
+          function mouseClick(){
+            selectedObject.material.color.set(selectedObjectColor);
           for(let i=1; i<starList.length; i++){
             if(selectedObject.name === starList[i][0]){
               starNameTextElement.innerHTML = "";
@@ -119,6 +121,7 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
           objectSelectFlag = false;
+          }
         }
 
         cameraControl.update();
