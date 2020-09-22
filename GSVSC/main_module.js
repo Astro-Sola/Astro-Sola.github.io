@@ -110,6 +110,10 @@ function main(){
           selectedObject.material.color.set(selectedObjectColor);
           selectedObjectColor = null;
           selectedObject = null;
+
+          starNameTextElement = null;
+          nationNameTextElement = null;
+
           objectSelectFlag = false;
         }
 
