@@ -99,8 +99,8 @@ function main(){
             
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
-                starNameTextElement.innerHTML = "StellarSystem:" + starList[i][5];
-                nationNameTextElement.innerHTML = starList[i][6];
+                starNameTextElement.innerHTML = "StellarSystem<br>" + starList[i][5];
+                nationNameTextElement.innerHTML = "Nation<br>" + starList[i][6];
               }
             }
             
@@ -110,8 +110,8 @@ function main(){
           selectedObject.material.color.set(selectedObjectColor);
           for(let i=1; i<starList.length; i++){
             if(selectedObject.name === starList[i][0]){
-              starNameTextElement.innerHTML = null;
-              nationNameTextElement.innerHTML = null;
+              starNameTextElement.innerHTML = "StellarSystem<br>";
+              nationNameTextElement.innerHTML = "Nation<br>";
             }
           }
           selectedObjectColor = null;
