@@ -26,8 +26,6 @@ div{
 }
 #infoBox{
 	position: absolute;
-	width: 400px;
-	height: 250px;
 	background-color: rgba(0, 192, 255, 0.75);
 	border: 2px;
 	border-color: rgba(0, 192, 255, 1);
