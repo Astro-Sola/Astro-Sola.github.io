@@ -1,4 +1,5 @@
-0,x,y,z,ColorHex,Name
-1,0,0,0,#ff00ff,Lavelt
-2,-2,4,6,#00ff00,Gerden
-3,6,2,4,#0000ff,Leeus
+0,x,y,z,ColorHex,NameLatin,Nation
+1,0,0,0,#ffffff,Lavelt,Ermia/Leeis
+2,-2,4,6,#ffffff,Gerden,Belion/(Dolmnt)/glosclowic/Vitten-Kleil
+3,6,2,4,#ffffff,Leeus,Eltlia/Falelk/Jieer/Saavalion
+4,5,-2,-7,#ffffff,Taxthem,Akús/ni^nen-Shapch/Sanyeela/Rofilna

@@ -34,4 +34,9 @@ div{
 }
 #stellarName{
 	color: white;
+	opacity: 1.0;
+}
+#nationName{
+	color: white;
+	opacity: 1.0;
 }

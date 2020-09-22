@@ -79,6 +79,10 @@ function main(){
       var selectedObjectColor, selectedObject;
       //フラグ
       var objectSelectFlag;
+
+      //テキスト関係
+      var starNameTextElement = document.getElementById('stellarName');
+      var nationNameTextElement = document.getElementById('nationName');
       /*ここまで初回起動時*/
 
       /*以下それ以降*/
@@ -95,11 +99,8 @@ function main(){
             
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
-                var starNameTextElement = document.getElementById('stellarName');
-                starNameTextElement.innerHTML = starList[i][5];
-                console.log(selectedObject.name);
-                console.log(starList[i][0]);
-                console.log(starList[i][5]);
+                starNameTextElement.innerHTML = "StellarSystem:" + starList[i][5];
+                nationNameTextElement.innerHTML = starList[i][6];
               }
             }
             
