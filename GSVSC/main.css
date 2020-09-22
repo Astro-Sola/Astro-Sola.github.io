@@ -3,10 +3,6 @@
 	font-family: 'Xolonium';
 	src: url('Xolonium.otf');
 	unicode-range: U+0020-0240;
-  }
-@font-face{
-	font-family: 'SmartFontUI03';
-	src: url('03スマートフォントUI.otf');
 }
 body{
 	background-color: black;
@@ -36,6 +32,6 @@ div{
 	background-color: cyan;
 	border: 2px;
 }
-#text_small{
+#stellarName{
 	color: white;
 }

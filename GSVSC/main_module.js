@@ -92,6 +92,14 @@ function main(){
             selectedObject = intersects[0].object;
             selectedObjectColor = selectedObject.material.color.clone();
             selectedObject.material.color.set(0xff0000);
+            
+            for(let i=1; i<starList.length; i++){
+              if(selectedObject.name == starList[i][0]){
+                var starNameTextElement = document.getElementById('stellarName');
+                starNameTextElement.write(starList[i][7]);
+              }
+            }
+            
             objectSelectFlag = true;
           }
         } else if(objectSelectFlag){
