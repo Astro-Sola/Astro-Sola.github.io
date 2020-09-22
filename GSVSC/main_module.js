@@ -111,8 +111,8 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
 
-          starNameTextElement = "";
-          nationNameTextElement = "";
+          starNameTextElement = "N/A";
+          nationNameTextElement = "N/A";
 
           objectSelectFlag = false;
         }

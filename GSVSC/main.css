@@ -30,6 +30,8 @@ div{
 	height: 300px;
 	background-color: rgba(0, 192, 255, 0.75);
 	border: 2px;
+	border-color: rgba(0, 192, 255, 1);
+	padding-left: 2em;
 }
 #stellarName{
 	color: white;
