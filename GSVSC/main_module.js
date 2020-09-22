@@ -128,6 +128,7 @@ function main(){
         }
 
         console.log(objectSelectFlag);
+        console.log(objectClickedFlag);
 
         cameraControl.update();
         windowRatio = window.innerWidth / window.innerHeight;
