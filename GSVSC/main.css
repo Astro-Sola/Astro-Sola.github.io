@@ -20,6 +20,10 @@ p{
 	line-height: normal;
 	margin: 0.5em 0px;
 }
+ul{
+	line-height: normal;
+	margin: 0.5em 0px;
+}
 #notice{
 	color: red;
 	position: absolute;
