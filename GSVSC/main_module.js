@@ -122,6 +122,11 @@ function main(){
           selectedObject = null;
           objectSelectFlag = false;
         }
+        canvas.addEventListener("click",clickHandler);
+        function clickHandler(){
+          objectClickedFlag = true;
+        }
+
         console.log(objectSelectFlag);
 
         cameraControl.update();
@@ -131,6 +136,7 @@ function main(){
         renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
+        objectClickedFlag = false;
       }
 
       tick();
