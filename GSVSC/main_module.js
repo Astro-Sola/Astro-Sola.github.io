@@ -74,6 +74,8 @@ function main(){
       //グリッド描画
       var gridHelper = new THREE.GridHelper( 1000, 100 );
       scene.add( gridHelper );
+      var axesHelper = new THREE.AxesHelper( 5 );
+      scene.add( axesHelper );
 
       //選択オブジェクトの情報
       var selectedObjectColor, selectedObject;
