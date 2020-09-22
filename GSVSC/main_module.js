@@ -115,6 +115,7 @@ function main(){
               if(selectedObject.name === starList[i][0]){
                 starNameTextElement.innerHTML = "";
                 nationNameTextElement.innerHTML = "";
+              }
             }
           selectedObjectColor = null;
           selectedObject = null;
