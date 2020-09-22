@@ -26,20 +26,18 @@ div{
 }
 #infoBox{
 	position: absolute;
-	width: 600px;
-	height: 100px;
+	width: 400px;
+	height: 250px;
 	background-color: rgba(0, 192, 255, 0.75);
 	border: 2px;
 	border-color: rgba(0, 192, 255, 1);
-	padding-left: 2em;
+	padding-left: 1em;
 }
 #stellarName{
 	color: white;
-	padding-left: 3em;
 	padding-top: 0px;
 }
 #nationName{
 	color: white;
-	padding-left: 3em;
 	padding-top: 20px;
 }
