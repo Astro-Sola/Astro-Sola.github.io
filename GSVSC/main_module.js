@@ -82,6 +82,7 @@ function main(){
       var selectedObjectColor, selectedObject;
       //フラグ
       var objectSelectFlag;
+      var objectClickedFlag;
 
       //テキスト関係
       var starNameTextElement = document.getElementById('stellarName');
@@ -107,20 +108,21 @@ function main(){
               }
             }
             objectSelectFlag = true;
+            canvas.addEventListener("click",objectClickedFlag = true);
+            if(objectClickedFlag){objectSelectFlag = false};
           }
         } else if(objectSelectFlag){
-          canvas.addEventListener("click",mouseClick);
-          function mouseClick(){
             selectedObject.material.color.set(selectedObjectColor);
-          for(let i=1; i<starList.length; i++){
-            if(selectedObject.name === starList[i][0]){
-              starNameTextElement.innerHTML = "";
-              nationNameTextElement.innerHTML = "";
+            for(let i=1; i<starList.length; i++){
+              if(selectedObject.name === starList[i][0]){
+                starNameTextElement.innerHTML = "";
+                nationNameTextElement.innerHTML = "";
             }
-          }
           selectedObjectColor = null;
           selectedObject = null;
           objectSelectFlag = false;
+          canvas.addEventListener("click",objectClickedFlag = false);
+          if(objectClickedFlag){objectSelectFlag = true};
           }
         }
 
