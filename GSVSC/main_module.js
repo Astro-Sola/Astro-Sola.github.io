@@ -113,7 +113,7 @@ function main(){
             }
               objectSelectFlag = true;
           }
-        } else if(objectSelectFlag ^ objectClickedFlag){
+        } else if(XOR(objectSelectFlag, objectClickedFlag)){
             selectedObject.material.color.set(selectedObjectColor);
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
@@ -178,3 +178,8 @@ function generateSprite(group, objectList){
   }
 }
 /*スプライト生成関数ここまで*/
+/*XOR*/
+function XOR(a,b) {
+  return ( a || b ) && !( a && b );
+}
+/**/
