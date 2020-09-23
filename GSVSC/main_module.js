@@ -28,7 +28,7 @@ function main(){
       var scene = new THREE.Scene();
       scene.background = new THREE.Color(0x000000);
       //カメラの設定
-      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 1000);
+      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2000);
       camera.position.set(15, 15, 15);
       camera.lookAt(scene.position);
       //カメラコントロールの設定
@@ -39,7 +39,7 @@ function main(){
       cameraControl.key = [65, 83, 68];
       //カメラの最大最小距離の設定
       cameraControl.minDistance = 1;
-      cameraControl.maxDistance = 1000;
+      cameraControl.maxDistance = 10000;
 
       //グループの生成
       var objectGroup = new THREE.Group();
