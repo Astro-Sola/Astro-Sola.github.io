@@ -28,8 +28,8 @@ function main(){
       var scene = new THREE.Scene();
       scene.background = new THREE.Color(0x000000);
       //カメラの設定
-      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2000);
-      camera.position.set(15, 15, 15);
+      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 10000);
+      camera.position.set(150, 150, 0);
       camera.lookAt(scene.position);
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
@@ -174,7 +174,7 @@ function CSVtoArrayConverter(string){
 function generateSprite(group, objectList){
   for(let i=1;i<objectList.length;i++){
     console.log(objectList[i]);
-    var sprite = new THREE.Sprite(new THREE.SpriteMaterial({color: objectList[i][4]}));
+    var sprite = new THREE.Sprite(new THREE.SpriteMaterial({size: 10,color: objectList[i][4]}));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
     console.log(objectList[i][4]);
