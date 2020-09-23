@@ -107,14 +107,23 @@ function main(){
         if(intersects.length > 0){
           //まだ何もOSFに入っていないとき
           if(!objectSelectFlag){
-            if(selectedObject == intersects[0].object){ //選択がずれない時/ずれた時
-              selectedObject = intersects[0].object;
-              selectedObjectColor = selectedObject.material.color.clone();
-            } else {
-              selectedObject.material.color.set(selectedObjectColor);
-              selectedObject = intersects[0].object;
-              selectedObjectColor = selectedObject.material.color.clone();
+            selectedObject = intersects[0].object;
+            selectedObjectColor = selectedObject.material.color.clone();
+
+            selectedObject.material.color.set(0xff0000);
+
+            for(let i=1; i<starList.length; i++){
+              if(selectedObject.name === starList[i][0]){
+                starNameTextElement.innerHTML = starList[i][5];
+                nationNameTextElement.innerHTML = starList[i][6];
+              }
             }
+              objectSelectFlag = true;
+          } else if(selectedObject = intersects[0].object){
+            selectedObject.material.color.set(selectedObjectColor);
+            selectedObject = intersects[0].object;
+            selectedObjectColor = selectedObject.material.color.clone();
+            
             selectedObject.material.color.set(0xff0000);
 
             for(let i=1; i<starList.length; i++){
