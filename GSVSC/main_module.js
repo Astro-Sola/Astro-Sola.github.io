@@ -73,7 +73,7 @@ function main(){
 
 
       //グリッド描画
-      var gridHelper = new THREE.GridHelper( 2000, 20 );
+      var gridHelper = new THREE.GridHelper( 4000, 40 );
       scene.add( gridHelper );
       var axesHelper = new THREE.AxesHelper( 5 );
       scene.add( axesHelper );
@@ -95,6 +95,7 @@ function main(){
       /*以下それ以降*/
       /*毎tickごとの関数ここから*/
       function tick(){
+        canvas.addEventListener("click",clickHandler);
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
         //交差しているオブジェクトが１つ以上あって、それが最前面で、フラグが下りてる時
@@ -110,8 +111,9 @@ function main(){
                 nationNameTextElement.innerHTML = starList[i][6];
               }
             }
-            objectSelectFlag = true;
-            canvas.addEventListener("click",clickHandler);
+            if(objectClickedFlag){
+              objectSelectFlag = true;
+            }
           }
         }
         else if(objectSelectFlag){
