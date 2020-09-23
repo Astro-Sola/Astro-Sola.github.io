@@ -111,12 +111,9 @@ function main(){
                 nationNameTextElement.innerHTML = starList[i][6];
               }
             }
-            if(objectClickedFlag){
               objectSelectFlag = true;
-            }
           }
-        }
-        else if(objectSelectFlag){
+        } else if(objectSelectFlag){
             selectedObject.material.color.set(selectedObjectColor);
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
