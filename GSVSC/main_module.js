@@ -112,6 +112,8 @@ function main(){
               }
             }
               objectSelectFlag = true;
+          }else{
+            objectSelectFlag = false;
           }
         } else if(objectSelectFlag){
           objectSelectFlag = false;
