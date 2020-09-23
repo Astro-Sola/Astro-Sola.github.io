@@ -113,7 +113,7 @@ function main(){
             }
               objectSelectFlag = true;
           }
-        } else if(XOR(objectSelectFlag, objectClickedFlag)){
+        } else if(XOR(objectSelectFlag, objectClickedFlag) != true){
             selectedObject.material.color.set(selectedObjectColor);
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
