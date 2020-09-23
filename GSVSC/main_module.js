@@ -82,7 +82,7 @@ function main(){
       var selectedObjectColor, selectedObject;
       //フラグ
       var objectSelectFlag;
-      var objectClickedFlag;
+      var objectClickedFlag = false;
       function clickHandler(){
         objectClickedFlag = true;
       }
@@ -111,12 +111,10 @@ function main(){
                 nationNameTextElement.innerHTML = starList[i][6];
               }
             }
-            if(!objectClickedFlag){
-              objectSelectFlag = true;
-            }
+            objectSelectFlag = true;
           }
         }
-        else if(objectSelectFlag){
+        else if(objectSelectFlag && objectClickedFlag){
             selectedObject.material.color.set(selectedObjectColor);
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
