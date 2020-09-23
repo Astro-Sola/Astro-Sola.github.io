@@ -123,16 +123,6 @@ function main(){
             selectedObject.material.color.set(selectedObjectColor);
             selectedObject = intersects[0].object;
             selectedObjectColor = selectedObject.material.color.clone();
-            
-            selectedObject.material.color.set(0xff0000);
-
-            for(let i=1; i<starList.length; i++){
-              if(selectedObject.name === starList[i][0]){
-                starNameTextElement.innerHTML = starList[i][5];
-                nationNameTextElement.innerHTML = starList[i][6];
-              }
-            }
-              objectSelectFlag = true;
           }
         } else if(objectSelectFlag && objectClickedFlag){
           objectSelectFlag = false;
