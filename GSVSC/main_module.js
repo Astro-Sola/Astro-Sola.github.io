@@ -107,11 +107,11 @@ function main(){
         if(intersects.length > 0){
           //まだ何もOSFに入っていないとき
           if(!objectSelectFlag){
-            if(selectedObject != intersects[0].object){ //選択がずれた時
-              selectedObject.material.color.set(selectedObjectColor);
+            if(selectedObject == intersects[0].object){ //選択がずれない時/ずれた時
               selectedObject = intersects[0].object;
               selectedObjectColor = selectedObject.material.color.clone();
             } else {
+              selectedObject.material.color.set(selectedObjectColor);
               selectedObject = intersects[0].object;
               selectedObjectColor = selectedObject.material.color.clone();
             }
