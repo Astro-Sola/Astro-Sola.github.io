@@ -81,7 +81,7 @@ function main(){
       //選択オブジェクトの情報
       var selectedObjectColor, selectedObject;
       //フラグ
-      var objectSelectFlag;
+      var objectSelectFlag = false;
       var objectClickedFlag = false;
 
       function clickToggleSwitch(){
