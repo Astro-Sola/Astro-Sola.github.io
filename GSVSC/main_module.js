@@ -105,7 +105,7 @@ function main(){
         var intersects = raycaster.intersectObjects(objectGroup.children);
         //交差しているオブジェクトが１つ以上あって、それが最前面で、フラグが下りてる時
         if(intersects.length > 0){
-          if(!objectSelectFlag){
+          if(!objectSelectFlag || selectedObject != intersects[0].object){
             selectedObject = intersects[0].object;
             selectedObjectColor = selectedObject.material.color.clone();
             selectedObject.material.color.set(0xff0000);
