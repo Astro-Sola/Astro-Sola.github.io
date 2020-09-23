@@ -111,7 +111,9 @@ function main(){
                 nationNameTextElement.innerHTML = starList[i][6];
               }
             }
-            objectSelectFlag = true;
+            if(!objectSelectFlag && objectClickedFlag){
+              objectSelectFlag = true;
+            }
           }
         }
         else if(objectSelectFlag && objectClickedFlag){
