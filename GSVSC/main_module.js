@@ -82,9 +82,9 @@ function main(){
       var selectedObjectColor, selectedObject;
       //フラグ
       var objectSelectFlag;
-      var objectClickedFlag = true;
+      var objectClickedFlag = false;
       function clickHandler(){
-        objectClickedFlag = false;
+        objectClickedFlag = true;
       }
 
       //テキスト関係
@@ -113,7 +113,7 @@ function main(){
             }
               objectSelectFlag = true;
           }
-        } else if(objectSelectFlag && objectClickedFlag){
+        } else if(objectSelectFlag || !objectClickedFlag){
             selectedObject.material.color.set(selectedObjectColor);
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
@@ -124,7 +124,7 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
           objectSelectFlag = false;
-          objectClickedFlag = true;
+          objectClickedFlag = false;
         }
         
 
