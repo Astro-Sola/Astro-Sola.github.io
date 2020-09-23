@@ -105,7 +105,7 @@ function main(){
         var intersects = raycaster.intersectObjects(objectGroup.children);
         //交差しているオブジェクトが１つ以上あって、それが最前面で、フラグが下りてる時
         if(intersects.length > 0){
-          if(!objectSelectFlag == objectClickedFlag){
+          if(!objectSelectFlag){
             selectedObject = intersects[0].object;
             selectedObjectColor = selectedObject.material.color.clone();
             selectedObject.material.color.set(0xff0000);
@@ -118,7 +118,7 @@ function main(){
             }
               objectSelectFlag = true;
           }
-        } else if(objectSelectFlag == objectClickedFlag){
+        } else if(objectSelectFlag && objectClickedFlag){
           objectSelectFlag = false;
           selectedObject.material.color.set(selectedObjectColor);
           for(let i=1; i<starList.length; i++){
