@@ -116,7 +116,7 @@ function main(){
             }
           }
         }
-        else if(objectSelectFlag && !objectClickedFlag){
+        else if(objectSelectFlag){
             selectedObject.material.color.set(selectedObjectColor);
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
@@ -126,7 +126,9 @@ function main(){
             }
           selectedObjectColor = null;
           selectedObject = null;
-          objectSelectFlag = false;
+          if(objectClickedFlag){
+            objectSelectFlag = false;
+          }
         }
         
 
