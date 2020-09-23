@@ -83,6 +83,9 @@ function main(){
       //フラグ
       var objectSelectFlag;
       var objectClickedFlag;
+      function clickHandler(){
+        objectClickedFlag = true;
+      }
 
       //テキスト関係
       var starNameTextElement = document.getElementById('stellarName');
@@ -108,6 +111,7 @@ function main(){
               }
             }
             objectSelectFlag = true;
+            canvas.addEventListener("click",clickHandler);
           }
         }
         else if(objectSelectFlag){
@@ -122,10 +126,7 @@ function main(){
           selectedObject = null;
           objectSelectFlag = false;
         }
-        canvas.addEventListener("click",clickHandler);
-        function clickHandler(){
-          objectClickedFlag = true;
-        }
+        
 
         console.log(objectSelectFlag);
         console.log(objectClickedFlag);
