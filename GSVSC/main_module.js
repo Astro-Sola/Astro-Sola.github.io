@@ -112,6 +112,7 @@ function main(){
               }
             }
               objectSelectFlag = true;
+              objectClickedFlag = false;
           }
         } else if(objectSelectFlag){
             selectedObject.material.color.set(selectedObjectColor);
