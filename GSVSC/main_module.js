@@ -114,19 +114,16 @@ function main(){
               objectSelectFlag = true;
           }
         } else if(objectSelectFlag){
-            objectSelectFlag = false;
-            if(!objectClickedFlag){
-                selectedObject.material.color.set(selectedObjectColor);
-              for(let i=1; i<starList.length; i++){
-                if(selectedObject.name === starList[i][0]){
-                  starNameTextElement.innerHTML = "";
-                  nationNameTextElement.innerHTML = "";
-                }
-              }
-              selectedObjectColor = null;
-              selectedObject = null;
+          objectSelectFlag = false;
+          selectedObject.material.color.set(selectedObjectColor);
+          for(let i=1; i<starList.length; i++){
+            if(selectedObject.name === starList[i][0]){
+              starNameTextElement.innerHTML = "";
+              nationNameTextElement.innerHTML = "";
             }
-            objectClickedFlag = false;
+          }
+          selectedObjectColor = null;
+          selectedObject = null;
         }
         
 
