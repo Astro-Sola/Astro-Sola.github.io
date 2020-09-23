@@ -83,9 +83,15 @@ function main(){
       //フラグ
       var objectSelectFlag;
       var objectClickedFlag = false;
-      function clickHandler(){
-        objectClickedFlag = true;
+
+      function clickToggleSwitch(){
+        if(objectClickedFlag){
+          objectClickedFlag = false;
+        }else{
+          objectClickedFlag = true;
+        }
       }
+      canvas.addEventListener("click",clickToggleSwitch);
 
       //テキスト関係
       var starNameTextElement = document.getElementById('stellarName');
@@ -95,7 +101,6 @@ function main(){
       /*以下それ以降*/
       /*毎tickごとの関数ここから*/
       function tick(){
-        canvas.addEventListener("click",clickHandler);
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
         //交差しているオブジェクトが１つ以上あって、それが最前面で、フラグが下りてる時
@@ -104,7 +109,7 @@ function main(){
             selectedObject = intersects[0].object;
             selectedObjectColor = selectedObject.material.color.clone();
             selectedObject.material.color.set(0xff0000);
-            
+
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
                 starNameTextElement.innerHTML = starList[i][5];
@@ -112,8 +117,6 @@ function main(){
               }
             }
               objectSelectFlag = true;
-          }else{
-            objectSelectFlag = false;
           }
         } else if(objectSelectFlag){
           objectSelectFlag = false;
@@ -127,7 +130,6 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
         }
-        
 
         console.log(objectSelectFlag);
         console.log(objectClickedFlag);
