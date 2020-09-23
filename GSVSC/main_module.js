@@ -103,9 +103,10 @@ function main(){
       function tick(){
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
-        //交差しているオブジェクトが１つ以上あって、それが最前面で、フラグが下りてる時
+        //交差しているオブジェクトが１つ以上ある時
         if(intersects.length > 0){
-          if(!objectSelectFlag || selectedObject != intersects[0].object){
+          //まだ何もOSFに入っていないとき
+          if(!objectSelectFlag){
             selectedObject = intersects[0].object;
             selectedObjectColor = selectedObject.material.color.clone();
             selectedObject.material.color.set(0xff0000);
@@ -117,6 +118,9 @@ function main(){
               }
             }
               objectSelectFlag = true;
+          } else if(selectedObject != intersects[0].object){ //選択がずれた時
+            selectedObject.material.color.set(selectedObjectColor);
+            selectedObject = intersects[0].object;
           }
         } else if(objectSelectFlag && objectClickedFlag){
           objectSelectFlag = false;
