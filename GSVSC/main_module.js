@@ -124,6 +124,7 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
           objectSelectFlag = false;
+          objectClickedFlag = false;
         }
         
 
@@ -137,7 +138,6 @@ function main(){
         renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
-        objectClickedFlag = false;
       }
 
       tick();
