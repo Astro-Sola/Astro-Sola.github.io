@@ -82,9 +82,9 @@ function main(){
       var selectedObjectColor, selectedObject;
       //フラグ
       var objectSelectFlag;
-      var objectClickedFlag = false;
+      var objectClickedFlag = true;
       function clickHandler(){
-        objectClickedFlag = true;
+        objectClickedFlag = false;
       }
 
       //テキスト関係
@@ -124,7 +124,7 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
           objectSelectFlag = false;
-          objectClickedFlag = false;
+          objectClickedFlag = true;
         }
         
 
