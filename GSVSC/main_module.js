@@ -112,9 +112,8 @@ function main(){
               }
             }
               objectSelectFlag = true;
-              objectClickedFlag = false;
           }
-        } else if(objectSelectFlag){
+        } else if(objectSelectFlag && objectClickedFlag){
             selectedObject.material.color.set(selectedObjectColor);
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
