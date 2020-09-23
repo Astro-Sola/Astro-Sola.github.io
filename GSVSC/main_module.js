@@ -126,9 +126,7 @@ function main(){
             }
           selectedObjectColor = null;
           selectedObject = null;
-          if(objectClickedFlag){
-            objectSelectFlag = false;
-          }
+          objectSelectFlag = false;
         }
         
 
