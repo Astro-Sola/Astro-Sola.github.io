@@ -119,10 +119,6 @@ function main(){
               }
             }
               objectSelectFlag = true;
-          } else if(selectedObject = intersects[0].object){
-            selectedObject.material.color.set(selectedObjectColor);
-            selectedObject = intersects[0].object;
-            selectedObjectColor = selectedObject.material.color.clone();
           }
         } else if(objectSelectFlag && objectClickedFlag){
           objectSelectFlag = false;
