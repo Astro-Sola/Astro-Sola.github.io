@@ -105,12 +105,12 @@ function main(){
         var intersects = raycaster.intersectObjects(objectGroup.children);
         //交差しているオブジェクトが１つ以上ある時
         if(intersects.length > 0){
-          //まだ何もOSFに入っていないとき
+          //何もOSFに入っていないとき
           if(!objectSelectFlag){
             selectedObject = intersects[0].object;
             selectedObjectColor = selectedObject.material.color.clone();
 
-            selectedObject.material.color.set(0xff0000);
+            selectedObject.material.color.set(0xffff00);
 
             for(let i=1; i<starList.length; i++){
               if(selectedObject.name === starList[i][0]){
@@ -120,7 +120,7 @@ function main(){
             }
               objectSelectFlag = true;
           }
-        } else if(objectSelectFlag && objectClickedFlag){
+        } else if(objectClickedFlag){
           objectSelectFlag = false;
           selectedObject.material.color.set(selectedObjectColor);
           for(let i=1; i<starList.length; i++){
