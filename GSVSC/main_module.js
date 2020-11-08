@@ -85,7 +85,7 @@ function main(){
       var objectClickedFlag = false;
 
       function clickToggleSwitch(){
-        if(objectClickedFlag){
+        if(objectClickedFlag && objectSelectFlag){
           objectClickedFlag = false;
         }else{
           objectClickedFlag = true;
