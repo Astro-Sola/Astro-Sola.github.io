@@ -104,7 +104,7 @@ function main(){
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
         //交差しているオブジェクトが１つ以上ある時
-        if(intersects.length > 0 || selectedObject!=intersects[0].object){
+        if(intersects.length > 0 || selectedObject!==intersects[0].object){
           //何もOSFに入っていないとき
           if(!objectSelectFlag){
             selectedObject = intersects[0].object;
