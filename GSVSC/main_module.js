@@ -120,7 +120,7 @@ function main(){
             }
               objectSelectFlag = true;
           }
-        } else if(objectClickedFlag){
+        } else if(objectSelectFlag && objectClickedFlag){
           objectSelectFlag = false;
           selectedObject.material.color.set(selectedObjectColor);
           for(let i=1; i<starList.length; i++){
