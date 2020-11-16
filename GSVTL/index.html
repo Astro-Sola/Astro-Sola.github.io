@@ -57,6 +57,9 @@
                     coordinate.x = parseFloat(coordinate.x) + inportXOffset;
                     coordinate.y = parseFloat(coordinate.y) + inportYOffset;
                     coordinate.z = parseFloat(coordinate.z) + inportZOffset;
+                    coordinate.x = coordinate.x.toFixed(1);
+                    coordinate.y = coordinate.y.toFixed(1);
+                    coordinate.z = coordinate.z.toFixed(1);
                     outPutTexts = document.writeln(n + "," + coordinate.x + "," + coordinate.y + "," + coordinate.z + ",#333333,,<br>");
                 }
             }
