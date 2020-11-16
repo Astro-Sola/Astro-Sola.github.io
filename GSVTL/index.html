@@ -8,6 +8,9 @@
         <form>
             <p>Quantity: <input type="number" id="quantity"/></p>
             <p>Maximum Radius: <input type="number" id="maxRadius"/></p>
+            <p>X Offset: <input type="number" id="xOffset"/></p>
+            <p>Y Offset: <input type="number" id="yOffset"/></p>
+            <p>Z Offset: <input type="number" id="zOffset"/></p>
             <input type="button" value="Generate!" onclick="generateTexts()"/>
         </form>
     </head>
@@ -42,11 +45,18 @@
             }
             function generateTexts(){
                 var outPutTexts =document.getElementById("main");
+                const inportXOffset = parseFloat(document.getElementById("xOffset").value);
+                const inportYOffset = parseFloat(document.getElementById("yOffset").value);
+                const inportZOffset = parseFloat(document.getElementById("zOffset").value);
                 const inportedQuantity = parseFloat(document.getElementById("quantity").value);
                 const inportedRadius = parseFloat(document.getElementById("maxRadius").value);
                 for(var n = 0; n < inportedQuantity ; n++){
                     var coordinate = new Vector3(0,0,0);
                     coordinate = sphereVector3(inportedRadius);
+                    console.log(inportXOffset);
+                    coordinate.x = parseFloat(coordinate.x) + inportXOffset;
+                    coordinate.y = parseFloat(coordinate.y) + inportYOffset;
+                    coordinate.z = parseFloat(coordinate.z) + inportZOffset;
                     outPutTexts = document.writeln(n + "," + coordinate.x + "," + coordinate.y + "," + coordinate.z + ",#333333,,<br>");
                 }
             }
