@@ -2,12 +2,56 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>GSVTL Beta</title>
+        <title>GSVRSG</title>
         <link rel="stylesheet" type="text/css" href="main.css">
+        <p>Input any numbers.</p>
+        <form>
+            <p>Quantity: <input type="number" id="quantity"/></p>
+            <p>Maximum Radius: <input type="number" id="maxRadius"/></p>
+            <input type="button" value="Generate!" onclick="generateTexts()"/>
+        </form>
     </head>
     <body>
-        <div class="Timeline">
-            <p>GSV</p>
-        </div>
+        <script>
+            class Vector3 {
+                constructor(x,y,z){
+                    this.x = x;
+                    this.y = y;
+                    this.z = z;
+                }
+            }
+            function getRandom(min, max){
+                return Math.random() * (max - min) + min;
+            }
+            function sphereVector3(maximumRadius){
+                var vector3 = new Vector3;
+                var ez = getRandom(-1, 1);
+                var r = getRandom(0, 1);
+                var phi = getRandom(0, Math.PI * 2);
+                var ex = Math.cbrt(r) * Math.sqrt(1 - ez * ez) * Math.cos(phi);
+                var ey = Math.cbrt(r) * Math.sqrt(1 - ez * ez) * Math.sin(phi);
+                ez = Math.cbrt(r) * ez;
+                var x = ex * maximumRadius;
+                var y = ey * maximumRadius;
+                var z = ez * maximumRadius;
+                vector3.x = x.toFixed(1);
+                vector3.y = y.toFixed(1);
+                vector3.z = z.toFixed(1);
+                console.log(vector3);
+                return vector3;
+            }
+            function generateTexts(){
+                var outPutTexts =document.getElementById("main");
+                const inportedQuantity = parseFloat(document.getElementById("quantity").value);
+                const inportedRadius = parseFloat(document.getElementById("maxRadius").value);
+                for(var n = 0; n < inportedQuantity ; n++){
+                    var coordinate = new Vector3(0,0,0);
+                    coordinate = sphereVector3(inportedRadius);
+                    outPutTexts = document.writeln(n + "," + coordinate.x + "," + coordinate.y + "," + coordinate.z + ",#333333,,<br>");
+                }
+            }
+                    
+        </script>
+        <p id="main"></p>
     </body>
 </html>
