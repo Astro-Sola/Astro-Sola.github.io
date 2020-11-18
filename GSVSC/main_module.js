@@ -175,7 +175,7 @@ function CSVtoArrayConverter(string){
 function generateSprite(group, objectList){
   for(let i=1;i<objectList.length;i++){
     console.log(objectList[i]);
-    var sprite = new THREE.Sprite(new THREE.SpriteMaterial({alphaMap: img/StellarSystem.png, size: 10,color: objectList[i][4]}));
+    var sprite = new THREE.Sprite(new THREE.SpriteMaterial({alphaMap: GSVSC/img/StellarSystem.png, size: 10,color: objectList[i][4]}));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
     console.log(objectList[i][4]);
