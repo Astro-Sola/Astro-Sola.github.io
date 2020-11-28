@@ -35,7 +35,8 @@ function main(){
       cameraControl.rotateSpeed = 1.2;
       cameraControl.zoomSpeed = 0.6;
       //カメラの入力キーの設定
-      cameraControl.keys = [68, 83, 65];
+      cameraControl.mouseButtons.LEFT = THREE.MOUSE.PAN;
+      cameraControl.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
       //カメラの最大最小距離の設定
       cameraControl.minDistance = 1;
       cameraControl.maxDistance = 1000;
