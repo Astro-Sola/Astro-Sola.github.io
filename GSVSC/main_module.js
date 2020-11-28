@@ -8,7 +8,7 @@ function main(){
   require.open("get", "StarList.csv", true);
   require.send(null);
   require.onload = function(){
-    starList = CSVtoArrayConverter(require.responseText);
+    starList = CSVtoArrayConverter(require.responseText,1);
 
       /*初回起動時の動作*/
 
@@ -150,7 +150,7 @@ main();
 /*メインプログラムはここまで*/
 ////////////////////////////
 
-function CSVtoArrayConverter(string){
+function CSVtoArrayConverter(string, CSVtype){
   var convertedArray = [];
   var template = string.split("\n");//改行で配列分割
 
@@ -158,8 +158,10 @@ function CSVtoArrayConverter(string){
       convertedArray[i] = template[i].split(',');//コンマで配列分割
   }
   for (let i = 1; i < convertedArray.length; ++i) {
-    for(let j = 1; j < 4; j++){
-      convertedArray[i][j] = parseInt(convertedArray[i][j],10);
+    if(CSVtype == 1){
+      for(let j = 1; j < 4; j++){
+        convertedArray[i][j] = parseInt(convertedArray[i][j],10);
+      }
     }
   }
   return convertedArray;
