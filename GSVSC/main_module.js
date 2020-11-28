@@ -27,15 +27,15 @@ function main(){
       var scene = new THREE.Scene();
       scene.background = new THREE.Color(0x000000);
       //カメラの設定
-      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 10000);
-      camera.position.set(150, 150, 0);
+      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 1000);
+      camera.position.set(-150, 150, 0);
       camera.lookAt(scene.position);
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
       cameraControl.rotateSpeed = 1.2;
       cameraControl.zoomSpeed = 0.6;
       //カメラの入力キーの設定
-      cameraControl.key = [65, 83, 68];
+      cameraControl.key = [68, 83, 65];
       //カメラの最大最小距離の設定
       cameraControl.minDistance = 1;
       cameraControl.maxDistance = 10000;
