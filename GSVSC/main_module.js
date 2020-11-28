@@ -27,7 +27,7 @@ function main(){
       var scene = new THREE.Scene();
       scene.background = new THREE.Color(0x000000);
       //カメラの設定
-      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 5000);
+      var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2500);
       camera.position.set(-150, 150, 0);
       camera.lookAt(scene.position);
       //カメラコントロールの設定
@@ -75,8 +75,6 @@ function main(){
       //グリッド描画
       var gridHelper = new THREE.GridHelper( 4000, 40 );
       scene.add( gridHelper );
-      var axesHelper = new THREE.AxesHelper( 5 );
-      scene.add( axesHelper );
 
       //選択オブジェクトの情報
       var selectedObjectColor, selectedObject;
@@ -133,7 +131,7 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
         }
-        cameraTargetTextElement.innerHTML = "x:" + cameraControl.target.x.toFixed(1) + ", y:" + cameraControl.target.y.toFixed(1) + ", z:" + cameraControl.target.z.toFixed(1);
+        cameraTargetTextElement.innerHTML = "x:" + cameraControl.target.x.toFixed(1) + ", y:" + cameraControl.target.y.toFixed(1) + ", z:" + (-1 * cameraControl.target.z.toFixed(1));
         cameraControl.update();
         windowRatio = window.innerWidth / window.innerHeight;
         camera.aspect = windowRatio;
