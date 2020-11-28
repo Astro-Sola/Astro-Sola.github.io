@@ -28,7 +28,7 @@ function main(){
       scene.background = new THREE.Color(0x000000);
       //カメラの設定
       var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2500);
-      camera.position.set(-150, 150, 0);
+      camera.position.set(0, 150, -150);
       camera.lookAt(scene.position);
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
