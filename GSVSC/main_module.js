@@ -9,7 +9,6 @@ function main(){
   require.send(null);
   require.onload = function(){
     starList = CSVtoArrayConverter(require.responseText);
-    console.log(starList);
 
       /*初回起動時の動作*/
 
@@ -133,10 +132,6 @@ function main(){
           selectedObject = null;
         }
 
-        console.log(selectedObject);
-        console.log(objectSelectFlag);
-        console.log(objectClickedFlag);
-
         cameraControl.update();
         windowRatio = window.innerWidth / window.innerHeight;
         camera.aspect = windowRatio;
@@ -174,12 +169,9 @@ function CSVtoArrayConverter(string){
 /*スプライト生成関数ここから*/
 function generateSprite(group, objectList){
   for(let i=1;i<objectList.length;i++){
-    console.log(objectList[i]);
     var sprite = new THREE.Sprite(new THREE.SpriteMaterial({alphaMap: new THREE.TextureLoader().load('img/StellarSystem.png'), size: 10,color: objectList[i][4]}));
     sprite.position.set(objectList[i][1], objectList[i][2], objectList[i][3]);
     sprite.name = objectList[i][0];
-    console.log(objectList[i][4]);
-    console.log(sprite.material.color);
     group.add(sprite);
   }
 }
