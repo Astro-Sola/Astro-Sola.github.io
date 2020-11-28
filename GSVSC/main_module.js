@@ -140,6 +140,7 @@ function main(){
         renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
+        console.log(camera.position);
       }
 
       tick();
