@@ -96,6 +96,7 @@ function main(){
       //テキスト関係
       var starNameTextElement = document.getElementById('stellarName');
       var nationNameTextElement = document.getElementById('nationName');
+      var cameraTargetTextElement = document.getElementById('CameraTarget');
       /*ここまで初回起動時*/
 
       /*以下それ以降*/
@@ -132,7 +133,7 @@ function main(){
           selectedObjectColor = null;
           selectedObject = null;
         }
-
+        cameraTargetTextElement.innerHTML = "x:" + cameraControl.target.x.toFixed(1) + ", y:" + cameraControl.target.y.toFixed(1) + ", z:" + cameraControl.target.z.toFixed(1);
         cameraControl.update();
         windowRatio = window.innerWidth / window.innerHeight;
         camera.aspect = windowRatio;
@@ -140,7 +141,6 @@ function main(){
         renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
-        console.log(cameraControl.target);
       }
 
       tick();
