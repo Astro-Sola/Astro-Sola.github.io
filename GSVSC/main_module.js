@@ -55,9 +55,6 @@ function main(){
       //レイキャストの生成
       var raycaster = new THREE.Raycaster();
 
-      //正確な時間経過
-      var clock = new THREE.Clock();
-
       /*マウスがキャンバス上で動いたときの関数ここから*/
       function onMouseMove(event){
         var element = event.currentTarget;
@@ -105,8 +102,6 @@ function main(){
       /*以下それ以降*/
       /*毎tickごとの関数ここから*/
       function tick(){
-        var deltaT = clock.getDelta();
-
         raycaster.setFromCamera( mousePosition, camera );
         var intersects = raycaster.intersectObjects(objectGroup.children);
         //交差しているオブジェクトが１つ以上ある時
@@ -142,7 +137,7 @@ function main(){
         cameraControl.update();
         windowRatio = window.innerWidth / window.innerHeight;
         camera.aspect = windowRatio;
-        cameraControl.update(deltaT);
+        camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
