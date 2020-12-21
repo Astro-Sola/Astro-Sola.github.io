@@ -142,7 +142,7 @@ function main(){
         cameraControl.update();
         windowRatio = window.innerWidth / window.innerHeight;
         camera.aspect = windowRatio;
-        cameraControl.update(delta);
+        cameraControl.update(deltaT);
         renderer.setSize(window.innerWidth,window.innerHeight);
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
