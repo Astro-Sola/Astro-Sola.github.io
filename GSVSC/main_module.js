@@ -29,7 +29,7 @@ function main(){
       //カメラの設定
       var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2500);
 
-      controlSetup(camera)
+      controlSetup(camera);
       function controlSetup(camera){
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
