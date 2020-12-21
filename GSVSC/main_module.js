@@ -28,10 +28,10 @@ function main(){
       scene.background = new THREE.Color(0x000000);
       //カメラの設定
       var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2500);
-      
+
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
-      controlSetup(cameraControl)
+      controlSetup(cameraControl);
       function controlSetup(camera){
       //カメラの入力キーの設定
       camera.mouseButtons.LEFT = THREE.MOUSE.PAN;
