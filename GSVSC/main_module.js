@@ -28,18 +28,14 @@ function main(){
       scene.background = new THREE.Color(0x000000);
       //カメラの設定
       var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2500);
-
-      controlSetup(camera);
-      function controlSetup(camera){
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
       //カメラの入力キーの設定
-      cameraControl.mouseButtons.LEFT = THREE.MOUSE.PAN;
-      cameraControl.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
+      //cameraControl.mouseButtons.LEFT = THREE.MOUSE.PAN;
+      //cameraControl.mouseButtons.RIGHT = THREE.MOUSE.ROTATE;
       //カメラの最大最小距離の設定
-      cameraControl.minDistance = 1;
-      cameraControl.maxDistance = 1000;
-      }
+      //cameraControl.minDistance = 1;
+      //cameraControl.maxDistance = 1000;
 
       //グループの生成
       var objectGroup = new THREE.Group();
