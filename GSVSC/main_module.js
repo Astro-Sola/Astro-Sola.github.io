@@ -29,10 +29,10 @@ function main(){
       //カメラの設定
       var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2500);
       camera.position.set(0, 150, -150);
-      camera.lookAt(scene.position);
+      //camera.lookAt(scene.position);
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
-      /*
+      
       cameraControl.rotateSpeed = 1.2;
       cameraControl.zoomSpeed = 0.6;
       //カメラの入力キーの設定
@@ -41,7 +41,7 @@ function main(){
       //カメラの最大最小距離の設定
       cameraControl.minDistance = 1;
       cameraControl.maxDistance = 1000;
-      */
+      
 
       //グループの生成
       var objectGroup = new THREE.Group();
