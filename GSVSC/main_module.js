@@ -28,11 +28,11 @@ function main(){
       scene.background = new THREE.Color(0x000000);
       //カメラの設定
       var camera = new THREE.PerspectiveCamera(50, windowRatio, 1, 2500);
-      camera.position.set(0, 0, -20);
+      camera.position.set(0, 10, 20);
       //camera.lookAt(scene.position);
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
-      
+      cameraControl.target.set(0, 0, 0);
       cameraControl.rotateSpeed = 1.2;
       cameraControl.zoomSpeed = 0.6;
       //カメラの入力キーの設定
