@@ -32,7 +32,7 @@ function main(){
       //camera.lookAt(scene.position);
       //カメラコントロールの設定
       var cameraControl = new THREE.TrackballControls(camera, renderer.domElement);
-      cameraControl.target.set(0, 0, 0);
+      cameraControl.target.set(0, 10, 0);
       cameraControl.rotateSpeed = 1.2;
       cameraControl.zoomSpeed = 0.6;
       //カメラの入力キーの設定
