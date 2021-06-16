@@ -3,44 +3,25 @@
 <head>
   <meta charset="utf-8">
   <title>Astro GSV Lab.</title>
-  <style>
-    body{
-      background: black;
-      font-family: Meiryo;
-      color: cyan;
-    }
-    div{
-      background: teal;
-      font-family: Meiryo;
-      width: 300px;
-      padding: 10px;
-      text-align: center;
-      border: 1px solid cyan;
-      margin: 40px auto;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-  <div>
-    <h1>Astro GSV Lab.</h1>
-    <p>
-    	<a href="GSVSC/index.html">GSV Star Chart beta v0.0.1</a>
-    </p>
-    <p>
-    	<a href="divided_system/MouseOver.html">マウスオーバー実験</a>
-    </p>
-    <p>
-    	<a href="json_reading/JsonReadingIndex.html">文書実験</a>
-    </p>
-    <p>
-      <a href="GSVSLG/index.html">星のデータの生成</a>
-    </p>
-    <P><a href="GUITest/index.html">GUI実験</a>
-    </P>
-    <p><a href="ClassTest/index.html">クラスの実験</a>
-    </p>
-    <p><a href="GSVTL/index.html">大宇宙年表</a>
-    </p>
-    <p>© AstroSola 2020</p>
-  </div>
+  <ul class="head_navigation">
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#gsv">Gions:antveed</a></li>
+    <li><a href="#fnh">Fédération de la Nation Histruit</a></li>
+    <li><a href="#wug">World Ugomemo Gallery</a></li>
+    <li class="right"><a href="#read_me">Read Me</a></li>
+  </ul>
+  <h1 class="home">Read Me</h1>
+  <p class="text">このサイトは創作者アストロ・ソラ（Astro Sola）が各界隈宛てのWeb資料を公開するものです。</p>
+  <h1 class="gsv">Gions:antveed</h1>
+  <p class="text">以下創作世界観「大宇宙」向けのWeb資料です。</p>
+  <ul>
+    <li><a class="text" href="GSVSC/index.html">大宇宙3D地図</a></li>
+  </ul>
+  <h1 class="fnh">Fédération de la Nation Histruit</h1>
+  <p class="text">以下塑史国家連盟向けのWeb資料です。</p>
+  <h1 class="wug">World Ugomemo Gallery</h1>
+  <p class="text">以下は「うごくメモ帳軍事部国家統一世界線向け」のWeb資料です。</p>
 </body>

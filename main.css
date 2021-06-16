@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Oxanium';
+    src: url('OxaniumExtralight.ttf');
+}
+body{
+    color: white;
+    background-color: black;
+    font-family: 'Oxanium';
+}
+h1{
+    font-size: 25px;
+    padding-left: 10px;
+    background-color: teal;
+    color: white;
+}
+p.text{
+    font-size: 14px;
+    padding-left: 20px;
+}
+a:link{color: turquoise}
+a:visited{color: #ffaa66;}
+a:hover{color: white;}
+
+ul.head_navigation {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: teal;
+}
+ul.head_navigation li {
+	float: left;
+}
+ul.head_navigation li a {
+	display: block;
+	padding: 14px 16px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+}
+ul.head_navigation li a:hover:not(.active) {
+	background-color: #00cccc;
+}
+ul.head_navigation li a.active {
+	background-color: #ffaa66;
+}
+ul.head_navigation li.right {
+	float: right;
+}
+@media screen and (max-width: 480px) {
+	ul.head_navigation li.right, ul.head_navigation li {
+		float: none;
+	}
+}
