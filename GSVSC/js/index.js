@@ -1,7 +1,23 @@
-// ページの読み込みを待つ
-window.addEventListener('load', init);
+//処理の実行順の指定
+async function progress(){
+    const xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "json/data_list.json", true);
+    xmlHttp.send(null);
+    xmlHttp.onload = function(){
+        let data = xmlHttp.responseText;
+        let jsonedData = JSON.parse(data || "null");
+        return jsonedData;
+    }
+    await new Promise((resolve, reject) => setTimeout(resolve, 50));
+    let jsonData = xmlHttp.onload();
+    init(jsonData);
+}
 
-function init() {
+// ページの読み込みを待つ
+window.addEventListener('load', progress);
+
+function init(jsonData) {
+    
     // set display size
     const width = 960;
     const height = 540;
@@ -32,27 +48,38 @@ function init() {
     const mouse = new THREE.Vector2();
     const raycaster = new THREE.Raycaster();
     raycaster.params.Points.threshold = 0.2;
-
-
-    // group
-    const starDataArray = [];
-    const starData = new StarData();
-    const pointsArray = [];
-    StarData.scene = scene;
-    // create points
-    starData.pointMakeInstance(scene, pointsArray, 0, 0, 0, 0x8888ff);
-    starData.name = "lavelt";
-    starDataArray.push( starData );
-    starData.pointMakeInstance(scene, pointsArray, 4, 2, 5, 0x002288);
-    starData.name = "Leeus";
-    starDataArray.push( starData );
-    // event
-    canvas.addEventListener('mousemove', onMouseMove);
-    // picked object parameter
+    // picked object
     let pickedObject = undefined;
     let pickedObjectColor = 0;
     let intersects = [];
-    console.log(starDataArray);
+    // html-flags
+    let nameExecFlg = false;
+
+
+    // make instance
+    const starDataArray = [];
+    const pointsArray = [];
+    const nameArray = [];
+    const nationArray = [];
+    for(let i = 0; i < jsonData.length; i++ ){
+        starDataArray[i] = jsonData[i];
+        //
+        const geometry = new THREE.BufferGeometry();
+        const position = jsonData[i].position;
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute( position, 3 ));
+        const material = new THREE.PointsMaterial({ size:1, color: parseInt( jsonData[i].color, 16 )});
+        const point = new THREE.Points( geometry, material );
+        point.name = jsonData[i].id;
+        scene.add(point);
+        pointsArray.push(point);
+        //
+        const stellarName = jsonData[i].name;
+        nameArray.push(stellarName);
+        //
+        const nationName = jsonData[i].nation;
+        nationArray.push(nationName);
+    }
+    canvas.addEventListener('mousemove', onMouseMove);    
 
     /////
     onResize();
@@ -61,20 +88,11 @@ function init() {
 
     // per everyframes
     function tick() {
-        // raycast
-        raycaster.setFromCamera(mouse, camera);
-        // intersects
+        // raycaster & intersects
+        raycaster.setFromCamera( mouse, camera );
         intersects = raycaster.intersectObjects(pointsArray);
-        if(pickedObject != undefined){
-            pickedObject.material.color.set( pickedObjectColor );
-            pickedObject = undefined;
-        }
-        // if raycast stat not zero.
-        if( intersects.length > 0 ){
-            pickedObject = intersects[0].object;
-            pickedObjectColor = pickedObject.material.color.getHex();
-            pickedObject.material.color.set( 0xffff00 );
-        }
+        // if clicked
+        canvas.addEventListener('click', onMouseClick);
         // update camera controls
         controls.update();
         // if resize
@@ -83,6 +101,7 @@ function init() {
         renderer.render(scene, camera);
         requestAnimationFrame(tick);
     }
+
     /////
     // resize event
     function onResize() {
@@ -90,10 +109,7 @@ function init() {
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     }
-    /////
-    // make points instance
-    /////
-    // mousemove
+    // mouse moved
     function onMouseMove(event){
         const element = event.currentTarget;
         // canvas XY
@@ -105,24 +121,30 @@ function init() {
         // nomalization
         mouse.x = ( x / w ) * 2 - 1;
         mouse.y = -( y / h ) * 2 + 1;
+        // object status
     }
-    
-}
-
-class StarData{
-    constructor(scene, id, name ){
-        this.scene = scene;
-        this.points = new THREE.Points();
-        this.id = id;
-        this.name = name;
+    // mouse clicked
+    function onMouseClick(event){
+        if( pickedObject != undefined ){
+            if( intersects.length > 0 ){
+                pickedObject.material.color.set( pickedObjectColor );
+                starDataTextReplace(pickedObject);
+                pickedObject = undefined;
+            }
+        }
+        if( intersects.length > 0 ){
+            pickedObject = intersects[0].object;
+            pickedObjectColor = pickedObject.material.color.getHex();
+            pickedObject.material.color.set( 0xffff00 );
+            starDataTextReplace(pickedObject);
+        }
     }
-    pointMakeInstance( scene, pointsArray, x, y, z ,color ) {
-        const geometry = new THREE.BufferGeometry();
-        const position = [ x, y, z ];
-        geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( position, 3 ) );
-        const material = new THREE.PointsMaterial({ size: 1, color: color });
-        const points = new THREE.Points( geometry, material );
-        scene.add( points );
-        pointsArray.push( points );
+    function starDataTextReplace(object){
+        let id = object.name;
+        //
+        let stellarName = nameArray[id];
+        let stellarNameText = document.getElementById('labels');
+        //
+        stellarNameText.innerText = stellarName + "星系";
     }
 }

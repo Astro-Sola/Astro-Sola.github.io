@@ -1,0 +1,29 @@
+[
+    {
+        "id" : 0,
+        "name" : "ラヴェルト",
+        "position" : [ 0, 0, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 8,
+        "nation" : [ "エルミア", "リーエス" ]
+    },
+    {
+        "id" : 1,
+        "name" : "ランテ",
+        "position" : [ -2, -8, 4 ],
+        "color" : "0x662288",
+        "type" : 0,
+        "planet" : 8,
+        "nation" : [ "リーエス" ]
+    },
+    {
+        "id" : 2,
+        "name" : "ゲルデン",
+        "position" : [ 6, 2, -7 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 8,
+        "nation" : [ "ベリオン" ]
+    }
+]

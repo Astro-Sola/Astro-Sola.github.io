@@ -6,6 +6,8 @@
   <script src="js/three.js"></script>
   <!-- コントロール -->
   <script src="js/OrbitControls.js"></script>
+  <!-- JSON File -->
+  <script src="json/data_list.json"></script>
   <!-- CSS2D -->
   <script src="js/CSS2DRenderer.js"></script>
   <!-- index.jsを読み込む -->
@@ -24,10 +26,20 @@
     #labels {
       margin: 20px 0 0 20px;
       position: absolute;
-      left: 0;
-      top: 0;
+      left:0;
+      top:0;
+      font-size: 1.5em;
       color: white;
-      font-family: monospace;
+      font-family: "Helvetica Neue",
+      Arial,
+      "Hiragino Kaku Gothic ProN",
+      "Hiragino Sans",
+      Meiryo,
+      sans-serif;
+    }
+    li{
+      position: relative;
+      font-size: 1em;
     }
   </style>
 </head>
@@ -35,6 +47,9 @@
   <div id="container">
     <canvas id="mainCanvas"></canvas>
     <div id="labels"></div>
+    <div id="labels">
+      <ul id="nation"></ul>
+    </div>
   </div>
 </body>
 </html>
