@@ -23,12 +23,11 @@
       height: 100%;
       overflow: hidden;
     }
-    #labels {
+    #textContainer {
       margin: 20px 0 0 20px;
       position: absolute;
       left:0;
       top:0;
-      font-size: 1.5em;
       color: white;
       font-family: "Helvetica Neue",
       Arial,
@@ -36,6 +35,9 @@
       "Hiragino Sans",
       Meiryo,
       sans-serif;
+    }
+    #labels {
+      
     }
     li{
       position: relative;
@@ -46,8 +48,8 @@
 <body>
   <div id="container">
     <canvas id="mainCanvas"></canvas>
-    <div id="labels"></div>
-    <div id="labels">
+    <div id="textContainer">
+      <p id="labels"></p>
       <ul id="nation"></ul>
     </div>
   </div>

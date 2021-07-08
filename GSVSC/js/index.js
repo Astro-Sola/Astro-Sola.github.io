@@ -29,13 +29,14 @@ function init(jsonData) {
 
     // made a scene
     const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x000000, 2000, 3000);
+    scene.fog = new THREE.Fog(0x000000, 3000, 4500);
 
     // made camera
-    const camera = new THREE.PerspectiveCamera(45, width / height);
+    const camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
 
     // camera offsets
-    camera.position.set(0, 0, 20);
+    camera.position.set(0, 600, 600);
+    camera.setRotationFromAxisAngle(-1,0,0);
 
     // made camera controls
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -47,13 +48,15 @@ function init(jsonData) {
     // mouse and raycaster
     const mouse = new THREE.Vector2();
     const raycaster = new THREE.Raycaster();
-    raycaster.params.Points.threshold = 0.2;
+    //raycaster.params.Points.threshold = 0.2;
     // picked object
     let pickedObject = undefined;
     let pickedObjectColor = 0;
     let intersects = [];
-    // html-flags
-    let nameExecFlg = false;
+    // helper
+    const axesHelper = new THREE.AxesHelper( 2000 );
+    scene.add( axesHelper );
+
 
 
     // make instance
@@ -67,7 +70,7 @@ function init(jsonData) {
         const geometry = new THREE.BufferGeometry();
         const position = jsonData[i].position;
         geometry.setAttribute('position', new THREE.Float32BufferAttribute( position, 3 ));
-        const material = new THREE.PointsMaterial({ size:1, color: parseInt( jsonData[i].color, 16 )});
+        const material = new THREE.PointsMaterial({ size:10, color: parseInt( jsonData[i].color, 16 )});
         const point = new THREE.Points( geometry, material );
         point.name = jsonData[i].id;
         scene.add(point);
@@ -145,6 +148,14 @@ function init(jsonData) {
         let stellarName = nameArray[id];
         let stellarNameText = document.getElementById('labels');
         //
+        let stellarNation = nationArray[id];
+        let stellarNationText = document.getElementById('nation');
+        //
         stellarNameText.innerText = stellarName + "星系";
+        let stellarNationTextArray = [];
+        for( i=0; i < stellarNation.length; i++ ){
+            stellarNationTextArray.push( '<li>' + stellarNation[i] + '</li>' );
+        }
+        stellarNationText.innerHTML = stellarNationTextArray.join('');
     }
 }

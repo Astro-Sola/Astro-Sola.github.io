@@ -6,24 +6,312 @@
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 8,
-        "nation" : [ "エルミア", "リーエス" ]
+        "nation" : [ "エルミア共和国", "リーエス連邦" ]
     },
     {
         "id" : 1,
-        "name" : "ランテ",
-        "position" : [ -2, -8, 4 ],
-        "color" : "0x662288",
+        "name" : "レーウス",
+        "position" : [ 722, 220, -84 ],
+        "color" : "0xffffff",
         "type" : 0,
         "planet" : 8,
-        "nation" : [ "リーエス" ]
+        "nation" : [ "ヴァルエルク共和国", "エルトリア王国", "サーヴァリア企業連合", "ジエール管理主義帝国連邦" ]
     },
     {
         "id" : 2,
         "name" : "ゲルデン",
-        "position" : [ 6, 2, -7 ],
+        "position" : [ 54, 37, -63 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 8,
-        "nation" : [ "ベリオン" ]
+        "nation" : [ "ヴィッテンクレイル神国", "グロスクロイツ社会主義共和国連邦", "ドルムント共和国", "ベリオン共和国" ]
+    },
+    {
+        "id" : 3,
+        "name" : "コトー・スロー",
+        "position" : [ 384, -72, 249 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 8,
+        "nation" : [ "ショアン王国", "チャンタ民主戦線共和国", "ファルトクノア共和国", "ミルドネジア共和国" ]
+    },
+    {
+        "id" : 4,
+        "name" : "ハシェーグ",
+        "position" : [ 640, 42, 219 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ニーネン＝シャプチ", "アクース連合" ]
+    },
+    {
+        "id" : 5,
+        "name" : "スカーラ",
+        "position" : [ 360, -283, 120 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "スカリア星団共和国" ]
+    },
+    {
+        "id" : 6,
+        "name" : "デスペア",
+        "position" : [ 249, 312, -372 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "インテグラシオン連邦" ]
+    },
+    {
+        "id" : 7,
+        "name" : "アルシェイン",
+        "position" : [ 336, -137, 36 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "無主地" ]
+    },
+    {
+        "id" : 8,
+        "name" : "ゾラック",
+        "position" : [ 99, 32, -246 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ゾラック銀河通信社" ]
+    },
+    {
+        "id" : 9,
+        "name" : "タシャタシャンタ",
+        "position" : [ 126, 128, -189 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "タプナパキ王国" ]
+    },
+    {
+        "id" : 10,
+        "name" : "ダクラーシュ",
+        "position" : [ 186, 112, -252 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "モンタク代理政府" ]
+    },
+    {
+        "id" : 11,
+        "name" : "モンタク",
+        "position" : [ 207, 226, -201 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "モンタク代理政府" ]
+    },
+    {
+        "id" : 12,
+        "name" : "ジェレーグ",
+        "position" : [ 738, 235, -146 ],
+        "color" : "0x000090",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ジエール管理主義帝国連邦" ]
+    },
+    {
+        "id" : 13,
+        "name" : "アレーグ",
+        "position" : [ 762, 243, -185 ],
+        "color" : "0x000090",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ジエール管理主義帝国連邦" ]
+    },
+    {
+        "id" : 14,
+        "name" : "ゼヌレーグ",
+        "position" : [ 794, 266, -202 ],
+        "color" : "0x000090",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ジエール管理主義帝国連邦" ]
+    },
+    {
+        "id" : 15,
+        "name" : "ツェッレーグ",
+        "position" : [ 805, 281, -228 ],
+        "color" : "0x000090",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ジエール管理主義帝国連邦" ]
+    },
+    {
+        "id" : 16,
+        "name" : "アマイファン",
+        "position" : [ 704, 231, -171 ],
+        "color" : "0x008900",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "天嶺皇国" ]
+    },
+    {
+        "id" : 17,
+        "name" : "サーガイノ",
+        "position" : [ 731, 221, -213 ],
+        "color" : "0x008900",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "天嶺皇国" ]
+    },
+    {
+        "id" : 18,
+        "name" : "ジーカイ",
+        "position" : [ 681, 192, -228 ],
+        "color" : "0x008900",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "天嶺皇国" ]
+    },
+    {
+        "id" : 19,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 20,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 21,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 22,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 23,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 24,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
+    },
+    {
+        "id" : 7,
+        "name" : "GSV-???",
+        "position" : [ -20, -6, 0 ],
+        "color" : "0xffffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "???" ]
     }
 ]
