@@ -4,7 +4,7 @@
         "name" : "ラヴェルト",
         "position" : [ 0, 0, 0 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 1,
         "planet" : 8,
         "nation" : [ "エルミア共和国", "リーエス連邦" ]
     },
@@ -13,7 +13,7 @@
         "name" : "レーウス",
         "position" : [ -722, 220, 84 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 1,
         "planet" : 8,
         "nation" : [ "ヴァルエルク共和国", "エルトリア王国", "サーヴァリア企業連合", "ジエール管理主義帝国連邦" ]
     },
@@ -22,7 +22,7 @@
         "name" : "ゲルデン",
         "position" : [ -54, 37, 63 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 1,
         "planet" : 8,
         "nation" : [ "ヴィッテンクレイル神国", "グロスクロイツ社会主義共和国連邦", "ドルムント共和国", "ベリオン共和国" ]
     },
@@ -31,7 +31,7 @@
         "name" : "コトー・スロー",
         "position" : [ -384, -72, -249 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 1,
         "planet" : 8,
         "nation" : [ "ショアン王国", "チャンタ民主戦線共和国", "ファルトクノア共和国", "ミルドネジア共和国" ]
     },
@@ -40,7 +40,7 @@
         "name" : "ハシェーグ",
         "position" : [ -640, 42, -219 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 1,
         "planet" : 0,
         "nation" : [ "ニーネン＝シャプチ", "アクース連合" ]
     },
@@ -49,7 +49,7 @@
         "name" : "スカーラ",
         "position" : [ -360, -283, -120 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 1,
         "planet" : 0,
         "nation" : [ "スカリア星団共和国" ]
     },
@@ -58,7 +58,7 @@
         "name" : "デスペア",
         "position" : [ -249, 312, 372 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 1,
         "planet" : 0,
         "nation" : [ "インテグラシオン連邦" ]
     },
@@ -67,7 +67,7 @@
         "name" : "アルシェイン",
         "position" : [ -336, -137, -36 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 3,
         "planet" : 0,
         "nation" : [ "無主地" ]
     },
@@ -76,7 +76,7 @@
         "name" : "ゾラック",
         "position" : [ -99, 32, 246 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 2,
         "planet" : 0,
         "nation" : [ "ゾラック銀河通信社" ]
     },
@@ -85,7 +85,7 @@
         "name" : "タシャタシャンタ",
         "position" : [ -126, 128, 189 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 2,
         "planet" : 0,
         "nation" : [ "タプナパキ王国" ]
     },
@@ -103,7 +103,7 @@
         "name" : "モンタク",
         "position" : [ -207, 226, 201 ],
         "color" : "0xffffff",
-        "type" : 0,
+        "type" : 2,
         "planet" : 0,
         "nation" : [ "モンタク代理政府" ]
     },
@@ -157,7 +157,7 @@
         "name" : "サーガイノ",
         "position" : [ -731, 221, 213 ],
         "color" : "0x008900",
-        "type" : 0,
+        "type" : 2,
         "planet" : 0,
         "nation" : [ "天嶺皇国" ]
     },
@@ -184,15 +184,15 @@
         "name" : "ヂャイラ",
         "position" : [ -665, 198, 58 ],
         "color" : "0x00ace9",
-        "type" : 0,
+        "type" : 2,
         "planet" : 0,
         "nation" : [ "ヒューヴル女王国（エルトリア王国保護下）" ]
     },
     {
         "id" : 21,
         "name" : "ニェパーシュ",
-        "position" : [ -654, 201, 94 ],
-        "color" : "0xffff00",
+        "position" : [ -654, 185, 94 ],
+        "color" : "0xeedd00",
         "type" : 0,
         "planet" : 0,
         "nation" : [ "サーヴァリア企業連合" ]
@@ -200,8 +200,8 @@
     {
         "id" : 22,
         "name" : "アプレジラ",
-        "position" : [ -632, 217, 121 ],
-        "color" : "0xffff00",
+        "position" : [ -632, 203, 121 ],
+        "color" : "0xeedd00",
         "type" : 0,
         "planet" : 0,
         "nation" : [ "サーヴァリア企業連合" ]
@@ -209,109 +209,91 @@
     {
         "id" : 23,
         "name" : "リーファイ",
-        "position" : [ -622, 182, 71 ],
-        "color" : "0xffff00",
+        "position" : [ -622, 164, 71 ],
+        "color" : "0xeedd00",
         "type" : 0,
         "planet" : 0,
         "nation" : [ "サーヴァリア企業連合" ]
     },
     {
         "id" : 24,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "name" : "スィトローク",
+        "position" : [ -684, 182, 117 ],
+        "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "nation" : [ "ヴァルエルク共和国" ]
+    },{
+        "id" : 25,
+        "name" : "ベレーヌ",
+        "position" : [ -688, 163, 139 ],
+        "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "nation" : [ "ヴァルエルク共和国" ]
+    },{
+        "id" : 26,
+        "name" : "フィハネ",
+        "position" : [ -645, 171, 172 ],
+        "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "nation" : [ "ヴァルエルク共和国" ]
+    },{
+        "id" : 27,
+        "name" : "フォルバ",
+        "position" : [ -613, 185, 244 ],
+        "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "nation" : [ "ヴァルエルク共和国" ]
+    },{
+        "id" : 28,
+        "name" : "ジェダ",
+        "position" : [ -627, 191, 308 ],
+        "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "nation" : [ "ヴァルエルク共和国" ]
+    },{
+        "id" : 29,
+        "name" : "パグル",
+        "position" : [ -679, 159, 326  ],
+        "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "nation" : [ "ヴァルエルク共和国" ]
+    },{
+        "id" : 30,
+        "name" : "ウィガクロンタレ",
+        "position" : [ -607, 143, 155 ],
+        "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "nation" : [ "ヴァルエルク共和国" ]
+    },{
+        "id" : 31,
+        "name" : "ギプテ",
+        "position" : [ -588, 121, 129 ],
+        "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
-        "type" : 0,
+        "nation" : [ "ヴァルエルク共和国" ]
+    },{
+        "id" : 32,
+        "name" : "？？？",
+        "position" : [ -657, 141, 14 ],
+        "color" : "0x00c48b",
+        "type" : 4,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
-        "type" : 0,
+        "nation" : [ "クレデリア共和国（虚体空間）" ]
+    },{
+        "id" : 33,
+        "name" : "ツーンカ",
+        "position" : [ -544, 113, 29  ],
+        "color" : "0xff9c00",
+        "type" : 2,
         "planet" : 0,
-        "nation" : [ "???" ]
-    },
-    {
-        "id" : 7,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
-        "type" : 0,
-        "planet" : 0,
-        "nation" : [ "???" ]
+        "nation" : [ "ツーンカ共和国" ]
     }
 ]

@@ -35,7 +35,7 @@ function init(jsonData) {
     const camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
 
     // camera offsets
-    camera.position.set(0, 600, -600);
+    camera.position.set(-400, 400, -600);
     camera.setRotationFromAxisAngle(-1,0,0);
 
     // made camera controls
@@ -48,7 +48,7 @@ function init(jsonData) {
     // mouse and raycaster
     const mouse = new THREE.Vector2();
     const raycaster = new THREE.Raycaster();
-    raycaster.params.Points.threshold = 5;
+    raycaster.params.Points.threshold = 5.0;
     // picked object
     let pickedObject = undefined;
     let pickedObjectColor = 0;
@@ -70,7 +70,15 @@ function init(jsonData) {
         const geometry = new THREE.BufferGeometry();
         const position = jsonData[i].position;
         geometry.setAttribute('position', new THREE.Float32BufferAttribute( position, 3 ));
-        const material = new THREE.PointsMaterial({ size:10, color: parseInt( jsonData[i].color, 16 )});
+        const material = new THREE.PointsMaterial({
+            size:10,
+            map : texturePicker(jsonData[i].type),
+            transparent: true,
+            alphaTest: 0.5,
+            sizeAttenuation: true,
+            color: parseInt( jsonData[i].color, 16)
+        });
+        console.log(jsonData[i].map);
         const point = new THREE.Points( geometry, material );
         point.name = jsonData[i].id;
         scene.add(point);
@@ -82,6 +90,7 @@ function init(jsonData) {
         const nationName = jsonData[i].nation;
         nationArray.push(nationName);
     }
+    mobStar(10000, 2000, -400)
     canvas.addEventListener('mousemove', onMouseMove);    
 
     /////
@@ -138,7 +147,7 @@ function init(jsonData) {
         if( intersects.length > 0 ){
             pickedObject = intersects[0].object;
             pickedObjectColor = pickedObject.material.color.getHex();
-            pickedObject.material.color.set( 0xffff00 );
+            pickedObject.material.color.set( 0xffffaa );
             starDataTextReplace(pickedObject);
         }
     }
@@ -157,5 +166,35 @@ function init(jsonData) {
             stellarNationTextArray.push( '<li>' + stellarNation[i] + '</li>' );
         }
         stellarNationText.innerHTML = stellarNationTextArray.join('');
+    }
+    function mobStar(quantity, radius, offsetX){
+        const geometry = new THREE.BufferGeometry();
+        const position = [];
+        for(let i=0; i < quantity; i++){
+            let r = Math.random() * Math.pow(radius, 3);
+            let z = (Math.random()-0.5)* 2;
+            let phi = Math.random() * Math.PI * 2;
+            let x = Math.cbrt(r) * Math.sqrt(1 - z * z) * Math.cos(phi)  + offsetX;
+            let y = Math.cbrt(r) * Math.sqrt(1 - z * z) * Math.sin(phi) ;
+            z = Math.cbrt(r) * z;
+            position.push(x, y, z);
+        }
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute( position, 3 ));
+        const material = new THREE.PointsMaterial({color: 0x444444});
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+    }
+    function texturePicker(texutreNumber){
+        let texture;
+        const loader = new THREE.TextureLoader();
+        switch(texutreNumber){
+            case 0: texture = loader.load("img/starclass00.png"); break;
+            case 1: texture = loader.load("img/starclass01.png"); break;
+            case 2: texture = loader.load("img/starclass02.png"); break;
+            case 3: texture = loader.load("img/starclass03.png"); break;
+            case 4: texture = loader.load("img/starclass04.png"); break;
+        }
+        console.log(texture);
+        return texture;
     }
 }
