@@ -35,7 +35,7 @@ function init(jsonData) {
     const camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
 
     // camera offsets
-    camera.position.set(0, 600, 600);
+    camera.position.set(0, 600, -600);
     camera.setRotationFromAxisAngle(-1,0,0);
 
     // made camera controls
@@ -48,7 +48,7 @@ function init(jsonData) {
     // mouse and raycaster
     const mouse = new THREE.Vector2();
     const raycaster = new THREE.Raycaster();
-    //raycaster.params.Points.threshold = 0.2;
+    raycaster.params.Points.threshold = 5;
     // picked object
     let pickedObject = undefined;
     let pickedObjectColor = 0;

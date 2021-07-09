@@ -11,7 +11,7 @@
     {
         "id" : 1,
         "name" : "レーウス",
-        "position" : [ 722, 220, -84 ],
+        "position" : [ -722, 220, 84 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 8,
@@ -20,7 +20,7 @@
     {
         "id" : 2,
         "name" : "ゲルデン",
-        "position" : [ 54, 37, -63 ],
+        "position" : [ -54, 37, 63 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 8,
@@ -29,7 +29,7 @@
     {
         "id" : 3,
         "name" : "コトー・スロー",
-        "position" : [ 384, -72, 249 ],
+        "position" : [ -384, -72, -249 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 8,
@@ -38,7 +38,7 @@
     {
         "id" : 4,
         "name" : "ハシェーグ",
-        "position" : [ 640, 42, 219 ],
+        "position" : [ -640, 42, -219 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
@@ -47,7 +47,7 @@
     {
         "id" : 5,
         "name" : "スカーラ",
-        "position" : [ 360, -283, 120 ],
+        "position" : [ -360, -283, -120 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
@@ -56,7 +56,7 @@
     {
         "id" : 6,
         "name" : "デスペア",
-        "position" : [ 249, 312, -372 ],
+        "position" : [ -249, 312, 372 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
@@ -65,7 +65,7 @@
     {
         "id" : 7,
         "name" : "アルシェイン",
-        "position" : [ 336, -137, 36 ],
+        "position" : [ -336, -137, -36 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
@@ -74,7 +74,7 @@
     {
         "id" : 8,
         "name" : "ゾラック",
-        "position" : [ 99, 32, -246 ],
+        "position" : [ -99, 32, 246 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
@@ -83,7 +83,7 @@
     {
         "id" : 9,
         "name" : "タシャタシャンタ",
-        "position" : [ 126, 128, -189 ],
+        "position" : [ -126, 128, 189 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
@@ -92,7 +92,7 @@
     {
         "id" : 10,
         "name" : "ダクラーシュ",
-        "position" : [ 186, 112, -252 ],
+        "position" : [-186, 112, 252 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
@@ -101,7 +101,7 @@
     {
         "id" : 11,
         "name" : "モンタク",
-        "position" : [ 207, 226, -201 ],
+        "position" : [ -207, 226, 201 ],
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
@@ -110,7 +110,7 @@
     {
         "id" : 12,
         "name" : "ジェレーグ",
-        "position" : [ 738, 235, -146 ],
+        "position" : [ -738, 235, 146 ],
         "color" : "0x000090",
         "type" : 0,
         "planet" : 0,
@@ -119,7 +119,7 @@
     {
         "id" : 13,
         "name" : "アレーグ",
-        "position" : [ 762, 243, -185 ],
+        "position" : [ -762, 243, 185 ],
         "color" : "0x000090",
         "type" : 0,
         "planet" : 0,
@@ -128,7 +128,7 @@
     {
         "id" : 14,
         "name" : "ゼヌレーグ",
-        "position" : [ 794, 266, -202 ],
+        "position" : [ -794, 266, 202 ],
         "color" : "0x000090",
         "type" : 0,
         "planet" : 0,
@@ -137,7 +137,7 @@
     {
         "id" : 15,
         "name" : "ツェッレーグ",
-        "position" : [ 805, 281, -228 ],
+        "position" : [ -805, 281, 228 ],
         "color" : "0x000090",
         "type" : 0,
         "planet" : 0,
@@ -146,7 +146,7 @@
     {
         "id" : 16,
         "name" : "アマイファン",
-        "position" : [ 704, 231, -171 ],
+        "position" : [ -704, 231, 171 ],
         "color" : "0x008900",
         "type" : 0,
         "planet" : 0,
@@ -155,7 +155,7 @@
     {
         "id" : 17,
         "name" : "サーガイノ",
-        "position" : [ 731, 221, -213 ],
+        "position" : [ -731, 221, 213 ],
         "color" : "0x008900",
         "type" : 0,
         "planet" : 0,
@@ -164,7 +164,7 @@
     {
         "id" : 18,
         "name" : "ジーカイ",
-        "position" : [ 681, 192, -228 ],
+        "position" : [ -681, 192, 228 ],
         "color" : "0x008900",
         "type" : 0,
         "planet" : 0,
@@ -172,48 +172,48 @@
     },
     {
         "id" : 19,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "name" : "スロアーユ",
+        "position" : [ -687, 201, 82 ],
+        "color" : "0xff00b0",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
+        "nation" : [ "エルトリア王国" ]
     },
     {
         "id" : 20,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "name" : "ヂャイラ",
+        "position" : [ -665, 198, 58 ],
+        "color" : "0x00ace9",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
+        "nation" : [ "ヒューヴル女王国（エルトリア王国保護下）" ]
     },
     {
         "id" : 21,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "name" : "ニェパーシュ",
+        "position" : [ -654, 201, 94 ],
+        "color" : "0xffff00",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
+        "nation" : [ "サーヴァリア企業連合" ]
     },
     {
         "id" : 22,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "name" : "アプレジラ",
+        "position" : [ -632, 217, 121 ],
+        "color" : "0xffff00",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
+        "nation" : [ "サーヴァリア企業連合" ]
     },
     {
         "id" : 23,
-        "name" : "GSV-???",
-        "position" : [ -20, -6, 0 ],
-        "color" : "0xffffff",
+        "name" : "リーファイ",
+        "position" : [ -622, 182, 71 ],
+        "color" : "0xffff00",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "???" ]
+        "nation" : [ "サーヴァリア企業連合" ]
     },
     {
         "id" : 24,
