@@ -48,7 +48,7 @@ function init(jsonData) {
     // mouse and raycaster
     const mouse = new THREE.Vector2();
     const raycaster = new THREE.Raycaster();
-    raycaster.params.Points.threshold = 5.0;
+    raycaster.params.Points.threshold = 2.0;
     // picked object
     let pickedObject = undefined;
     let pickedObjectColor = 0;
@@ -78,7 +78,6 @@ function init(jsonData) {
             sizeAttenuation: true,
             color: parseInt( jsonData[i].color, 16)
         });
-        console.log(jsonData[i].map);
         const point = new THREE.Points( geometry, material );
         point.name = jsonData[i].id;
         scene.add(point);
@@ -89,8 +88,11 @@ function init(jsonData) {
         //
         const nationName = jsonData[i].nation;
         nationArray.push(nationName);
+        //
+        if(jsonData[i].connectMaj.length != 0){linesegment(jsonData, i);}
     }
-    mobStar(10000, 2000, -400)
+    mobStar(10000, 1600, -400, 0, 0, 0x444444, 0);
+    mobStar(1000, 200, -400, -75, 273, 0x556677, 1);
     canvas.addEventListener('mousemove', onMouseMove);    
 
     /////
@@ -135,6 +137,7 @@ function init(jsonData) {
         mouse.y = -( y / h ) * 2 + 1;
         // object status
     }
+    //////
     // mouse clicked
     function onMouseClick(event){
         if( pickedObject != undefined ){
@@ -160,30 +163,56 @@ function init(jsonData) {
         let stellarNation = nationArray[id];
         let stellarNationText = document.getElementById('nation');
         //
-        stellarNameText.innerText = stellarName + "星系";
+        stellarNameText.innerText = stellarName + "星系, ID：" + id ;
         let stellarNationTextArray = [];
         for( i=0; i < stellarNation.length; i++ ){
             stellarNationTextArray.push( '<li>' + stellarNation[i] + '</li>' );
         }
         stellarNationText.innerHTML = stellarNationTextArray.join('');
     }
-    function mobStar(quantity, radius, offsetX){
+    //////
+    // mobstar
+    function mobStar(quantity, radius, offsetX, offsetY, offsetZ, color, type){
         const geometry = new THREE.BufferGeometry();
         const position = [];
         for(let i=0; i < quantity; i++){
-            let r = Math.random() * Math.pow(radius, 3);
+            let r ;
+            switch(type){
+                case 0: r = Math.pow(radius, 3) * Math.random() ;break;
+                case 1: let rp = Math.pow(Math.random(), 8);
+                r = Math.pow(radius, 3) * rp ; break;
+            }
             let z = (Math.random()-0.5)* 2;
             let phi = Math.random() * Math.PI * 2;
-            let x = Math.cbrt(r) * Math.sqrt(1 - z * z) * Math.cos(phi)  + offsetX;
-            let y = Math.cbrt(r) * Math.sqrt(1 - z * z) * Math.sin(phi) ;
-            z = Math.cbrt(r) * z;
+            let x = Math.cbrt(r) * Math.sqrt(1 - z * z) * Math.cos(phi) + offsetX;
+            let y = Math.cbrt(r) * Math.sqrt(1 - z * z) * Math.sin(phi) + offsetY;
+            z = Math.cbrt(r) * z + offsetZ;
             position.push(x, y, z);
         }
         geometry.setAttribute('position', new THREE.Float32BufferAttribute( position, 3 ));
-        const material = new THREE.PointsMaterial({color: 0x444444});
+        const material = new THREE.PointsMaterial({color: color});
         const points = new THREE.Points(geometry, material);
         scene.add(points);
     }
+    // linesegment
+    function linesegment(sourceData, id){
+        const material = new THREE.LineBasicMaterial({
+            color: 0x666666,
+        });
+        for(let i=0; i < sourceData[id].connectMaj.length; i++){
+            let points = [];
+            let startPointPos  = new THREE.Vector3(sourceData[id].position[0], sourceData[id].position[1], sourceData[id].position[2]);
+            points.push(startPointPos);
+            let endPointId = sourceData[id].connectMaj[i];
+            let endPointPos  = new THREE.Vector3(sourceData[endPointId].position[0], sourceData[endPointId].position[1], sourceData[endPointId].position[2]);
+            points.push(endPointPos);
+            console.log(points);
+            const geometry = new THREE.BufferGeometry().setFromPoints( points );
+            const line = new THREE.LineSegments(geometry, material);
+            scene.add(line);
+        }
+    }
+    //////
     function texturePicker(texutreNumber){
         let texture;
         const loader = new THREE.TextureLoader();
@@ -194,7 +223,6 @@ function init(jsonData) {
             case 3: texture = loader.load("img/starclass03.png"); break;
             case 4: texture = loader.load("img/starclass04.png"); break;
         }
-        console.log(texture);
         return texture;
     }
 }

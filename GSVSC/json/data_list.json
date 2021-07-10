@@ -6,7 +6,9 @@
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 8,
-        "nation" : [ "エルミア共和国", "リーエス連邦" ]
+        "nation" : [ "エルミア共和国", "リーエス連邦" ],
+        "connectMaj" : [ 2 ],
+        "connectMin" : [  ] 
     },
     {
         "id" : 1,
@@ -15,7 +17,9 @@
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 8,
-        "nation" : [ "ヴァルエルク共和国", "エルトリア王国", "サーヴァリア企業連合", "ジエール管理主義帝国連邦" ]
+        "nation" : [ "ヴァルエルク共和国", "エルトリア王国", "サーヴァリア企業連合", "ジエール管理主義帝国連邦" ],
+        "connectMaj" : [ 12, 19, 20, 24 ],
+        "connectMin" : [  ] 
     },
     {
         "id" : 2,
@@ -24,7 +28,9 @@
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 8,
-        "nation" : [ "ヴィッテンクレイル神国", "グロスクロイツ社会主義共和国連邦", "ドルムント共和国", "ベリオン共和国" ]
+        "nation" : [ "ヴィッテンクレイル神国", "グロスクロイツ社会主義共和国連邦", "ドルムント共和国", "ベリオン共和国" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },
     {
         "id" : 3,
@@ -33,7 +39,9 @@
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 8,
-        "nation" : [ "ショアン王国", "チャンタ民主戦線共和国", "ファルトクノア共和国", "ミルドネジア共和国" ]
+        "nation" : [ "ショアン王国", "チャンタ民主戦線共和国", "ファルトクノア共和国", "ミルドネジア共和国" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },
     {
         "id" : 4,
@@ -42,16 +50,20 @@
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 0,
-        "nation" : [ "ニーネン＝シャプチ", "アクース連合" ]
+        "nation" : [ "ニーネン＝シャプチ", "アクース連合" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },
     {
         "id" : 5,
         "name" : "スカーラ",
-        "position" : [ -360, -283, -120 ],
+        "position" : [ -313, -30, 254 ],
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 0,
-        "nation" : [ "スカリア星団共和国" ]
+        "nation" : [ "スカリア星団共和国" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },
     {
         "id" : 6,
@@ -60,7 +72,9 @@
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 0,
-        "nation" : [ "インテグラシオン連邦" ]
+        "nation" : [ "インテグラシオン連邦" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },
     {
         "id" : 7,
@@ -69,7 +83,9 @@
         "color" : "0xffffff",
         "type" : 3,
         "planet" : 0,
-        "nation" : [ "無主地" ]
+        "nation" : [ "無主地" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },
     {
         "id" : 8,
@@ -78,7 +94,9 @@
         "color" : "0xffffff",
         "type" : 2,
         "planet" : 0,
-        "nation" : [ "ゾラック銀河通信社" ]
+        "nation" : [ "ゾラック銀河通信社" ],
+        "connectMaj" : [ 9 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 9,
@@ -87,7 +105,9 @@
         "color" : "0xffffff",
         "type" : 2,
         "planet" : 0,
-        "nation" : [ "タプナパキ王国" ]
+        "nation" : [ "タプナパキ王国" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },
     {
         "id" : 10,
@@ -96,7 +116,9 @@
         "color" : "0xffffff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "モンタク代理政府" ]
+        "nation" : [ "モンタク代理政府" ],
+        "connectMaj" : [ 11 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 11,
@@ -105,7 +127,9 @@
         "color" : "0xffffff",
         "type" : 2,
         "planet" : 0,
-        "nation" : [ "モンタク代理政府" ]
+        "nation" : [ "モンタク代理政府" ],
+        "connectMaj" : [ 35 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 12,
@@ -114,7 +138,9 @@
         "color" : "0x000090",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ジエール管理主義帝国連邦" ]
+        "nation" : [ "ジエール管理主義帝国連邦" ],
+        "connectMaj" : [ 1, 13 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 13,
@@ -123,7 +149,9 @@
         "color" : "0x000090",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ジエール管理主義帝国連邦" ]
+        "nation" : [ "ジエール管理主義帝国連邦" ],
+        "connectMaj" : [ 14 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 14,
@@ -132,7 +160,9 @@
         "color" : "0x000090",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ジエール管理主義帝国連邦" ]
+        "nation" : [ "ジエール管理主義帝国連邦" ],
+        "connectMaj" : [ 13, 15 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 15,
@@ -141,16 +171,20 @@
         "color" : "0x000090",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ジエール管理主義帝国連邦" ]
+        "nation" : [ "ジエール管理主義帝国連邦" ],
+        "connectMaj" : [ 14 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 16,
-        "name" : "アマイファン",
+        "name" : "ジーカイ",
         "position" : [ -704, 231, 171 ],
         "color" : "0x008900",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "天嶺皇国" ]
+        "nation" : [ "天嶺皇国" ],
+        "connectMaj" : [ 12, 13 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 17,
@@ -159,16 +193,20 @@
         "color" : "0x008900",
         "type" : 2,
         "planet" : 0,
-        "nation" : [ "天嶺皇国" ]
+        "nation" : [ "天嶺皇国" ],
+        "connectMaj" : [ 16, 18 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 18,
-        "name" : "ジーカイ",
+        "name" : "アマイファン",
         "position" : [ -681, 192, 228 ],
         "color" : "0x008900",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "天嶺皇国" ]
+        "nation" : [ "天嶺皇国" ],
+        "connectMaj" : [ 16, 17 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 19,
@@ -177,7 +215,9 @@
         "color" : "0xff00b0",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "エルトリア王国" ]
+        "nation" : [ "エルトリア王国" ],
+        "connectMaj" : [ 20 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 20,
@@ -186,7 +226,9 @@
         "color" : "0x00ace9",
         "type" : 2,
         "planet" : 0,
-        "nation" : [ "ヒューヴル女王国（エルトリア王国保護下）" ]
+        "nation" : [ "ヒューヴル女王国（エルトリア王国保護下）" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },
     {
         "id" : 21,
@@ -195,7 +237,9 @@
         "color" : "0xeedd00",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "サーヴァリア企業連合" ]
+        "nation" : [ "サーヴァリア企業連合" ],
+        "connectMaj" : [ 19 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 22,
@@ -204,7 +248,9 @@
         "color" : "0xeedd00",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "サーヴァリア企業連合" ]
+        "nation" : [ "サーヴァリア企業連合" ],
+        "connectMaj" : [ 21 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 23,
@@ -213,7 +259,9 @@
         "color" : "0xeedd00",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "サーヴァリア企業連合" ]
+        "nation" : [ "サーヴァリア企業連合" ],
+        "connectMaj" : [ 21 ],
+        "connectMin" : [  ]
     },
     {
         "id" : 24,
@@ -222,7 +270,9 @@
         "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ヴァルエルク共和国" ]
+        "nation" : [ "ヴァルエルク共和国" ],
+        "connectMaj" : [ 25 ],
+        "connectMin" : [  ]
     },{
         "id" : 25,
         "name" : "ベレーヌ",
@@ -230,7 +280,9 @@
         "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ヴァルエルク共和国" ]
+        "nation" : [ "ヴァルエルク共和国" ],
+        "connectMaj" : [ 26 ],
+        "connectMin" : [  ]
     },{
         "id" : 26,
         "name" : "フィハネ",
@@ -238,7 +290,9 @@
         "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ヴァルエルク共和国" ]
+        "nation" : [ "ヴァルエルク共和国" ],
+        "connectMaj" : [ 30, 27 ],
+        "connectMin" : [  ]
     },{
         "id" : 27,
         "name" : "フォルバ",
@@ -246,7 +300,9 @@
         "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ヴァルエルク共和国" ]
+        "nation" : [ "ヴァルエルク共和国" ],
+        "connectMaj" : [ 28, 29 ],
+        "connectMin" : [  ]
     },{
         "id" : 28,
         "name" : "ジェダ",
@@ -254,7 +310,9 @@
         "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ヴァルエルク共和国" ]
+        "nation" : [ "ヴァルエルク共和国" ],
+        "connectMaj" : [ 29 ],
+        "connectMin" : [  ]
     },{
         "id" : 29,
         "name" : "パグル",
@@ -262,7 +320,9 @@
         "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ヴァルエルク共和国" ]
+        "nation" : [ "ヴァルエルク共和国" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     },{
         "id" : 30,
         "name" : "ウィガクロンタレ",
@@ -270,7 +330,9 @@
         "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ヴァルエルク共和国" ]
+        "nation" : [ "ヴァルエルク共和国" ],
+        "connectMaj" : [ 31 ],
+        "connectMin" : [  ]
     },{
         "id" : 31,
         "name" : "ギプテ",
@@ -278,7 +340,9 @@
         "color" : "0x2244ff",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "ヴァルエルク共和国" ]
+        "nation" : [ "ヴァルエルク共和国" ],
+        "connectMaj" : [ 35 ],
+        "connectMin" : [  ]
     },{
         "id" : 32,
         "name" : "？？？",
@@ -286,7 +350,9 @@
         "color" : "0x00c48b",
         "type" : 4,
         "planet" : 0,
-        "nation" : [ "クレデリア共和国（虚体空間）" ]
+        "nation" : [ "クレデリア共和国（虚体空間）" ],
+        "connectMaj" : [ 20 ],
+        "connectMin" : [  ]
     },{
         "id" : 33,
         "name" : "ツーンカ",
@@ -294,7 +360,9 @@
         "color" : "0xff9c00",
         "type" : 2,
         "planet" : 0,
-        "nation" : [ "ツーンカ共和国" ]
+        "nation" : [ "ツーンカ共和国" ],
+        "connectMaj" : [ 32 ],
+        "connectMin" : [  ]
     },{
         "id" : 34,
         "name" : "ソーリス",
@@ -302,7 +370,9 @@
         "color" : "0x414565",
         "type" : 2,
         "planet" : 0,
-        "nation" : [ "レセスティア連邦" ]
+        "nation" : [ "レセスティア連邦" ],
+        "connectMaj" : [ 35, 36, 37 ],
+        "connectMin" : [  ]
     },{
         "id" : 35,
         "name" : "ヴェスヴィネ",
@@ -310,7 +380,9 @@
         "color" : "0x414565",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "レセスティア連邦" ]
+        "nation" : [ "レセスティア連邦" ],
+        "connectMaj" : [ 36, 37 ],
+        "connectMin" : [  ]
     },{
         "id" : 36,
         "name" : "イェスタ",
@@ -318,7 +390,9 @@
         "color" : "0x414565",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "レセスティア連邦" ]
+        "nation" : [ "レセスティア連邦" ],
+        "connectMaj" : [ 37 ],
+        "connectMin" : [  ]
     },{
         "id" : 37,
         "name" : "ザーバラリカ",
@@ -326,6 +400,8 @@
         "color" : "0x414565",
         "type" : 0,
         "planet" : 0,
-        "nation" : [ "レセスティア連邦" ]
+        "nation" : [ "レセスティア連邦" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
     }
 ]
