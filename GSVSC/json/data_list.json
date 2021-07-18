@@ -46,12 +46,12 @@
     {
         "id" : 4,
         "name" : "ハシェーグ",
-        "position" : [ -640, 42, -219 ],
+        "position" : [ -823, 164, 35 ],
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 0,
         "nation" : [ "ニーネン＝シャプチ", "アクース連合" ],
-        "connectMaj" : [  ],
+        "connectMaj" : [ 40, 48 ],
         "connectMin" : [  ]
     },
     {
@@ -84,7 +84,7 @@
         "type" : 3,
         "planet" : 0,
         "nation" : [ "無主地" ],
-        "connectMaj" : [  ],
+        "connectMaj" : [ 3 ],
         "connectMin" : [  ]
     },
     {
@@ -401,6 +401,146 @@
         "type" : 0,
         "planet" : 0,
         "nation" : [ "レセスティア連邦" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
+    },{
+        "id" : 38,
+        "name" : "チャグマ＝ダプラ",
+        "position" : [ -754, 204, 65 ],
+        "color" : "0x97cd00",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ニーネン＝シャプチ" ],
+        "connectMaj" : [ 1 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 39,
+        "name" : "フシェーディーセーグ",
+        "position" : [ -761, 182, 41 ],
+        "color" : "0x97cd00",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ニーネン＝シャプチ" ],
+        "connectMaj" : [ 38 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 40,
+        "name" : "ギーランセーグ",
+        "position" : [ -787, 175, 35 ],
+        "color" : "0x97cd00",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ニーネン＝シャプチ" ],
+        "connectMaj" : [ 38, 39 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 41,
+        "name" : "シャグマ＝ラゴン",
+        "position" : [ -738, 161, 22 ],
+        "color" : "0x97cd00",
+        "type" : 2,
+        "planet" : 0,
+        "nation" : [ "ニーネン＝シャプチ" ],
+        "connectMaj" : [ 39, 40 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 42,
+        "name" : "サナイセーグ",
+        "position" : [ -712, 178, 16 ],
+        "color" : "0x97cd00",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ニーネン＝シャプチ" ],
+        "connectMaj" : [ 41 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 43,
+        "name" : "セローダ",
+        "position" : [ -705, 194, 45 ],
+        "color" : "0x97cd00",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ニーネン＝シャプチ" ],
+        "connectMaj" : [ 42, 1 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 44,
+        "name" : "デンチュク",
+        "position" : [ -767, 211, 120 ],
+        "color" : "0xab00ff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "アクース連合" ],
+        "connectMaj" : [ 38 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 45,
+        "name" : "アクース",
+        "position" : [ -802, 234, 142 ],
+        "color" : "0xab00ff",
+        "type" : 2,
+        "planet" : 0,
+        "nation" : [ "アクース連合" ],
+        "connectMaj" : [ 44 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 46,
+        "name" : "ショクセ",
+        "position" : [ -798, 205, 116 ],
+        "color" : "0xab00ff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "アクース連合" ],
+        "connectMaj" : [ 40, 45 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 47,
+        "name" : "ヴァニスニェ",
+        "position" : [ -824, 189, 121 ],
+        "color" : "0xab00ff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "アクース連合" ],
+        "connectMaj" : [ 45 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 48,
+        "name" : "ヴィルメ",
+        "position" : [ -825, 165, 84 ],
+        "color" : "0xab00ff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "アクース連合" ],
+        "connectMaj" : [ 47 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 49,
+        "name" : "ヘンネベベ",
+        "position" : [ -567, 72, -23 ],
+        "color" : "0x970000",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ウビウリ首長国" ],
+        "connectMaj" : [ 7, 33 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 50,
+        "name" : "オラベベ",
+        "position" : [ -603, 97, -43 ],
+        "color" : "0x970000",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ウビウリ首長国" ],
+        "connectMaj" : [ 32, 49 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 100,
+        "name" : "",
+        "position" : [ 10000, 0, 0 ],
+        "color" : "0x000000",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [  ],
         "connectMaj" : [  ],
         "connectMin" : [  ]
     }

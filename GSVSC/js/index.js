@@ -8,7 +8,7 @@ async function progress(){
         let jsonedData = JSON.parse(data || "null");
         return jsonedData;
     }
-    await new Promise((resolve, reject) => setTimeout(resolve, 50));
+    await new Promise((resolve, reject) => setTimeout(resolve, 200));
     let jsonData = xmlHttp.onload();
     init(jsonData);
 }
@@ -66,30 +66,32 @@ function init(jsonData) {
     const nationArray = [];
     for(let i = 0; i < jsonData.length; i++ ){
         starDataArray[i] = jsonData[i];
-        //
-        const geometry = new THREE.BufferGeometry();
-        const position = jsonData[i].position;
-        geometry.setAttribute('position', new THREE.Float32BufferAttribute( position, 3 ));
-        const material = new THREE.PointsMaterial({
-            size:10,
-            map : texturePicker(jsonData[i].type),
-            transparent: true,
-            alphaTest: 0.5,
-            sizeAttenuation: true,
-            color: parseInt( jsonData[i].color, 16)
-        });
-        const point = new THREE.Points( geometry, material );
-        point.name = jsonData[i].id;
-        scene.add(point);
-        pointsArray.push(point);
-        //
-        const stellarName = jsonData[i].name;
-        nameArray.push(stellarName);
-        //
-        const nationName = jsonData[i].nation;
-        nationArray.push(nationName);
-        //
-        if(jsonData[i].connectMaj.length != 0){linesegment(jsonData, i);}
+            if(jsonData){
+            //
+            const geometry = new THREE.BufferGeometry();
+            const position = jsonData[i].position;
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute( position, 3 ));
+            const material = new THREE.PointsMaterial({
+                size:10,
+                map : texturePicker(jsonData[i].type),
+                transparent: true,
+                alphaTest: 0.5,
+                sizeAttenuation: true,
+                color: parseInt( jsonData[i].color, 16)
+            });
+            const point = new THREE.Points( geometry, material );
+            point.name = jsonData[i].id;
+            scene.add(point);
+            pointsArray.push(point);
+            //
+            const stellarName = jsonData[i].name;
+            nameArray.push(stellarName);
+            //
+            const nationName = jsonData[i].nation;
+            nationArray.push(nationName);
+            //
+            if(jsonData[i].connectMaj.length != 0){linesegment(jsonData, jsonData[i].id);}
+        }
     }
     mobStar(10000, 1600, -400, 0, 0, 0x444444, 0);
     mobStar(1000, 200, -400, -75, 273, 0x556677, 1);
@@ -171,6 +173,35 @@ function init(jsonData) {
         stellarNationText.innerHTML = stellarNationTextArray.join('');
     }
     //////
+    // callbackArrNum
+    function callbackArrNum(sourceData, calledId){
+        let i;
+        for( i=0; i < sourceData.length; i++ ){
+            if(sourceData[i].id == calledId){
+                break;
+            }
+        }
+        return i;
+    }
+    // linesegment
+    function linesegment(sourceData, id){
+        const material = new THREE.LineBasicMaterial({
+            color: 0x666666,
+        });
+        for(let i=0; i < sourceData[id].connectMaj.length; i++){
+            let points = [];
+            let startPointPos  = new THREE.Vector3(sourceData[id].position[0], sourceData[id].position[1], sourceData[id].position[2]);
+            points.push(startPointPos);
+            let endPointId = sourceData[id].connectMaj[i];
+            endPointId = callbackArrNum(sourceData, endPointId);
+            let endPointPos  = new THREE.Vector3(sourceData[endPointId].position[0], sourceData[endPointId].position[1], sourceData[endPointId].position[2]);
+            points.push(endPointPos);
+            const geometry = new THREE.BufferGeometry().setFromPoints( points );
+            const line = new THREE.LineSegments(geometry, material);
+            scene.add(line);
+        }
+    }
+    //////
     // mobstar
     function mobStar(quantity, radius, offsetX, offsetY, offsetZ, color, type){
         const geometry = new THREE.BufferGeometry();
@@ -194,24 +225,7 @@ function init(jsonData) {
         const points = new THREE.Points(geometry, material);
         scene.add(points);
     }
-    // linesegment
-    function linesegment(sourceData, id){
-        const material = new THREE.LineBasicMaterial({
-            color: 0x666666,
-        });
-        for(let i=0; i < sourceData[id].connectMaj.length; i++){
-            let points = [];
-            let startPointPos  = new THREE.Vector3(sourceData[id].position[0], sourceData[id].position[1], sourceData[id].position[2]);
-            points.push(startPointPos);
-            let endPointId = sourceData[id].connectMaj[i];
-            let endPointPos  = new THREE.Vector3(sourceData[endPointId].position[0], sourceData[endPointId].position[1], sourceData[endPointId].position[2]);
-            points.push(endPointPos);
-            console.log(points);
-            const geometry = new THREE.BufferGeometry().setFromPoints( points );
-            const line = new THREE.LineSegments(geometry, material);
-            scene.add(line);
-        }
-    }
+    
     //////
     function texturePicker(texutreNumber){
         let texture;
