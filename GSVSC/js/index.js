@@ -35,11 +35,11 @@ function init(jsonData) {
     const camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
 
     // camera offsets
-    camera.position.set(-400, 400, -600);
+    camera.position.set(-0, 0, -600);
     camera.setRotationFromAxisAngle(-1,0,0);
 
     // made camera controls
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    const controls = new THREE.TrackballControls(camera, renderer.domElement);
 
     // smooth camera controls
     controls.enableDamping = true;

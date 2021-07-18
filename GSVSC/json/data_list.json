@@ -9,8 +9,7 @@
         "nation" : [ "エルミア共和国", "リーエス連邦" ],
         "connectMaj" : [ 2 ],
         "connectMin" : [  ] 
-    },
-    {
+    },{
         "id" : 1,
         "name" : "レーウス",
         "position" : [ -722, 220, 84 ],
@@ -20,8 +19,7 @@
         "nation" : [ "ヴァルエルク共和国", "エルトリア王国", "サーヴァリア企業連合", "ジエール管理主義帝国連邦" ],
         "connectMaj" : [ 12, 19, 20, 24 ],
         "connectMin" : [  ] 
-    },
-    {
+    },{
         "id" : 2,
         "name" : "ゲルデン",
         "position" : [ -54, 37, 63 ],
@@ -31,19 +29,17 @@
         "nation" : [ "ヴィッテンクレイル神国", "グロスクロイツ社会主義共和国連邦", "ドルムント共和国", "ベリオン共和国" ],
         "connectMaj" : [  ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 3,
         "name" : "コトー・スロー",
-        "position" : [ -384, -72, -249 ],
+        "position" : [ -384, -72, -149 ],
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 8,
-        "nation" : [ "ショアン王国", "チャンタ民主戦線共和国", "ファルトクノア共和国", "ミルドネジア共和国" ],
+        "nation" : [ "ショアン王国", "ファルトクノア共和国", "ミルドネジア共和国" ],
         "connectMaj" : [  ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 4,
         "name" : "ハシェーグ",
         "position" : [ -823, 164, 35 ],
@@ -53,8 +49,7 @@
         "nation" : [ "ニーネン＝シャプチ", "アクース連合" ],
         "connectMaj" : [ 40, 48 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 5,
         "name" : "スカーラ",
         "position" : [ -313, -30, 254 ],
@@ -64,8 +59,7 @@
         "nation" : [ "スカリア星団共和国" ],
         "connectMaj" : [  ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 6,
         "name" : "デスペア",
         "position" : [ -249, 312, 372 ],
@@ -75,19 +69,17 @@
         "nation" : [ "インテグラシオン連邦" ],
         "connectMaj" : [  ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 7,
         "name" : "アルシェイン",
-        "position" : [ -336, -137, -36 ],
+        "position" : [ -336, -67, -36 ],
         "color" : "0xffffff",
         "type" : 3,
         "planet" : 0,
         "nation" : [ "無主地" ],
         "connectMaj" : [ 3 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 8,
         "name" : "ゾラック",
         "position" : [ -99, 32, 246 ],
@@ -97,8 +89,7 @@
         "nation" : [ "ゾラック銀河通信社" ],
         "connectMaj" : [ 9 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 9,
         "name" : "タシャタシャンタ",
         "position" : [ -126, 128, 189 ],
@@ -108,8 +99,7 @@
         "nation" : [ "タプナパキ王国" ],
         "connectMaj" : [  ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 10,
         "name" : "ダクラーシュ",
         "position" : [-186, 112, 252 ],
@@ -119,8 +109,7 @@
         "nation" : [ "モンタク代理政府" ],
         "connectMaj" : [ 11 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 11,
         "name" : "モンタク",
         "position" : [ -207, 226, 201 ],
@@ -130,8 +119,7 @@
         "nation" : [ "モンタク代理政府" ],
         "connectMaj" : [ 35 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 12,
         "name" : "ジェレーグ",
         "position" : [ -738, 235, 146 ],
@@ -141,8 +129,7 @@
         "nation" : [ "ジエール管理主義帝国連邦" ],
         "connectMaj" : [ 1, 13 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 13,
         "name" : "アレーグ",
         "position" : [ -762, 243, 185 ],
@@ -152,8 +139,7 @@
         "nation" : [ "ジエール管理主義帝国連邦" ],
         "connectMaj" : [ 14 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 14,
         "name" : "ゼヌレーグ",
         "position" : [ -794, 266, 202 ],
@@ -163,8 +149,7 @@
         "nation" : [ "ジエール管理主義帝国連邦" ],
         "connectMaj" : [ 13, 15 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 15,
         "name" : "ツェッレーグ",
         "position" : [ -805, 281, 228 ],
@@ -174,8 +159,7 @@
         "nation" : [ "ジエール管理主義帝国連邦" ],
         "connectMaj" : [ 14 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 16,
         "name" : "ジーカイ",
         "position" : [ -704, 231, 171 ],
@@ -185,8 +169,7 @@
         "nation" : [ "天嶺皇国" ],
         "connectMaj" : [ 12, 13 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 17,
         "name" : "サーガイノ",
         "position" : [ -731, 221, 213 ],
@@ -196,8 +179,7 @@
         "nation" : [ "天嶺皇国" ],
         "connectMaj" : [ 16, 18 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 18,
         "name" : "アマイファン",
         "position" : [ -681, 192, 228 ],
@@ -207,8 +189,7 @@
         "nation" : [ "天嶺皇国" ],
         "connectMaj" : [ 16, 17 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 19,
         "name" : "スロアーユ",
         "position" : [ -687, 201, 82 ],
@@ -218,8 +199,7 @@
         "nation" : [ "エルトリア王国" ],
         "connectMaj" : [ 20 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 20,
         "name" : "ヂャイラ",
         "position" : [ -665, 198, 58 ],
@@ -229,8 +209,7 @@
         "nation" : [ "ヒューヴル女王国（エルトリア王国保護下）" ],
         "connectMaj" : [  ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 21,
         "name" : "ニェパーシュ",
         "position" : [ -654, 185, 94 ],
@@ -240,8 +219,7 @@
         "nation" : [ "サーヴァリア企業連合" ],
         "connectMaj" : [ 19 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 22,
         "name" : "アプレジラ",
         "position" : [ -632, 203, 121 ],
@@ -251,8 +229,7 @@
         "nation" : [ "サーヴァリア企業連合" ],
         "connectMaj" : [ 21 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 23,
         "name" : "リーファイ",
         "position" : [ -622, 164, 71 ],
@@ -262,8 +239,7 @@
         "nation" : [ "サーヴァリア企業連合" ],
         "connectMaj" : [ 21 ],
         "connectMin" : [  ]
-    },
-    {
+    },{
         "id" : 24,
         "name" : "スィトローク",
         "position" : [ -684, 182, 117 ],
@@ -518,7 +494,7 @@
         "name" : "ヘンネベベ",
         "position" : [ -567, 72, -23 ],
         "color" : "0x970000",
-        "type" : 0,
+        "type" : 2,
         "planet" : 0,
         "nation" : [ "ウビウリ首長国" ],
         "connectMaj" : [ 7, 33 ],
@@ -532,6 +508,156 @@
         "planet" : 0,
         "nation" : [ "ウビウリ首長国" ],
         "connectMaj" : [ 32, 49 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 51,
+        "name" : "ハルトシェーガル",
+        "position" : [ -386, -63, -129 ],
+        "color" : "0x00ca00",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ファルトクノア共和国", "チャンタ民主戦線共和国" ],
+        "connectMaj" : [ 3 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 52,
+        "name" : "ショトー・グンティ",
+        "position" : [ -402, -63, -151 ],
+        "color" : "dc0064",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "リスヒューメ王国" ],
+        "connectMaj" : [ 3 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 53,
+        "name" : "キャルノ",
+        "position" : [ -432, -42, -163 ],
+        "color" : "0x6400dc",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "グライニア調和国" ],
+        "connectMaj" : [ 52 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 54,
+        "name" : "フォノ・カノーラ",
+        "position" : [ -428, -32, -133 ],
+        "color" : "0x6400dc",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "グライニア調和国" ],
+        "connectMaj" : [ 52, 53 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 55,
+        "name" : "ハルハ",
+        "position" : [ -427, -88, 84 ],
+        "color" : "0xff0000",
+        "type" : 2,
+        "planet" : 0,
+        "nation" : [ "ルクルシルア星間労働同盟" ],
+        "connectMaj" : [ 58 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 56,
+        "name" : "ナースァ",
+        "position" : [ -396, -108, 62 ],
+        "color" : "0xff0000",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ルクルシルア星間労働同盟" ],
+        "connectMaj" : [ 55 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 57,
+        "name" : "アトゥルズ",
+        "position" : [ -421, -108, 38 ],
+        "color" : "0xff0000",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ルクルシルア星間労働同盟" ],
+        "connectMaj" : [ 56 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 58,
+        "name" : "ラムペア",
+        "position" : [ -477, -88, 102 ],
+        "color" : "0xff0000",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ルクルシルア星間労働同盟" ],
+        "connectMaj" : [ 59 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 59,
+        "name" : "ヴァルート",
+        "position" : [ -477, -88, 53 ],
+        "color" : "0xff0000",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "ルクルシルア星間労働同盟" ],
+        "connectMaj" : [ 57 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 60,
+        "name" : "ジェル・プルスティア",
+        "position" : [ -296, -87, -189 ],
+        "color" : "0xff9371",
+        "type" : 2,
+        "planet" : 0,
+        "nation" : [ "プルスティア" ],
+        "connectMaj" : [ 7 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 61,
+        "name" : "ポルハチ",
+        "position" : [ -316, -81, -219 ],
+        "color" : "0xff9371",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "プルスティア" ],
+        "connectMaj" : [ 60 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 62,
+        "name" : "アポラ",
+        "position" : [ -222, -144, -149 ],
+        "color" : "0x00ffff",
+        "type" : 2,
+        "planet" : 0,
+        "nation" : [ "アポラ星系国際連盟" ],
+        "connectMaj" : [ 7, 60 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 63,
+        "name" : "アルマ・マヌマ",
+        "position" : [ -198, -164, -168 ],
+        "color" : "0x00ffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "アポラ星系国際連盟" ],
+        "connectMaj" : [ 62 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 64,
+        "name" : "フェルゲア",
+        "position" : [ -174, -148, -191 ],
+        "color" : "0x00ffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "アポラ星系国際連盟" ],
+        "connectMaj" : [ 63 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 65,
+        "name" : "ヘヴィトス",
+        "position" : [ -206, -152, -194 ],
+        "color" : "0x00ffff",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "アポラ星系国際連盟" ],
+        "connectMaj" : [ 63, 64 ],
         "connectMin" : [  ]
     },{
         "id" : 100,
