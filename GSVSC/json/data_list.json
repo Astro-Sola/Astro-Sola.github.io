@@ -32,7 +32,7 @@
     },{
         "id" : 3,
         "name" : "コトー・スロー",
-        "position" : [ -384, -72, -149 ],
+        "position" : [ -302, -72, -71 ],
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 8,
@@ -71,13 +71,13 @@
         "connectMin" : [  ]
     },{
         "id" : 7,
-        "name" : "アルシェイン",
-        "position" : [ -336, -67, -36 ],
+        "name" : "？？？",
+        "position" : [ -400, -75, 273 ],
         "color" : "0xffffff",
         "type" : 3,
         "planet" : 0,
-        "nation" : [ "無主地" ],
-        "connectMaj" : [ 3 ],
+        "nation" : [ "スターセル帝国" ],
+        "connectMaj" : [  ],
         "connectMin" : [  ]
     },{
         "id" : 8,
@@ -241,7 +241,7 @@
         "connectMin" : [  ]
     },{
         "id" : 24,
-        "name" : "スィトローク",
+        "name" : "ニルヴァエカヴォノス",
         "position" : [ -684, 182, 117 ],
         "color" : "0x2244ff",
         "type" : 0,
@@ -251,7 +251,7 @@
         "connectMin" : [  ]
     },{
         "id" : 25,
-        "name" : "ベレーヌ",
+        "name" : "ノスカ",
         "position" : [ -688, 163, 139 ],
         "color" : "0x2244ff",
         "type" : 0,
@@ -261,7 +261,7 @@
         "connectMin" : [  ]
     },{
         "id" : 26,
-        "name" : "フィハネ",
+        "name" : "ベデオソス",
         "position" : [ -645, 171, 172 ],
         "color" : "0x2244ff",
         "type" : 0,
@@ -271,7 +271,7 @@
         "connectMin" : [  ]
     },{
         "id" : 27,
-        "name" : "フォルバ",
+        "name" : "ペゾノロス",
         "position" : [ -613, 185, 244 ],
         "color" : "0x2244ff",
         "type" : 0,
@@ -281,7 +281,7 @@
         "connectMin" : [  ]
     },{
         "id" : 28,
-        "name" : "ジェダ",
+        "name" : "？？？",
         "position" : [ -627, 191, 308 ],
         "color" : "0x2244ff",
         "type" : 0,
@@ -291,7 +291,7 @@
         "connectMin" : [  ]
     },{
         "id" : 29,
-        "name" : "パグル",
+        "name" : "スコゼマ",
         "position" : [ -679, 159, 326  ],
         "color" : "0x2244ff",
         "type" : 0,
@@ -301,7 +301,7 @@
         "connectMin" : [  ]
     },{
         "id" : 30,
-        "name" : "ウィガクロンタレ",
+        "name" : "ヴァエカヴォスコス",
         "position" : [ -607, 143, 155 ],
         "color" : "0x2244ff",
         "type" : 0,
@@ -311,7 +311,7 @@
         "connectMin" : [  ]
     },{
         "id" : 31,
-        "name" : "ギプテ",
+        "name" : "ラタモソス",
         "position" : [ -588, 121, 129 ],
         "color" : "0x2244ff",
         "type" : 0,
@@ -497,7 +497,7 @@
         "type" : 2,
         "planet" : 0,
         "nation" : [ "ウビウリ首長国" ],
-        "connectMaj" : [ 7, 33 ],
+        "connectMaj" : [ 33 ],
         "connectMin" : [  ]
     },{
         "id" : 50,
@@ -512,7 +512,7 @@
     },{
         "id" : 51,
         "name" : "ハルトシェーガル",
-        "position" : [ -386, -63, -129 ],
+        "position" : [ -302, -72, -20 ],
         "color" : "0x00ca00",
         "type" : 0,
         "planet" : 0,
@@ -522,7 +522,7 @@
     },{
         "id" : 52,
         "name" : "ショトー・グンティ",
-        "position" : [ -402, -63, -151 ],
+        "position" : [ -392, -63, -51 ],
         "color" : "dc0064",
         "type" : 0,
         "planet" : 0,
@@ -532,7 +532,7 @@
     },{
         "id" : 53,
         "name" : "キャルノ",
-        "position" : [ -432, -42, -163 ],
+        "position" : [ -418, -42, -123 ],
         "color" : "0x6400dc",
         "type" : 0,
         "planet" : 0,
@@ -542,12 +542,12 @@
     },{
         "id" : 54,
         "name" : "フォノ・カノーラ",
-        "position" : [ -428, -32, -133 ],
+        "position" : [ -502, -32, -71 ],
         "color" : "0x6400dc",
         "type" : 0,
         "planet" : 0,
         "nation" : [ "グライニア調和国" ],
-        "connectMaj" : [ 52, 53 ],
+        "connectMaj" : [ 49, 52, 53 ],
         "connectMin" : [  ]
     },{
         "id" : 55,
@@ -567,7 +567,7 @@
         "type" : 0,
         "planet" : 0,
         "nation" : [ "ルクルシルア星間労働同盟" ],
-        "connectMaj" : [ 55 ],
+        "connectMaj" : [ 51, 55 ],
         "connectMin" : [  ]
     },{
         "id" : 57,
@@ -577,7 +577,7 @@
         "type" : 0,
         "planet" : 0,
         "nation" : [ "ルクルシルア星間労働同盟" ],
-        "connectMaj" : [ 56 ],
+        "connectMaj" : [ 52, 56 ],
         "connectMin" : [  ]
     },{
         "id" : 58,
@@ -602,22 +602,22 @@
     },{
         "id" : 60,
         "name" : "ジェル・プルスティア",
-        "position" : [ -296, -87, -189 ],
+        "position" : [ 128, 21, -21 ],
         "color" : "0xff9371",
         "type" : 2,
         "planet" : 0,
         "nation" : [ "プルスティア" ],
-        "connectMaj" : [ 7 ],
+        "connectMaj" : [ 0 ],
         "connectMin" : [  ]
     },{
         "id" : 61,
         "name" : "ポルハチ",
-        "position" : [ -316, -81, -219 ],
+        "position" : [ 108, 4, -72 ],
         "color" : "0xff9371",
         "type" : 0,
         "planet" : 0,
         "nation" : [ "プルスティア" ],
-        "connectMaj" : [ 60 ],
+        "connectMaj" : [ 0, 60 ],
         "connectMin" : [  ]
     },{
         "id" : 62,
@@ -627,7 +627,7 @@
         "type" : 2,
         "planet" : 0,
         "nation" : [ "アポラ星系国際連盟" ],
-        "connectMaj" : [ 7, 60 ],
+        "connectMaj" : [ 3 ],
         "connectMin" : [  ]
     },{
         "id" : 63,
