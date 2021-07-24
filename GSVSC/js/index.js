@@ -158,6 +158,7 @@ function init(jsonData) {
     }
     function starDataTextReplace(object){
         let id = object.name;
+        let objectPos = object.geometry.getAttribute('position').array;
         //
         let stellarName = nameArray[id];
         let stellarNameText = document.getElementById('labels');
@@ -165,7 +166,8 @@ function init(jsonData) {
         let stellarNation = nationArray[id];
         let stellarNationText = document.getElementById('nation');
         //
-        stellarNameText.innerText = stellarName + "星系, ID：" + id ;
+        stellarNameText.innerHTML = stellarName + "星系<br>ID：" + id + "<br>座標：( " + objectPos +")";
+        console.log(objectPos);
         let stellarNationTextArray = [];
         for( i=0; i < stellarNation.length; i++ ){
             stellarNationTextArray.push( '<li>' + stellarNation[i] + '</li>' );

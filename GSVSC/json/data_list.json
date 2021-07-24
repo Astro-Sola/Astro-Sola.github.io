@@ -32,7 +32,7 @@
     },{
         "id" : 3,
         "name" : "コトー・スロー",
-        "position" : [ -302, -72, -71 ],
+        "position" : [ -332, -72, -71 ],
         "color" : "0xffffff",
         "type" : 1,
         "planet" : 8,
@@ -512,7 +512,7 @@
     },{
         "id" : 51,
         "name" : "ハルトシェーガル",
-        "position" : [ -302, -72, -20 ],
+        "position" : [ -342, -72, -20 ],
         "color" : "0x00ca00",
         "type" : 0,
         "planet" : 0,
@@ -552,7 +552,7 @@
     },{
         "id" : 55,
         "name" : "ハルハ",
-        "position" : [ -427, -88, 84 ],
+        "position" : [ -427, -88, 54 ],
         "color" : "0xff0000",
         "type" : 2,
         "planet" : 0,
@@ -562,7 +562,7 @@
     },{
         "id" : 56,
         "name" : "ナースァ",
-        "position" : [ -396, -108, 62 ],
+        "position" : [ -396, -108, 32 ],
         "color" : "0xff0000",
         "type" : 0,
         "planet" : 0,
@@ -572,7 +572,7 @@
     },{
         "id" : 57,
         "name" : "アトゥルズ",
-        "position" : [ -421, -108, 38 ],
+        "position" : [ -421, -108, 8 ],
         "color" : "0xff0000",
         "type" : 0,
         "planet" : 0,
@@ -582,7 +582,7 @@
     },{
         "id" : 58,
         "name" : "ラムペア",
-        "position" : [ -477, -88, 102 ],
+        "position" : [ -477, -88, 72 ],
         "color" : "0xff0000",
         "type" : 0,
         "planet" : 0,
@@ -592,7 +592,7 @@
     },{
         "id" : 59,
         "name" : "ヴァルート",
-        "position" : [ -477, -88, 53 ],
+        "position" : [ -477, -88, 23 ],
         "color" : "0xff0000",
         "type" : 0,
         "planet" : 0,
@@ -658,6 +658,26 @@
         "planet" : 0,
         "nation" : [ "アポラ星系国際連盟" ],
         "connectMaj" : [ 63, 64 ],
+        "connectMin" : [  ]
+    },{
+        "id" : 66,
+        "name" : "プレフィス",
+        "position" : [ -187, -45, -25 ],
+        "color" : "0xaaaaaa",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "マーカス連邦" ],
+        "connectMaj" : [  ],
+        "connectMin" : [  ]
+    },{
+        "id" : 67,
+        "name" : "ティラルド",
+        "position" : [ -215, -50, 13 ],
+        "color" : "0xaaaaaa",
+        "type" : 0,
+        "planet" : 0,
+        "nation" : [ "マーカス連邦" ],
+        "connectMaj" : [  ],
         "connectMin" : [  ]
     },{
         "id" : 100,
