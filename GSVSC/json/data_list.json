@@ -391,10 +391,10 @@
         "connectMin" : [  ]
     },{
         "id" : 39,
-        "name" : "フシェーディーセーグ",
+        "name" : "フシェーディセーグ",
         "position" : [ -761, 182, 41 ],
         "color" : "0x97cd00",
-        "type" : 0,
+        "type" : 2,
         "planet" : 0,
         "nation" : [ "ニーネン＝シャプチ" ],
         "connectMaj" : [ 38 ],
@@ -414,7 +414,7 @@
         "name" : "シャグマ＝ラゴン",
         "position" : [ -738, 161, 22 ],
         "color" : "0x97cd00",
-        "type" : 2,
+        "type" : 0,
         "planet" : 0,
         "nation" : [ "ニーネン＝シャプチ" ],
         "connectMaj" : [ 39, 40 ],
