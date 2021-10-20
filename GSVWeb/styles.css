@@ -10,11 +10,15 @@
 }
 
 body {
-    background-color: #111111;
+    background-color: black;
+    background-image: url("images/background.png");
+    background-position: top 10em center;
+    background-size: 1500px;
+    background-repeat: no-repeat;
 }
 
 li, a, button {
-    font-family: Orbitron,Arial, Helvetica, sans-serif;
+    font-family: Orbitron, Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 20px;
     color: white;
@@ -31,7 +35,7 @@ header {
 
 .logo {
     cursor: pointer;
-    margin-left: 0px;
+    margin: 0px;
     width: 300px;
 }
 
@@ -62,6 +66,18 @@ button:hover {
     color: #228844;
 }
 
-.container{
-     
+.container {
+    color: white;
+    margin-top: 10em;
+    text-align: center;
+}
+
+#intro {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+}
+
+#introbutton {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
 }
