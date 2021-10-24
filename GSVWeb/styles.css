@@ -22,7 +22,8 @@ li, a, button {
     font-weight: 500;
     font-size: 20px;
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: #228844;
 }
 
 header {
@@ -30,13 +31,13 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
-    background-color: #228844;
+    background-color: black;
 }
 
 .logo {
     cursor: pointer;
     margin: 0px;
-    width: 300px;
+    width: 200px;
 }
 
 .navigation_links li {
@@ -45,24 +46,10 @@ header {
 }
 
 .navigation_links li a {
-    transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0.0s;
 }
 
 .navigation_links li a:hover{
-    color: #111111;
-}
-
-button { 
-    padding: 9px 25px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    background-color: #228844;
-}
-
-button:hover {
-    background-color: white;
     color: #228844;
 }
 
