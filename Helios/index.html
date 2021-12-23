@@ -10,17 +10,21 @@
     <table id="table">
         <tr>
             <td rowspan="2">\(mass\)</td>
-            <td><p><input type="text" id="mass" onchange="main()" value="0" onsubmit="return false;"></p></td>
-            <td> \(kg\) </td>
-        </tr>
-        <tr>
-            <td><p id="mass_sol"></p></td>
+            <td><p><input type="text" id="mass" onchange="main()" value="1" onsubmit="return false;"></p></td>
             <td>\(M_{☉}\)</td>
         </tr>
         <tr>
-            <td>\(radius\)</td>
-            <td><p id="radius"></p></td>
-            <td>\(km\)</td>
+            <td><p id="mass_mks"></p></td>
+            <td>\(kg\)</td>
+        </tr>
+        <tr>
+            <td rowspan="2">\(luminosity\)</td>
+            <td><p id="luminosity"></p></td>
+            <td>\(L_{☉}\)</td>
+        </tr>
+        <tr>
+            <td><p id="luminosity_mks"></p></td>
+            <td>\(W\)</td>
         </tr>
     </table>
 </body>

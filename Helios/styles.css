@@ -11,10 +11,11 @@ p{
     font-size: 1em;
 }
 table{
-    border: solid;
+    border: 2px solid;
     padding: 1px;
     text-align: center;
 }
 td{
     border: 1px solid black;
+    padding: 3pt;
 }
