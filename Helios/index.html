@@ -9,22 +9,34 @@
 <body>
     <table id="table">
         <tr>
-            <td rowspan="2">\(mass\)</td>
-            <td><p><input type="text" id="mass" onchange="main()" value="1" onsubmit="return false;"></p></td>
+            <td colspan="6">main star</td>
+        <tr>
+            <td rowspan="2" class="head">\(mass\)</td>
+            <td class="numerical"><p><input type="text" id="mass" onchange="main()" value="1" onsubmit="return false;"></p></td>
             <td>\(M_{☉}\)</td>
-        </tr>
-        <tr>
-            <td><p id="mass_mks"></p></td>
-            <td>\(kg\)</td>
-        </tr>
-        <tr>
-            <td rowspan="2">\(luminosity\)</td>
-            <td><p id="luminosity"></p></td>
+            <td rowspan="2" class="head">\(luminosity\)</td>
+            <td><p id="luminosity" class="numerical"></p></td>
             <td>\(L_{☉}\)</td>
         </tr>
         <tr>
-            <td><p id="luminosity_mks"></p></td>
+            <td><p id="mass_mks" class="numerical"></p></td>
+            <td>\(kg\)</td>
+            <td><p id="luminosity_mks" class="numerical"></p></td>
             <td>\(W\)</td>
+        </tr>
+        <tr>
+            <td rowspan="2" class="head">\(radius\)</td>
+            <td><p id="radius" class="numerical"></p></td>
+            <td>\(R_{☉}\)</td>
+            <td rowspan="2" class="head">\(temperature\)</td>
+            <td><p id="temperature" class="numerical"></p></td>
+            <td>\(K\)</td>
+        </tr>
+        <tr>
+            <td><p id="radius_mks" class="numerical"></p></td>
+            <td>\(m\)</td>
+            <td><p id="temperature_c" class="numerical"></p></td>
+            <td>\(^\circ C\)</td>
         </tr>
     </table>
 </body>

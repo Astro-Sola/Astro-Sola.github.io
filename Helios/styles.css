@@ -1,19 +1,26 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
-input{
-    font-size: 1em;
-    border: none;
-    padding: 0px;
-    text-align: center;
+.head{
+    width: 100pt;
+}
+.numerical{
+    width: 50pt;
 }
 p{
-    font-size: 1em;
+    font-size: 10pt;
 }
 table{
     border: 2px solid;
     padding: 1px;
     text-align: center;
+}
+input{
+    font-size: 10pt;
+    border: none;
+    padding: 0px;
+    text-align: center;
+    width: 50pt;
 }
 td{
     border: 1px solid black;
