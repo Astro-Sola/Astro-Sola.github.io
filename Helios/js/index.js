@@ -6,8 +6,15 @@ function main(){
     const SB_const = 5.670374419e-8;
     // import
     const mass = document.getElementById("mass").value;
-    if( mass < 0.2 ){window.alert("too low mass! it can't get Earth like planet!")}
-    if( mass > 20 ){window.alert("too high mass! it can't get Earth like planet!")}
+    if( mass < 0.2 ){
+        window.alert("too low mass! it can't get Earth like planet!");
+        document.getElementById("mass").value = 1;
+    }
+    if( mass > 20 ){
+        window.alert("too high mass! it can't get Earth like planet!");
+        document.getElementById("mass").value = 1;
+    }
+
     // calcuation star mass
     let mass_mks = mass * 1.9884e+30;
     // calcuation star luminosity
@@ -19,6 +26,8 @@ function main(){
     // calcuation star temperature
     let temperature = Math.pow(luminosity_mks / (4 * Math.PI * SB_const * Math.pow(radius_mks, 2)), 0.25);
     let temperature_c = temperature - 273.15;
+    // calcuation
+
     // output
     output("mass_mks", mass_mks);
     output("luminosity", luminosity, 1);
@@ -42,6 +51,7 @@ function calcLuminosity(mass) {
         luminosity = Math.pow(mass, 3.5) * 1.4;
     }
     return luminosity;
+
 }
 function output(Id, param, mode) {
     switch(mode){
