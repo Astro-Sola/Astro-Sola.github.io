@@ -23,7 +23,7 @@ fetch(url)
 
 function areaWeather(weather, i, name) {
     const element = document.getElementById('weather');
-    const weatherCode = weather[i].srf.timeSeries[0].areas.weatherCodes[2];
+    const weatherCode = weather[i].srf.timeSeries[0].areas.weatherCodes[0];
     const newText = name + "地方： " + weatherMatch(weatherCode);
     element.insertAdjacentHTML('beforeend', newText + '　');
 }
@@ -36,7 +36,7 @@ function weatherMatch(num) {
             WeatherText = '<span class="fs">晴</span>';
             break;
         case '101':
-            WeatherText = '<span class="fs">晴</span>/<span class="fc">曇り</span>';
+            WeatherText = '<span class="fs">晴</span>/<span class="fc">曇</span>';
             break;
         case '102':
             WeatherText = '<span class="fs">晴</span>/<span class="fr">雨</span>';
@@ -45,10 +45,10 @@ function weatherMatch(num) {
             WeatherText = '<span class="fs">晴</span>/<span class="fr">雨</span>';
             break;
         case '110':
-            WeatherText = '<span class="fs">晴</span>/<span class="fc">曇り</span>';
+            WeatherText = '<span class="fs">晴</span>/<span class="fc">曇</span>';
             break;
         case '111':
-            WeatherText = '<span class="fs">晴</span>/<span class="fc">曇り</span>';
+            WeatherText = '<span class="fs">晴</span>/<span class="fc">曇</span>';
             break;
         case '112':
             WeatherText = '<span class="fs">晴</span>/<span class="fr">雨</span>';
