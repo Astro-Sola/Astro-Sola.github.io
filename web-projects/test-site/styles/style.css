@@ -1,0 +1,95 @@
+html {
+    font-size: 10px;
+    font-family: "Noto Sans JP";
+    background-color: black;
+}
+body{
+    margin: 0;
+    padding: 0;
+    color: azure;
+}
+h1{
+    margin: 0;
+    padding: 20px 0;
+    color: azure;
+    font-family: "Jost";
+    font-size: 25px;
+}
+h2{
+    margin: 10px;
+    padding: 5px;
+    font-family: "Jost";
+    font-size: 25px;
+}
+p, li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+a{
+    color: azure;
+}
+img{
+    display: block;
+    margin: 0 auto;
+    align-items: center;
+    color: aqua;
+}
+.title {
+    position: relative;
+    background-color: #003333;
+    text-align: center;    
+    color: white;
+}
+.title-text-upper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    text-align: center;
+    letter-spacing: 10px;
+}
+.title-text-lower {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 20px;
+}
+.title-img {
+    width: 480px;
+    opacity: 25%;
+}
+.contents-tablink {
+    background-color: #333;
+    color: white;
+    float: left;
+    border: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 15px;
+    width: calc((1/6)*100%);
+}
+.contents-tablink:hover {
+    background-color: #555;
+}
+.contents-tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+#Metaverse {background-color: #00c0c0;}
+#Elysion {background-color: #3399ff;}
+#GSV {background-color: #309030;}
+#FNH {background-color: #b0a060;}
+#WUG {background-color: #666666;}
+#Links {background-color: #333333;}
+
+.sns-contents {
+    margin: 10px;
+    padding: 10px;
+}
