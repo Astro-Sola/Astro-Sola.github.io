@@ -31,8 +31,6 @@ a{
 }
 img{
     display: block;
-    margin: 0 auto;
-    align-items: center;
     color: aqua;
 }
 .title {
@@ -60,6 +58,8 @@ img{
     letter-spacing: 20px;
 }
 .title-img {
+    align-items: center;
+    margin: 0 auto;
     width: 480px;
     opacity: 25%;
 }
@@ -77,10 +77,12 @@ img{
     background-color: #555;
 }
 .contents-tabcontent {
+    position: relative;
     color: white;
     display: none;
     padding: 100px 20px;
     height: 40vh;
+    z-index: -1;
 }
 
 #Metaverse {background-color: #00c0c0;}
@@ -90,9 +92,9 @@ img{
 #WUG {background-color: #666666;}
 #Contacts {background-color: #333333;}
 
-#creation-logo{
+.creation-logo{
     position: absolute;
-    right: 5%;
-    bottom: calc((1/8)*100%);
-    width: 400px;
+    bottom: 10%;
+    right: 10%;
+    width: 320px;
 }
