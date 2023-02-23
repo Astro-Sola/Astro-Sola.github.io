@@ -27,7 +27,9 @@ p, li {
     letter-spacing: 1px;
 }
 a{
+    position: relative;
     color: azure;
+    z-index: 0;
 }
 img{
     display: block;
@@ -64,6 +66,7 @@ img{
     opacity: 25%;
 }
 .contents-tablink {
+    position: relative;
     background-color: #333;
     color: white;
     float: left;
@@ -72,6 +75,7 @@ img{
     padding: 14px 16px;
     font-size: 15px;
     width: calc((1/6)*100%);
+    z-index: 1;
 }
 .contents-tablink:hover {
     background-color: #555;
@@ -82,7 +86,7 @@ img{
     display: none;
     padding: 100px 20px;
     height: 40vh;
-    z-index: -1;
+    z-index: 0;
 }
 
 #Metaverse {background-color: #009999;}
