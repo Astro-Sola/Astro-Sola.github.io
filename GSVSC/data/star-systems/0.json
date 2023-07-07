@@ -1,0 +1,31 @@
+{
+    "star": {
+      "name": "Sol",
+      "size": 1.0,
+      "color": "#ffffff",
+      "description": "Sol is the main star of the Solar System."
+    },
+    "planets": [
+      {
+        "name": "Earth",
+        "type": "terrestrial",
+        "semiMajorAxis": 1.0,
+        "eccentricity": 0.0167,
+        "rotationSpeed": 1.0,
+        "radius": 6371,
+        "texture": "earth_texture.jpg",
+        "description": "Earth is the third planet from the Sun and the only known planet to support life."
+      },
+      {
+        "name": "Moon",
+        "type": "moon",
+        "semiMajorAxis": 0.00257,
+        "eccentricity": 0.0554,
+        "rotationSpeed": 27.3,
+        "radius": 1737,
+        "texture": "moon_texture.jpg",
+        "description": "The Moon is Earth's only natural satellite and the fifth largest moon in the Solar System."
+      }
+    ]
+  }
+  
