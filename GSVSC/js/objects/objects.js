@@ -1,25 +1,38 @@
+// Star.js
 import * as THREE from 'three';
+
 export class Star {
   constructor(data) {
+    // 恒星のID
     this.id = data.id;
+    // 恒星の名前
     this.name = data.name;
+    // 恒星の英語名
     this.name_en = data.name_en;
+    // 恒星の位置
     this.position = new THREE.Vector3().fromArray(data.position);
+    // 恒星の分光型
     this.spec_type = data.spec_type;
+    // 恒星の大きさ
     this.size = data.size;
+    // 恒星の明るさ
     this.luminosity = data.luminosity;
+    // 恒星の接続先
     this.connect = data.connect;
+    // 恒星の領有国
     this.nations = data.nations;
+    // 恒星の持つ惑星数
     this.planet = data.planet;
+    // 恒星の概要
     this.overview = data.overview;
   }
 }
 
 function setSpectralColor(spectralType) {
-  if (!spectralType) {
-    return 0xffffff; // デフォルトの白色
-  }
-  let colorCode = 0xff00ff;
+  // 色コードを初期化
+  let colorCode = 0xffffff;
+
+  // 輝星の分光型から色を決定する
   let type = spectralType.match(/[OBAFGKM]/);
   if (type) {
     switch(type[0]) {
@@ -49,24 +62,41 @@ function setSpectralColor(spectralType) {
         break;
     }
   }
+
+  // 決定した色コードを返す
   return colorCode;
 }
 
 
 export function createStarsys(data) {
-  const texture = new THREE.TextureLoader().load('../assets/images/star.png');
+  // 恒星のテクスチャ画像のロード
+  const texture = new THREE.TextureLoader().load('../assets/images/star.png'); 
+  // ポイントのジオメトリを作成
   const geometry = new THREE.BufferGeometry();
-  const material = new THREE.PointsMaterial({transparent: true, depthTest: true, depthWrite: false, depthFunc: THREE.AdditiveBlending});
+  // ポイントのマテリアルを作成
+  const material = new THREE.PointsMaterial({
+    transparent: true, 
+    depthTest: true, 
+    depthWrite: false, 
+    depthFunc: THREE.AdditiveBlending
+  });
+  // マテリアルにテクスチャ画像を設定
   material.map = texture;
+  // ポイントオブジェクトを作成
   const points = new THREE.Points(geometry, material);
-  
+  // 恒星オブジェクトを作成
   const star = new Star(data);
+  // ユーザーデータに恒星オブジェクトを設定
   points.userData.star = star;
-
+  
+  // ポイントの位置を設定
   const position = new THREE.Vector3().fromArray(data.position);
   position.multiplyScalar(1);
+  // ポイントのジオメトリに位置情報を設定
   geometry.setAttribute('position', new THREE.Float32BufferAttribute(position.toArray(), 3));
+  // マテリアルのサイズを恒星のサイズに設定
   material.size = star.size;
+  // 恒星の分光型から色を設定
   const colorCodeHex = setSpectralColor(star.spec_type);
   material.color.setHex(colorCodeHex);
   return points;
@@ -89,4 +119,3 @@ export function deleteClosePoint(scene, pointsList, point, THRESHOLD){
     }
     scene.add(point);
 }
-

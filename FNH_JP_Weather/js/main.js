@@ -8,14 +8,14 @@ fetch(url)
     const weatherDataJSONArray = Object.values(json);
     weatherDataConverter('海北', weatherDataJSONArray, 2);
     weatherDataConverter('奥羽', weatherDataJSONArray, 5);
-    weatherDataConverter('吾妻', weatherDataJSONArray, 8);
-    weatherDataConverter('北越', weatherDataJSONArray, 7);
-    weatherDataConverter('東海', weatherDataJSONArray, 11);
-    weatherDataConverter('畿内', weatherDataJSONArray, 12);
+    weatherDataConverter('東国', weatherDataJSONArray, 8);
+    weatherDataConverter('北山', weatherDataJSONArray, 7);
+    weatherDataConverter('海道', weatherDataJSONArray, 11);
+    weatherDataConverter('京摂', weatherDataJSONArray, 12);
     weatherDataConverter('陰陽', weatherDataJSONArray, 15);
     weatherDataConverter('二名', weatherDataJSONArray, 13);
-    weatherDataConverter('鎮西', weatherDataJSONArray, 17);
-    weatherDataConverter('龍及', weatherDataJSONArray, 20);
+    weatherDataConverter('西南', weatherDataJSONArray, 17);
+    weatherDataConverter('琉球', weatherDataJSONArray, 20);
 
   })
   .catch(error => {
