@@ -31,7 +31,7 @@ document.body.appendChild(renderer.domElement);
 
 async function createGalaxyObjects() {
   const starDatas = await UTILITY.loadJSONFile('../data/stars.json');
-  const pointsList = [];
+  const pointsList = []; // 点のリストを作成
   starDatas.forEach(starData => {
     const starPoint = MYOBJECT.createStarsys(starData);
     MYOBJECT.deleteClosePoint(scene, pointsList, starPoint, THRESHOLD);
@@ -42,18 +42,25 @@ function addClickEvent() {
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
   const starDataDiv = document.getElementById('star-datas');
+
   function onMouseClick(event) {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(scene.children);
+
+    // Clear previous star data
     while (starDataDiv.firstChild) {
       starDataDiv.removeChild(starDataDiv.firstChild);
     }
+
     if (intersects.length > 0) {
       for (let i = 0; i < intersects.length; i++) {
         const point = intersects[i].object;
         const star = point.userData.star;
+
+        // star data to html
         const starDiv = document.createElement('div');
         starDiv.classList.add('star-data');
         starDiv.innerHTML = `
@@ -66,6 +73,8 @@ function addClickEvent() {
           <button id="star-system-transition">Go to star system</button>
         `;
         starDataDiv.appendChild(starDiv);
+
+        // Add event listener to the button
         const starSystemButton = starDiv.querySelector('#star-system-transition');
         starSystemButton.addEventListener('click', async () => {
           await displayStarSystem(star);
@@ -73,6 +82,7 @@ function addClickEvent() {
       }
     }
   }
+
   document.addEventListener('click', onMouseClick, false);
 }
 
