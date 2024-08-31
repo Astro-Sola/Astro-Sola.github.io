@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "name": "Star A",
+        "x": 15.0,
+        "y": -15.0,
+        "z": 4.3,
+        "magnitude": 2.1,
+        "size": 1.2,
+        "mass": 1.0,
+        "temperature": 5800,
+        "luminosity": 1.0,
+        "spectrum": "G",
+        "constellation": "Orion",
+        "constellationLines": [2, 3]
+    },
+    {
+        "id": 2,
+        "name": "Star B",
+        "x": 45.0,
+        "y": 10.0,
+        "z": 5.7,
+        "magnitude": 1.5,
+        "size": 1.5,
+        "mass": 1.3,
+        "temperature": 6000,
+        "luminosity": 1.2,
+        "spectrum": "F",
+        "constellation": "Orion",
+        "constellationLines": [1]
+    },
+    {
+        "id": 3,
+        "name": "Star C",
+        "x": 30.0,
+        "y": 20.0,
+        "z": 7.2,
+        "magnitude": 2.8,
+        "size": 1.1,
+        "mass": 1.1,
+        "temperature": 5500,
+        "luminosity": 0.9,
+        "spectrum": "K",
+        "constellation": "Orion",
+        "constellationLines": [1]
+    }
+]

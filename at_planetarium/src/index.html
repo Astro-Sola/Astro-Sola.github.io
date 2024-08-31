@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>プラネタリウム</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+<body>
+    <script type="module" src="script.js"></script>
+    <div id="container"></div>
+    <div id="star-details" style="display:none;">
+        <h2 id="star-name"></h2>
+        <p id="star-info"></p>
+    </div>
+    <div class="controls">
+        <button onclick="setMode('spherical')">Spherical Mode</button>
+        <button onclick="setMode('3d')">3D Mode</button>
+        <button onclick="toggleConstellations()">Toggle Constellations</button>
+        <button onclick="toggleStarNames()">Toggle Star Names</button>
+        <button onclick="toggleGrid()">Toggle Grid</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハビタブルゾーン計算機</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ハビタブルゾーン計算機</h1>
+        <form id="star-form">
+            <label for="radius">恒星の半径 (太陽半径):</label>
+            <input type="number" id="radius" name="radius" step="0.01" required>
+            <label for="temperature">恒星の表面温度 (K):</label>
+            <input type="number" id="temperature" name="temperature" step="1" required>
+            <label for="mass">恒星の質量 (太陽質量):</label>
+            <input type="number" id="mass" name="mass" step="0.01" required>
+            <button type="submit">計算</button>
+        </form>
+        <div class="result" id="result"></div>
+        <canvas id="hzCanvas" width="800" height="600"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
