@@ -1,49 +1,148 @@
-// ルナティック語変換関数
-function translateToLunatic(text) {
-    // 単語ごとに処理
-    return text.split(/\s+/).map(word => {
-      // 小文字に変換
-    word = word.toLowerCase();
+// 母音
+const vowelMapping = {
+  'e': 'a',
+  'i': 'e',
+  'a': 'i',
+  'u': 'o',
+  'o': 'u',
+  'ä': 'er',
+  'ö': 'oe',
+  'ü': 'y',
+};
+const consonantMapping = {
+  //子音のマッピング
+  'n': 'l',
+  'r': 'l',
+  'd': 'n',
+  'h': '',
+  'c': 'k',
+  'g': 'v',
+  'b': 'p',
+  'w': 'f',
+  'f': 'h',
+  'z': 's',
+  'p': 'b',
+  'v': 'f',
+  'k': 'g',
+  'j': 'y',
+  'q': 'k',
+  'x': 's',
+  'ß': 's'
+};
+
+// 連続した子音を単一の子音に変換する関数
+function zipConsonants(str) {
+  // 複数の連続する子音を1文字に置き換える
+  return str.replace(/([^aeiouäöüß])\1+/g, "$1");
+}
+// 4つ目の母音以降を削除する関数
+function removeExtraVowels(str) {
+   // 母音（a, e, i, o, u, ä, ö, ü）をキャプチャ
+    let vowelCount = 0;
+    let cutIndex = -1;
     
-      // 母音変更
-    word = word.replace(/a(?!$)/g, 'aa')
-                .replace(/e(?!$)/g, 'ee')
-                .replace(/i/g, 'y')
-                .replace(/o(?!$)/g, 'oo')
-                .replace(/u/g, 'oe');
-
-      // 子音変更
-    word = word.replace(/c([ei])/g, 's$1')
-                .replace(/c/g, 'k')
-                .replace(/g([ei])/g, 'j$1')
-                .replace(/z/g, 'ts')
-                .replace(/v/g, 'w')
-                .replace(/qu/g, 'kw');
-
-      // 3音節以上の単語の処理
-    let syllables = word.match(/[aeiou]/gi);
-    if (syllables && syllables.length > 2) {
-        let parts = word.split(/(?<=[aeiou])/i);
-        word = parts.slice(0, 2).join('') + parts.slice(2).join('').replace(/aa|ee|oo/g, match => match[0]);
+    for (let i = 0; i < str.length; i++) {
+      if (/[aeiouäöü]/.test(str[i])) {
+      vowelCount++;
+      }
+      
+      // 4つ目の母音を見つけたらその位置を記録
+      if (vowelCount === 4) {
+      cutIndex = i; // この位置から後を削除
+      break;
+      }
     }
-
-      // 語末の処理
-    if (word.length > 2 && /[aeiou]$/.test(word)) {
-        word = word.slice(0, -1);
+    
+    // 4つ目の母音が見つかったら、それ以降を削除
+    if (cutIndex !== -1) {
+      return str.slice(0, cutIndex);
     }
-
-    return word;
-    }).join(' ');
+    
+    return str; // 母音が3つ以下の場合はそのまま
+  }
+// 単語の中の母音の数を数える
+  function countVowels(str) {
+    const vowels = 'aeiouyäöü';
+    return str.split('').filter(char => vowels.includes(char)).length;
 }
 
-  // HTML要素の取得
+function removeEndingPatterns(str) {
+  const patterns = ['sch', 'ch', 'en', 'chen', 'lich']; // 母音が1つの場合に削除するパターン
+  const specialPatterns = ['ern', 'er']; // 母音が1つの場合に保持するパターン
+
+  const vowelCount = countVowels(str);
+
+  if (vowelCount === 1) {
+      // 母音が1つの場合
+      for (let pattern of specialPatterns) {
+          if (str.endsWith(pattern)) {
+              return str; // 特殊なパターンで終わる場合はそのまま返す
+          }
+      }
+      // 特殊なパターンでなければ、他のパターンを削除
+      for (let pattern of patterns) {
+          if (str.endsWith(pattern)) {
+              return str.slice(0, -pattern.length);
+          }
+      }
+  } else {
+      // 母音が2つ以上の場合
+      for (let pattern of [...patterns, ...specialPatterns]) {
+          if (str.endsWith(pattern)) {
+              return str.slice(0, -pattern.length);
+          }
+      }
+  }
+
+  return str; // どのパターンにも一致しない場合はそのまま返す
+}
+
+function convertByMapping(input) {
+    console.log("Input:", input); // デバッグ用ログ
+  
+    // Step 1: 子音を変換
+    let consonantConverted = input.split('').map(char => {
+      console.log("Processing consonant:", char); // デバッグ用ログ
+      return consonantMapping[char] || char;
+    }).join('');
+  
+    console.log("After consonant conversion:", consonantConverted); // デバッグ用ログ
+  
+    // Step 2: 母音を変換
+    let fullyConverted = consonantConverted.split('').map(char => {
+      console.log("Processing vowel:", char); // デバッグ用ログ
+      return vowelMapping[char] || char;
+    }).join('');
+  
+    console.log("After vowel conversion:", fullyConverted); // デバッグ用ログ
+    return fullyConverted;
+  }  
+
+// 文字列を変換する関数
+function convertText(inputText) {
+  const outputText = inputText.split(/(\s+|\n+)/).map(word => {   // 単語ごとに処理
+    // 空白や改行そのものは変換しない
+    if (/\s+|\n+/.test(word)) {
+      return word;  // 区切り文字はそのまま返す
+    }
+    word = word.toLowerCase();  // 小文字に変換
+    word = removeEndingPatterns(word); // ドイツ語の特徴的な末尾音を消す
+    word = zipConsonants(word); // 連続子音の変換
+    word = removeExtraVowels(word);  // 4つ目の母音以降の削除
+    word = convertByMapping(word); // マッピングで子音変換・母音変換
+
+  return word;
+  }).join('');
+  return outputText;
+}
+
 const inputText = document.getElementById('inputText');
 const outputText = document.getElementById('outputText');
 const translateButton = document.getElementById('translateButton');
 
   // 翻訳ボタンのクリックイベント
 translateButton.addEventListener('click', () => {
-    const italianText = inputText.value;
-    const lunaticText = translateToLunatic(italianText);
-    outputText.textContent = lunaticText;
+    const lotonText = convertText(inputText.value);
+    console.log(lotonText);
+    outputText.value = lotonText;
 });

@@ -1,0 +1,156 @@
+[
+    {
+        "name": "Apola",
+        "type": "star",
+        "radius": 577000,
+        "color": "#FFFFE0",
+        "position": { "x": 0, "y": 0, "z": 0 },
+        "mass": 1.61e30,
+        "rotationPeriod": 38.200,
+        "orbitalPeriod": 0
+    },
+        {
+            "name": "Nelme",
+            "type": "planet",
+            "radius": 2204,
+            "color": "#C0C0C0",
+            "orbitData": {
+                "semiMajorAxis": 64056030,
+                "eccentricity": 0.033,
+                "inclination": 5.336,
+                "longitudeOfAscendingNode": 47,
+                "argumentOfPeriapsis": 150
+            },
+            "mass": 2.26e23,
+            "rotationPeriod": 113.672,
+            "orbitalPeriod": 113.672,
+            "averageTemperature": 29.8,
+            "textureUrl": "/textures/nelme.png"
+        },
+        {
+        "name": "Lapea",
+        "type": "planet",
+        "radius": 5479,
+        "color": "#00CCCC",
+        "orbitData": {
+            "semiMajorAxis": 101682600,
+            "eccentricity": 0.002,
+            "inclination": 0.000,
+            "longitudeOfAscendingNode": 0,
+            "argumentOfPeriapsis": 162
+        },
+        "mass": 3.82e24,
+        "rotationPeriod": 1.000,
+        "orbitalPeriod": 227.343,
+        "averageTemperature": 19.9,
+        "textureUrl": "/textures/lapea.png"
+        },
+        {
+        "name": "Kijana",
+        "type": "planet",
+        "radius": 5734,
+        "color": "#00CCFF",
+        "orbitData": {
+            "semiMajorAxis": 133241900,
+            "eccentricity": 0.002,
+            "inclination": 0.207,
+            "longitudeOfAscendingNode": 358,
+            "argumentOfPeriapsis": 167
+        },
+        "mass": 4.04e24,
+        "rotationPeriod": 0.910,
+        "orbitalPeriod": 341.015,
+        "averageTemperature": -28.7,
+        "textureUrl": "/textures/kijana.png"
+        },
+        {
+        "name": "Vekioz",
+        "type": "planet",
+        "radius": 3323,
+        "color": "#CC6600",
+        "orbitData": {
+            "semiMajorAxis": 211508300,
+            "eccentricity": 0.071,
+            "inclination": 2.374,
+            "longitudeOfAscendingNode": 68,
+            "argumentOfPeriapsis": 33
+        },
+        "mass": 6.28e23,
+        "rotationPeriod": 1.240,
+        "orbitalPeriod": 682.030,
+        "averageTemperature": -86.5,
+        "textureUrl": "/textures/vekioz.png"
+        },
+        {
+        "name": "Junzaa",
+        "type": "planet",
+        "radius": 62000,
+        "color": "#FFCC99",
+        "orbitData": {
+            "semiMajorAxis": 618454100,
+            "eccentricity": 0.051,
+            "inclination": 1.380,
+            "longitudeOfAscendingNode": 208,
+            "argumentOfPeriapsis": 65
+        },
+        "mass": 1.36e27,
+        "rotationPeriod": 0.363,
+        "orbitalPeriod": 3410.150,
+        "averageTemperature": -179.0,
+        "textureUrl": "/textures/junzaa.png"
+        },
+        {
+        "name": "Sulana",
+        "type": "planet",
+        "radius": 54000,
+        "color": "#FFFFCC",
+        "orbitData": {
+            "semiMajorAxis": 1139202000,
+            "eccentricity": 0.059,
+            "inclination": 1.660,
+            "longitudeOfAscendingNode": 176,
+            "argumentOfPeriapsis": 48
+        },
+        "mass": 9.93e26,
+        "rotationPeriod": 0.421,
+        "orbitalPeriod": 8525.374,
+        "averageTemperature": -195.0,
+        "textureUrl": "/textures/sulana.png"
+        },
+        {
+        "name": "Aakiea",
+        "type": "planet",
+        "radius": 22000,
+        "color": "#3399FF",
+        "orbitData": {
+            "semiMajorAxis": 2369636000,
+            "eccentricity": 0.027,
+            "inclination": 4.330,
+            "longitudeOfAscendingNode": 101,
+            "argumentOfPeriapsis": 129
+        },
+        "mass": 6.56e25,
+        "rotationPeriod": 0.367,
+        "orbitalPeriod": 25576.121,
+        "averageTemperature": -196.0,
+        "textureUrl": "/textures/aakiea.png"
+        },
+        {
+        "name": "Giadus",
+        "type": "planet",
+        "radius": 4213,
+        "color": "#FFEEEE",
+        "orbitData": {
+            "semiMajorAxis": 2870610000,
+            "eccentricity": 0.288,
+            "inclination": 19.400,
+            "longitudeOfAscendingNode": 108,
+            "argumentOfPeriapsis": 130
+        },
+        "mass": 1.34e24,
+        "rotationPeriod": 6.440,
+        "orbitalPeriod": 34101.495,
+        "averageTemperature": -219.0,
+        "textureUrl": "/textures/giadus.png"
+        }
+    ]
