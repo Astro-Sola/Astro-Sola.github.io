@@ -8,6 +8,13 @@ interface OrbitData {
   argumentOfPeriapsis: number;
 }
 
+interface TagLODLevel {
+  minDistance: number;
+  maxDistance: number;
+  scaleMultiplier: number;
+  contentType: 'full' | 'compact' | 'minimal';
+}
+
 export interface CelestialBodyData {
   name: string;
   type: 'star' | 'planet' | 'moon';
@@ -33,15 +40,13 @@ export class CelestialBody {
   private scaleFactor: number = 1e-4;
   protected data: CelestialBodyData;
   protected mesh: THREE.Mesh;
-  private clickMesh: THREE.Mesh;
   private highlightMesh: THREE.Mesh;
-  private minClickSize: number;
-  private maxClickSize: number;
   private orbit: THREE.Object3D | null = null;
   private orbitLine: THREE.Line | null = null;
   private isOrbitVisible: boolean = true;
   private isTrailVisible: boolean = true;
   private isHighlighted: boolean = false;
+  private isTagVisible: boolean = true; 
   private trailLength: number = 1000;
   private trail: THREE.Line | null = null;  
   private trailPositions: THREE.Vector3[] = [];
@@ -57,24 +62,48 @@ export class CelestialBody {
     this.trail = this.initTrail();
     this.loadTexture();
     this.mesh = this.createMesh();
+    
     if (this.data.orbitData) {
-      this.createOrbit();
-      this.setInitialPosition();
+        this.createOrbit();
+        this.setInitialPosition();
     }
-    this.minClickSize = this.data.radius * 200; // 最小クリックサイズを設定
-    this.maxClickSize = this.data.radius * 1000; // 最大クリックサイズを設定
-    this.clickMesh = this.createClickMesh();
-    this.clickMesh.visible = true;  // 明示的に可視性を設定
     this.highlightMesh = this.createHighlightMesh();
-    this.mesh.add(this.clickMesh);
     scene.add(this.mesh);
     this.mesh.add(this.highlightMesh);
     this.applyScale();
+
+    // タグメッシュを作成してシーンに直接追加
+    // タグメッシュを作成してシーンに直接追加
     this.tagMesh = this.createTagMesh();
-    this.mesh.add(this.tagMesh);
+    this.tagMesh.visible = this.isTagVisible;  // 初期状態を設定
+    scene.add(this.tagMesh);
+
+    // タグの初期位置を設定
+    this.tagMesh.position.copy(this.mesh.position);
+    this.tagMesh.position.y += this.data.radius * 2;
+    
+    // デバッグ情報
+    console.log(`Created tag for ${this.data.name}:`, {
+        position: this.tagMesh.position,
+        scale: this.tagMesh.scale,
+        visible: this.tagMesh.visible
+    });
+}
+
+  private readonly TAG_LOD_LEVELS: TagLODLevel[] = [
+    { minDistance: 0, maxDistance: 1000, scaleMultiplier: 0.6, contentType: 'full' },
+    { minDistance: 1000, maxDistance: 5000, scaleMultiplier: 0.8, contentType: 'full' },
+    { minDistance: 5000, maxDistance: 20000, scaleMultiplier: 1.0, contentType: 'compact' },
+    { minDistance: 20000, maxDistance: 1000000, scaleMultiplier: 1.2, contentType: 'minimal' }
+  ];
+
+  private getCurrentLODLevel(distance: number): TagLODLevel {
+    return this.TAG_LOD_LEVELS.find(level => 
+      distance >= level.minDistance && distance < level.maxDistance
+    ) || this.TAG_LOD_LEVELS[this.TAG_LOD_LEVELS.length - 1];
   }
 
-  private loadTexture(): void {
+private loadTexture(): void {
     if (this.data.textureUrl) {
       textureLoader.load(
         this.data.textureUrl,
@@ -108,8 +137,10 @@ export class CelestialBody {
   }
 
   public setTagVisibility(visible: boolean): void {
-    this.tagMesh.visible = visible;
-  }
+        this.isTagVisible = visible;
+        this.tagMesh.visible = visible;
+        console.log(`Setting tag visibility for ${this.data.name} to:`, visible);  // デバッグ用
+    }
 
   public setTrailLength(length: number): void {
     this.trailLength = Math.min(length, this.MAX_TRAIL_LENGTH);
@@ -131,18 +162,6 @@ export class CelestialBody {
       map: this.texture,
       shininess: 5
     });
-    return new THREE.Mesh(geometry, material);
-  }
-
-  private createClickMesh(): THREE.Mesh {
-    const geometry = new THREE.SphereGeometry(1, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ 
-      color: 0xff0000, 
-      transparent: true, 
-      opacity: 0.0 //ここでコライダーの可視の是非が決まる
-    });
-    const mesh = new THREE.Mesh(geometry,material);
-    mesh.visible = true;
     return new THREE.Mesh(geometry, material);
   }
 
@@ -195,24 +214,62 @@ export class CelestialBody {
     }
   }
 
+  // createTagMesh メソッドを修正
   private createTagMesh(): THREE.Sprite {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
-    canvas.width = 256;
-    canvas.height = 256;
+    canvas.width = 512;
+    canvas.height = 200;  // 高さを調整
 
     if (context) {
-      context.fillStyle = '#ffffff';
-      context.font = 'Bold 20px Arial';
-      context.fillText(this.data.name, 128, 128);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // 接続線を描画（シンプルな垂直線）
+        context.beginPath();
+        context.moveTo(canvas.width / 2, 50);  // テキストエリアの下
+        context.lineTo(canvas.width / 2, canvas.height);  // 最下部まで
+        context.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+        context.lineWidth = 2;
+        context.stroke();
+
+        // テキストの背景
+        const textAreaHeight = 50;
+        const textAreaY = 0;
+        context.fillStyle = 'rgba(0, 20, 40, 0.8)';
+        context.roundRect(10, textAreaY, canvas.width - 20, textAreaHeight, 10);
+        context.fill();
+
+        // 名前を描画
+        context.fillStyle = '#ffffff';
+        context.font = 'bold 32px Arial';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(this.data.name, canvas.width / 2, textAreaY + 15);
+
+        // タイプを描画
+        context.font = '20px Arial';
+        context.fillStyle = '#88ccff';
+        context.fillText(this.data.type.toUpperCase(), canvas.width / 2, textAreaY + 35);
     }
 
     const texture = new THREE.CanvasTexture(canvas);
-    const material = new THREE.SpriteMaterial({ map: texture });
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+
+    const material = new THREE.SpriteMaterial({
+        map: texture,
+        transparent: true,
+        depthWrite: false,
+        depthTest: false,
+        sizeAttenuation: true
+    });
+
     const sprite = new THREE.Sprite(material);
-    sprite.scale.set(10, 10, 1);  // タグのサイズを調整
+    sprite.center.set(0.5, 0);  // アンカーポイントを下部中央に
+    sprite.renderOrder = 999999;
+    
     return sprite;
-  }
+}
 
   private applyOrbitRotation(): void {
     if (this.orbit && this.data.orbitData) {
@@ -252,10 +309,6 @@ export class CelestialBody {
     return this.trail;
   }
 
-  public getClickMesh(): THREE.Mesh {
-    return this.clickMesh;
-  }
-
   public getName(): string {
     return this.data.name;
   }
@@ -293,22 +346,22 @@ ${this.data.averageTemperature !== undefined ? `Average Temperature: ${this.data
   }
 
   public setHighlight(highlight: boolean): void {
-    if (this.isHighlighted !== highlight) {
-      this.isHighlighted = highlight;
-      this.highlightMesh.visible = highlight;
-      
-      // ハイライト効果を強化
-      if (highlight) {
-        this.highlightMesh.scale.setScalar(1.2); // 20%大きく
-        (this.highlightMesh.material as THREE.MeshBasicMaterial).opacity = 0.5; // より不透明に
-      } else {
-        this.highlightMesh.scale.setScalar(1);
-        (this.highlightMesh.material as THREE.MeshBasicMaterial).opacity = 0.3;
-      }
-      
-      console.log(`Highlight set to ${highlight} for ${this.data.name}`);
+    if (this.isHighlighted === highlight) {
+        return;
     }
-  }
+
+    this.isHighlighted = highlight;
+    this.highlightMesh.visible = highlight;
+
+    // タグのハイライト効果をより控えめに
+    if (highlight) {
+        const scale = this.tagMesh.scale.x;
+        this.tagMesh.scale.setScalar(scale * 1.05);  // スケール変更を控えめに
+    } else {
+        const scale = this.tagMesh.scale.x;
+        this.tagMesh.scale.setScalar(scale / 1.05);
+    }
+}
 
   private degToRad(degrees: number): number {
     return degrees * (Math.PI / 180);
@@ -362,10 +415,8 @@ ${this.data.averageTemperature !== undefined ? `Average Temperature: ${this.data
     if (this.orbit && this.data.orbitData && this.data.orbitalPeriod > 0) {
       const position = this.calculatePosition(time);
       this.mesh.position.copy(position);
-      this.clickMesh.position.copy(position);
     } else if (this.data.type === 'star') {
       this.mesh.position.set(0, 0, 0);
-      this.clickMesh.position.set(0, 0, 0);
     }
   
     if (this.data.rotationPeriod > 0) {
@@ -374,8 +425,8 @@ ${this.data.averageTemperature !== undefined ? `Average Temperature: ${this.data
     }
   
     this.updateTrail();
-    this.updateClickMeshSize(camera);
     this.updateHighlight();
+    this.updateTagPosition(camera);
   }
 
   public updateTrail(): void {
@@ -404,24 +455,123 @@ ${this.data.averageTemperature !== undefined ? `Average Temperature: ${this.data
     }
   }
 
-  public updateClickMeshSize(camera: THREE.Camera): void {
-    const distance = this.mesh.position.distanceTo(camera.position);
-    const baseSize = 1e5; // より小さな基本サイズ
-  
-    const size = THREE.MathUtils.clamp(
-      distance * 1, // 距離によるサイズ変化を小さく
-      baseSize * 1e2,    // 最小サイズ
-      baseSize * 1e5    // 最大サイズも抑える
-    );
-  
-    this.clickMesh.scale.setScalar(size);
-  }
-  
   private updateHighlight(): void {
     if (this.highlightMesh) {
       this.highlightMesh.visible = this.isHighlighted;
     }
   }
+
+  private updateTagContent(lodLevel: TagLODLevel): void {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    canvas.width = 512;
+    canvas.height = 200;
+  
+    if (!context) return;
+  
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // 接続線を描画（透明度を調整）
+    context.beginPath();
+    context.moveTo(canvas.width / 2, 50);
+    context.lineTo(canvas.width / 2, canvas.height);
+    context.strokeStyle = 'rgba(255, 255, 255, 0.6)';  // 透明度を上げる
+    context.lineWidth = 2;
+    context.stroke();
+  
+    // 背景（透明度を調整）
+    context.fillStyle = 'rgba(0, 20, 40, 0.9)';  // 透明度を下げる
+    const textAreaHeight = lodLevel.contentType === 'minimal' ? 30 : 50;
+    context.roundRect(10, 0, canvas.width - 20, textAreaHeight, 10);
+    context.fill();
+  
+    // コンテンツタイプに応じて表示内容を変更（フォントサイズを調整）
+    context.textAlign = 'center';
+    switch (lodLevel.contentType) {
+      case 'full':
+        context.font = 'bold 36px Arial';  // フォントサイズを大きく
+        context.fillStyle = '#ffffff';
+        context.fillText(this.data.name, canvas.width / 2, 25);
+        context.font = '24px Arial';
+        context.fillStyle = '#88ccff';
+        context.fillText(this.data.type.toUpperCase(), canvas.width / 2, 45);
+        break;
+        
+      case 'compact':
+        context.font = 'bold 32px Arial';
+        context.fillStyle = '#ffffff';
+        context.fillText(this.data.name, canvas.width / 2, 30);
+        break;
+        
+      case 'minimal':
+        context.font = 'bold 28px Arial';
+        context.fillStyle = '#ffffff';
+        context.fillText(this.data.name, canvas.width / 2, 20);
+        break;
+    }
+  
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    if (this.tagMesh.material instanceof THREE.SpriteMaterial) {
+      this.tagMesh.material.map?.dispose();
+      this.tagMesh.material.map = texture;
+      this.tagMesh.material.needsUpdate = true;
+    }
+  }
+
+  // updateTagPosition メソッドを修正
+  public updateTagPosition(camera: THREE.Camera): void {
+    if (!this.tagMesh || !this.mesh) return;
+  
+    const worldPos = this.mesh.getWorldPosition(new THREE.Vector3());
+    const distance = camera.position.distanceTo(worldPos);
+    
+    // 現在のLODレベルを取得
+    const lodLevel = this.getCurrentLODLevel(distance);
+    
+    // カメラまでの距離に基づいて基本スケールを計算
+    // スケール計算の係数を調整
+    const baseScale = Math.min(
+      0.5 * Math.log10(distance + 1),
+      10.0
+    ) * this.scaleFactor * 10000;
+    
+    // LODレベルに基づいてスケールを調整
+    const finalScale = baseScale * lodLevel.scaleMultiplier;
+    
+    // スケールを適用（横方向は2倍に）
+    this.tagMesh.scale.set(finalScale * 2, finalScale, 1);
+    
+    // タグの位置を更新（オフセット計算を改善）
+    const offsetMultiplier = Math.max(
+      this.data.radius * this.scaleFactor * 3,
+      distance * 0.01
+    );
+    const tagOffset = Math.max(
+      this.data.radius * this.scaleFactor * 3,
+      offsetMultiplier
+    );
+    
+    this.tagMesh.position.copy(worldPos);
+    this.tagMesh.position.y += tagOffset;
+    
+    // カメラに向ける
+    this.tagMesh.lookAt(camera.position);
+    
+    // タグの内容を更新
+    this.updateTagContent(lodLevel);
+    
+    // 表示/非表示の制御（距離閾値を大きく）
+    this.tagMesh.visible = this.isTagVisible && distance < 1000000;
+  }
+
+  private updateTagScale(sprite: THREE.Sprite, camera?: THREE.Camera): void {
+  if (!camera) return;
+  
+  const distance = camera.position.distanceTo(this.mesh.position);
+  const scale = Math.max(50, distance * 0.05); // 距離に応じてスケールを調整
+  sprite.scale.set(scale, scale, 1);
+}
 
   public dispose(): void {
     // メッシュを削除
@@ -444,19 +594,6 @@ ${this.data.averageTemperature !== undefined ? `Average Temperature: ${this.data
     }
     if (this.highlightMesh.material instanceof THREE.Material) {
       this.highlightMesh.material.dispose();
-    }
-
-    // クリックメッシュを削除（存在する場合）
-    if (this.clickMesh) {
-      if (this.clickMesh.parent) {
-        this.clickMesh.parent.remove(this.clickMesh);
-      }
-      if (this.clickMesh.geometry) {
-        this.clickMesh.geometry.dispose();
-      }
-      if (this.clickMesh.material instanceof THREE.Material) {
-        this.clickMesh.material.dispose();
-      }
     }
 
     // テクスチャを解放

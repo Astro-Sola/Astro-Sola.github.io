@@ -20,16 +20,42 @@ let isAnimating = true;
 
 async function init(): Promise<void> {
   try{
-    // Set up scene
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1.0e12);
-    renderer = new THREE.WebGLRenderer();
+        
+    // カメラの設定
+    camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1.0e8
+    );
+    
+    // レンダラーの設定
+    renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        logarithmicDepthBuffer: true
+    });
+    
+    // レンダラーの初期設定
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0x000000, 1);
+    renderer.sortObjects = true;
+    
+    // キャンバスのスタイル設定
+    const canvas = renderer.domElement;
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    document.body.appendChild(canvas);
+
+    // アルファ値の処理を改善
+    renderer.setClearColor(0x000000, 1);
+    renderer.sortObjects = true;      // オブジェクトのソートを有効化
     document.body.appendChild(renderer.domElement);
     raycaster = new THREE.Raycaster();
-    raycaster.params.Line.threshold = 0.1;
-    raycaster.params.Points.threshold = 0.1;
-    raycaster.params.Mesh.threshold = 0.1;
     mouse = new THREE.Vector2();
 
     renderer.domElement.addEventListener('mousemove', onMouseMove);
@@ -57,9 +83,10 @@ async function init(): Promise<void> {
     // Start animation
     animate();
     window.addEventListener('beforeunload',cleanup);
-  } catch (error){
-    console.error('Initialization error:',error);
-  }
+    window.addEventListener('resize', onWindowResize, false);
+    } catch (error) {
+        console.error('Initialization error:', error);
+    }
 }
 
 async function loadResources(): Promise<void> {
@@ -153,17 +180,20 @@ function setupUI(): void {
     trailLengthLabel.textContent = `Trail Length: ${length}`;
   });
 
+  // setupUI 関数内のタグ表示制御を修正
   const tagControl = createControlGroup('Tag Display');
-  uiContainer.appendChild(tagControl);
+    uiContainer.appendChild(tagControl);
 
-  const tagCheckbox = createCheckbox('Show Tags', true);
-  tagControl.appendChild(tagCheckbox);
+    const tagCheckbox = createCheckbox('Show Tags', true);
+    tagControl.appendChild(tagCheckbox);
 
-  tagCheckbox.addEventListener('change', (e) => {
-    apollaSystem.getCelestialBodies().forEach(body => 
-      body.setTagVisibility((e.target as HTMLInputElement).checked)
-    );
-  });
+    tagCheckbox.querySelector('input')?.addEventListener('change', (e) => {
+        const isVisible = (e.target as HTMLInputElement).checked;
+        console.log('Changing tag visibility to:', isVisible);
+        apollaSystem.getCelestialBodies().forEach(body => {
+            body.setTagVisibility(isVisible);
+        });
+    });
 
   // 情報パネル
   infoPanel = document.createElement('div');
@@ -243,10 +273,12 @@ function createCheckbox(labelText: string, checked: boolean): HTMLLabelElement {
   label.style.color = 'white';
   label.style.display = 'flex';
   label.style.alignItems = 'center';
+  label.style.cursor = 'pointer';  // カーソルスタイルを追加
   
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.checked = checked;
+  checkbox.style.marginRight = '8px';  // チェックボックスとテキストの間隔を追加
   
   label.appendChild(checkbox);
   label.appendChild(document.createTextNode(labelText));
@@ -260,76 +292,70 @@ function animate(): void {
   requestAnimationFrame(animate);
   
   try {
-    const delta = clock.getDelta();
-    controls.update();
-
-    adjustRaycasterPrecision(camera);  // 新しく追加
-    
-    apollaSystem.update(delta, camera);
-  
-  // デバッグ情報の出力
-  apollaSystem.getCelestialBodies().forEach(body => {
-    console.log(`${body.getName()} position:`, body.getMesh().position);
-    console.log(`${body.getName()} click mesh scale:`, body.getClickMesh().scale);
-  });
-
-    checkIntersections();
-    
-    renderer.render(scene, camera);
+      const delta = clock.getDelta();
+      controls.update();
+      apollaSystem.update(delta, camera);
+      checkIntersections();
+      renderer.render(scene, camera);
   } catch (error) {
-    console.error('Animation error:', error);
-    isAnimating = false;
+      console.error('Animation error:', error);
+      isAnimating = false;
   }
-}
-
-function adjustRaycasterPrecision(camera: THREE.PerspectiveCamera): void {
-  const minDistance = camera.near;
-  const maxDistance = camera.far;
-  const currentDistance = camera.position.length();  // カメラの原点からの距離
-
-  // 距離を0から1の範囲に正規化
-  const normalizedDistance = (currentDistance - minDistance) / (maxDistance - minDistance);
-
-  // 指数関数を使用して精度を計算
-  // ここでは、近い距離で高精度（小さい値）、遠い距離で低精度（大きい値）となるようにします
-  const minPrecision = 1e-10;  // より小さい値に設定
-  const maxPrecision = 1e-4;   // 最大精度も調整
-  const exponent = 2;          // より緩やかな曲線に
-
-  const precision = minPrecision + (maxPrecision - minPrecision) * Math.pow(normalizedDistance, exponent);
-
-  // レイキャスターの各パラメータに精度を設定
-  raycaster.params.Line.threshold = precision;
-  raycaster.params.Points.threshold = precision;
-  raycaster.params.Mesh.threshold = precision;
-
-  console.log(`Camera distance: ${currentDistance.toFixed(2)}, Adjusted raycaster precision: ${precision.toExponential(2)}`);
 }
 
 function checkIntersections(): void {
   raycaster.setFromCamera(mouse, camera);
 
   const celestialBodies = apollaSystem.getCelestialBodies();
-  const tagMeshes = celestialBodies.map(body => body.getTagMesh());
+  const intersectObjects: THREE.Object3D[] = [];
+  
+  // タグのヒットエリアを調整
+  celestialBodies.forEach(body => {
+      const tagMesh = body.getTagMesh();
+      // タグのヒットエリアを実際の表示位置に合わせて調整
+      if (tagMesh.geometry) {
+          tagMesh.geometry.computeBoundingSphere();
+          if (tagMesh.geometry.boundingSphere) {
+              tagMesh.geometry.boundingSphere.center.copy(tagMesh.position);
+          }
+      }
+      intersectObjects.push(tagMesh);
+  });
 
-  const intersects = raycaster.intersectObjects(tagMeshes, true);
+  const intersects = raycaster.intersectObjects(intersectObjects, true);
+
+  // カーソルスタイルの更新
+  if (intersects.length > 0) {
+      renderer.domElement.style.cursor = 'pointer';
+  } else {
+      renderer.domElement.style.cursor = 'default';
+  }
 
   let intersectedBody: CelestialBody | null = null;
 
   if (intersects.length > 0) {
-    const clickedTag = intersects[0].object;
-    intersectedBody = celestialBodies.find(body => body.getTagMesh() === clickedTag) || null;
+      const hitObject = intersects[0].object;
+      intersectedBody = celestialBodies.find(body => 
+          body.getTagMesh() === hitObject
+      ) || null;
   }
 
-  if (intersectedBody !== hoveredBody) {
-    if (hoveredBody) {
+  if (intersectedBody === hoveredBody) return;
+
+  if (hoveredBody) {
       hoveredBody.setHighlight(false);
-    }
-    if (intersectedBody) {
-      intersectedBody.setHighlight(true);
-    }
-    hoveredBody = intersectedBody;
   }
+  if (intersectedBody) {
+      intersectedBody.setHighlight(true);
+  }
+  
+  hoveredBody = intersectedBody;
+  needsRender = true;
+}
+
+// イージング関数
+function easeInOutCubic(x: number): number {
+  return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 }
 
 function onMouseMove(event: MouseEvent): void {
@@ -346,15 +372,49 @@ function onCelestialBodyClick(event: MouseEvent): void {
   raycaster.setFromCamera(mouse, camera);
 
   const celestialBodies = apollaSystem.getCelestialBodies();
-  const intersects = raycaster.intersectObjects(celestialBodies.map(body => body.getClickMesh()));
+  const tagMeshes = celestialBodies.map(body => body.getTagMesh());
+  
+  const intersects = raycaster.intersectObjects(tagMeshes, true);
 
   if (intersects.length > 0) {
-    const clickedBody = celestialBodies.find(body => body.getClickMesh() === intersects[0].object);
+    const clickedTag = intersects[0].object;
+    const clickedBody = celestialBodies.find(body => body.getTagMesh() === clickedTag);
+    
     if (clickedBody) {
       displayCelestialBodyInfo(clickedBody);
+      
+      // カメラをクリックした天体に向ける
+      const targetPosition = clickedBody.getMesh().position.clone();
+      const distance = camera.position.distanceTo(targetPosition);
+      const newPosition = camera.position.clone()
+        .sub(controls.target)
+        .normalize()
+        .multiplyScalar(distance)
+        .add(targetPosition);
+      
+      // カメラの移動をアニメーション化
+      const startPosition = camera.position.clone();
+      const startTarget = controls.target.clone();
+      const duration = 1000; // ミリ秒
+      const startTime = Date.now();
+      
+      function animateCamera() {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // イージング関数を使用してスムーズな動きを実現
+        const eased = easeInOutCubic(progress);
+        
+        camera.position.lerpVectors(startPosition, newPosition, eased);
+        controls.target.lerpVectors(startTarget, targetPosition, eased);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animateCamera);
+        }
+      }
+      
+      animateCamera();
     }
-  } else {
-    infoPanel.style.display = 'none';
   }
 }
 
@@ -397,9 +457,16 @@ function displayCelestialBodyInfo(body: CelestialBody): void {
 }
 
 function onWindowResize(): void {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  // 現在のビューポートのサイズを取得
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  // カメラのアスペクト比を更新
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // レンダラーのサイズを更新
+  renderer.setSize(width, height, true);
 }
 
 function cleanup(): void {
