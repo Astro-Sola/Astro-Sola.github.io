@@ -92,7 +92,7 @@ function weatherCase(weatherCode){
 function setMarqueeAnimationTime() {
     var marquee = document.querySelector('.animation');
     var marqueeWidth = marquee.offsetWidth;
-    var time = marqueeWidth / 20; // Change 50 to adjust speed
+    var time = marqueeWidth / 20; // Change 20 to adjust speed
     marquee.style.animationDuration = time + 's';
   }
   
