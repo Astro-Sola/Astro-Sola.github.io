@@ -109,8 +109,13 @@ private loadTexture(): void {
         this.data.textureUrl,
         (texture) => {
           this.texture = texture;
-          if (this.mesh.material instanceof THREE.MeshBasicMaterial) {
-            this.mesh.material.map = this.texture;
+          if (
+            this.mesh.material instanceof THREE.Material &&
+            'map' in this.mesh.material
+          ) {
+            (this.mesh.material as THREE.Material & {
+              map: THREE.Texture | null;
+            }).map = this.texture;
             this.mesh.material.needsUpdate = true;
           }
         },
