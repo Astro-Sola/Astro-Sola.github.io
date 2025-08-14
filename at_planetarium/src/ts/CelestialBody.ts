@@ -109,7 +109,15 @@ private loadTexture(): void {
         this.data.textureUrl,
         (texture) => {
           this.texture = texture;
-          if (this.mesh.material instanceof THREE.MeshBasicMaterial) {
+          // Support multiple material types that can receive textures.
+          // The original implementation only updated the map when the
+          // material was `MeshBasicMaterial`, but most bodies use
+          // `MeshPhongMaterial`, so textures were never applied.
+          if (
+            this.mesh &&
+            (this.mesh.material instanceof THREE.MeshBasicMaterial ||
+             this.mesh.material instanceof THREE.MeshPhongMaterial)
+          ) {
             this.mesh.material.map = this.texture;
             this.mesh.material.needsUpdate = true;
           }
