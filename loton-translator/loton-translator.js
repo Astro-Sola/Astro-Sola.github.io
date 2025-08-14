@@ -37,29 +37,18 @@ function zipConsonants(str) {
 }
 // 4つ目の母音以降を削除する関数
 function removeExtraVowels(str) {
-   // 母音（a, e, i, o, u, ä, ö, ü）をキャプチャ
-    let vowelCount = 0;
-    let cutIndex = -1;
-    
-    for (let i = 0; i < str.length; i++) {
-      if (/[aeiouäöü]/.test(str[i])) {
+  // 母音（a, e, i, o, u, ä, ö, ü）をキャプチャ
+  let vowelCount = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (/[aeiouäöü]/.test(str[i])) {
       vowelCount++;
-      }
-      
-      // 4つ目の母音を見つけたらその位置を記録
-      if (vowelCount === 4) {
-      cutIndex = i; // この位置から後を削除
-      break;
+      if (vowelCount === 3) {
+        return str.slice(0, i + 1);
       }
     }
-    
-    // 4つ目の母音が見つかったら、それ以降を削除
-    if (cutIndex !== -1) {
-      return str.slice(0, cutIndex);
-    }
-    
-    return str; // 母音が3つ以下の場合はそのまま
   }
+  return str; // 母音が3つ以下の場合はそのまま
+}
 // 単語の中の母音の数を数える
   function countVowels(str) {
     const vowels = 'aeiouyäöü';
@@ -136,13 +125,17 @@ function convertText(inputText) {
   return outputText;
 }
 
-const inputText = document.getElementById('inputText');
-const outputText = document.getElementById('outputText');
-const translateButton = document.getElementById('translateButton');
+if (typeof document !== 'undefined') {
+  const inputText = document.getElementById('inputText');
+  const outputText = document.getElementById('outputText');
+  const translateButton = document.getElementById('translateButton');
 
   // 翻訳ボタンのクリックイベント
-translateButton.addEventListener('click', () => {
+  translateButton.addEventListener('click', () => {
     const lotonText = convertText(inputText.value);
     console.log(lotonText);
     outputText.value = lotonText;
-});
+  });
+}
+
+export { removeExtraVowels };
