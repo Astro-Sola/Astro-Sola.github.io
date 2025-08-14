@@ -32,14 +32,14 @@ function weatherDataConverter(regionName, JSONdataArray, areanum){
     const areaWeather = weatherCase(areaCode);
 
     const text = regionName + '地方：' + areaWeather + ' ／ ' ;
-    const newtext = textConveter(text);
+    const newtext = textConverter(text);
     const node = document.createElement('span');
     node.innerHTML = newtext;
     document.getElementById('weather').appendChild(node);
 
 }
 
-function textConveter(text){
+function textConverter(text){
     const laterReplace = text.replace('後', ' ⇒ ');
     const partlyReplace = laterReplace.replace('時々', '｜');
     const onceReplace = partlyReplace.replace('一時', '｜');
